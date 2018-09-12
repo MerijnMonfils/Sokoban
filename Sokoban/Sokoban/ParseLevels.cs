@@ -5,11 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class InputView
+    public class ParseLevels
     {
-        public InputView()
-        {
-
-        }
     }
 }

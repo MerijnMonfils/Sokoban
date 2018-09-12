@@ -5,11 +5,10 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class InputView
+    public class GameController
     {
-        public InputView()
-        {
+        private InputView _inputView;
+        private OutputView _outputView;
 
-        }
     }
 }
