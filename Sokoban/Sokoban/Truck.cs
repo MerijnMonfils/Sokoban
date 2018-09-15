@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
-    class Program
+    class Truck
     {
-        static void Main(string[] args)
-        {
-
-         ViewModel viewModel = new ViewModel();
-
-        }
     }
-    
 }

@@ -1,42 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Sokoban.InputView" Collapsed="true">
-    <Position X="7.25" Y="0.75" Width="1.5" />
+    <Position X="8" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Program">
-    <Position X="0.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Sokoban.OutputView" Collapsed="true">
-    <Position X="5" Y="0.75" Width="1.5" />
+    <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.GameController">
-    <Position X="6.25" Y="3" Width="1.5" />
+  <Class Name="Sokoban.Program">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>GameController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.ParseLevels">
+    <Position X="4.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ParseLevels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.ViewModel">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAABAAAAAABAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>ViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_inputView" />
       <Field Name="_outputView" />
+      <Field Name="_parseLevels" />
+      <Field Name="_tile" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Sokoban.ParseLevels" Collapsed="true">
-    <Position X="3.25" Y="3" Width="1.5" />
+  <Class Name="Sokoban.Truck" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ParseLevels.cs</FileName>
+      <FileName>Truck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Wall" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Destination" Collapsed="true">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Destination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Tile">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAE=</HashCode>
+      <FileName>Tile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_chest" />
+      <Field Name="_destination" />
+      <Field Name="_truck" />
+      <Field Name="_wall" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Chest" Collapsed="true">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
