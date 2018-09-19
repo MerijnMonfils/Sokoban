@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace Sokoban
 {
@@ -22,14 +21,14 @@ namespace Sokoban
             _parseLevels = new ParseLevels();
             _tile = new Tile();
 
-            this.OpenFile();
+            this.ReadFiles();
         }
 
-        private void OpenFile()
+        private void ReadFiles()
         {
-            // select file
-            // check file
-            // send file to -> parseLevels
+            // read all files in folder
+            // check files -> how much
+            // send file to -> parseLevels 
         }
     }
 }
