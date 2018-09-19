@@ -25,16 +25,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.ParseLevels">
-    <Position X="4.25" Y="3" Width="1.5" />
+    <Position X="3.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ParseLevels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.ViewModel">
-    <Position X="7" Y="3" Width="1.5" />
+    <Position X="7" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAABAAAAAABAAAAAAAAEAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAQBAAAAAABAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>ViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -61,7 +61,7 @@
   <Class Name="Sokoban.Destination" Collapsed="true">
     <Position X="7.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Destination.cs</FileName>
     </TypeIdentifier>
   </Class>
