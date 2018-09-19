@@ -8,7 +8,6 @@ namespace Sokoban
     public class Destination
 
     {
-        private Tegel[] _tegels;
-        private Muur[] _muur;
+        
     }
 }
