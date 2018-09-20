@@ -27,21 +27,20 @@
   <Class Name="Sokoban.ParseLevels">
     <Position X="3.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ParseLevels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.ViewModel">
     <Position X="7" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAQBAAAAAABAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABAAAAAABAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>ViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_inputView" />
       <Field Name="_outputView" />
       <Field Name="_parseLevels" />
-      <Field Name="_tile" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Truck" Collapsed="true">
@@ -68,15 +67,9 @@
   <Class Name="Sokoban.Tile">
     <Position X="7" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAE=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Tile.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_wall" />
-      <Field Name="_destination" />
-      <Field Name="_truck" />
-      <Field Name="_chest" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Chest" Collapsed="true">
     <Position X="3.25" Y="5.75" Width="1.5" />

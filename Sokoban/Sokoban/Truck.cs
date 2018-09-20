@@ -8,5 +8,6 @@ namespace Sokoban
 {
     class Truck
     {
+
     }
 }
