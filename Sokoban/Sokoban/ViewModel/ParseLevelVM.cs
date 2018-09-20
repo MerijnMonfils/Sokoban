@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class ParseLevels
+    public class ParseLevelVM
     {
 
         private enum Characters{

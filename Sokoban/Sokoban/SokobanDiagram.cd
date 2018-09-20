@@ -21,7 +21,7 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <FileName>View\Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.ParseLevels">
@@ -29,13 +29,13 @@
     <NestedTypes>
       <Enum Name="Sokoban.ParseLevels.Characters" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>ViewModel\ParseLevelVMs.cs</NewMemberFileName>
+          <NewMemberFileName>ViewModel\ParseLevelVM.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModel\ParseLevelVMs.cs</FileName>
+      <FileName>ViewModel\ParseLevelVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.ViewModel">

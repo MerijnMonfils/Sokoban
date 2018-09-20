@@ -9,18 +9,18 @@ using System.Windows.Forms;
 
 namespace Sokoban
 {
-    public class ViewModel
+    public class OutputViewVM
     {
         private InputView _inputView;
         private OutputView _outputView;
-        private ParseLevels _parseLevels;
+        private ParseLevelVM _parseLevels;
 
 
-        public ViewModel()
+        public OutputViewVM()
         {
             _inputView = new InputView();
             _outputView = new OutputView();
-            _parseLevels = new ParseLevels();
+            _parseLevels = new ParseLevelVM();
 
             _parseLevels.ReadFiles(); // reads all .txt files\
         }
