@@ -8,8 +8,7 @@ namespace Sokoban
 {
     public class Tile
     {
-        private char char {get; set;}
+       
     }
-
-
+   
 }

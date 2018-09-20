@@ -8,7 +8,6 @@ namespace Sokoban
         static void Main()
         {
             ViewModel viewModel = new ViewModel();
-            viewModel.ReadFiles();
         }
     }
     

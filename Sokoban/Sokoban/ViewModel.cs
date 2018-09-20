@@ -22,11 +22,11 @@ namespace Sokoban
             _outputView = new OutputView();
             _parseLevels = new ParseLevels();
 
-        }
-
-     
+            _parseLevels.ReadFiles(); // reads all .txt files\
         }
 
     }
+
+}
 
 
