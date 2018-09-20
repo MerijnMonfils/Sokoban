@@ -38,7 +38,9 @@ namespace Sokoban
 
             if (s.Equals("s")) {
                 Environment.Exit(0);
-            }else
+            }else if (s.Equals"1") {
+
+            }
             {
                 Console.WriteLine(s);
             }

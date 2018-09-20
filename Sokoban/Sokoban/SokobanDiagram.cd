@@ -4,14 +4,14 @@
     <Position X="8" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>InputView.cs</FileName>
+      <FileName>View\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.OutputView" Collapsed="true">
     <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>OutputView.cs</FileName>
+      <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Program">
@@ -29,20 +29,21 @@
     <NestedTypes>
       <Enum Name="Sokoban.ParseLevels.Characters" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>ParseLevels.cs</NewMemberFileName>
+          <NewMemberFileName>ViewModel\ParseLevelVMs.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ParseLevels.cs</FileName>
+      <FileName>ViewModel\ParseLevelVMs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.ViewModel">
     <Position X="7" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAABAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>ViewModel.cs</FileName>
+      <FileName>ViewModel\OutputViewVM.cs</FileName>
+      <NewMemberFileName>ViewModel\OutputviewVM.cs</NewMemberFileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_inputView" />
@@ -83,6 +84,20 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Chest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.inputVM">
+    <Position X="10.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inputVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.InputViewVM">
+    <Position X="8.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\InputViewVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
