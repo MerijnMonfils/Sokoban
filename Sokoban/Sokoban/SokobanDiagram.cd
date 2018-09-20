@@ -10,7 +10,7 @@
   <Class Name="Sokoban.OutputView" Collapsed="true">
     <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -26,8 +26,15 @@
   </Class>
   <Class Name="Sokoban.ParseLevels">
     <Position X="3.75" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Sokoban.ParseLevels.Characters" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ParseLevels.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ParseLevels.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -67,7 +74,7 @@
   <Class Name="Sokoban.Tile">
     <Position X="7" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
