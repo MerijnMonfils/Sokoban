@@ -60,7 +60,7 @@ namespace Sokoban
         private char CheckCharacterAt(string line, int postionInRow)
         {
             char c = line[postionInRow];
-            char value = ' ';
+            char value;
             switch (c)
             {
                 case (char)Characters.Wall:
