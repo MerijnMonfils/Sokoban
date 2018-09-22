@@ -12,26 +12,26 @@ namespace Sokoban
 
         public InputViewVM()
         {
-
+            Level = new ParseLevelVM();
         }
 
         public void startLevel(string x)
         {
 
-            string f = Console.ReadLine();
-            switch (f)
+            
+            switch (x)
             {
                 case "1":
-                    Level.ReadFiles(f);
+                    Level.ReadFiles(x);
                     break;
                 case "2":
-                    Level.ReadFiles(f);
+                    Level.ReadFiles(x);
                     break;
                 case "3":
-                    Level.ReadFiles(f);
+                    Level.ReadFiles(x);
                     break;
                 case "4":
-                    Level.ReadFiles(f);
+                    Level.ReadFiles(x);
                     break;
                 default:
                     Environment.Exit(0);

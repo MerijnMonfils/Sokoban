@@ -7,6 +7,7 @@ namespace Sokoban
 {
     public class OutputView
     {
+        InputViewVM input = new InputViewVM();
 
         public void startScreen()
         {
@@ -36,9 +37,8 @@ namespace Sokoban
             Console.WriteLine("Enjoy!");
             string s = Console.ReadLine();
 
-            if (s.Equals("s")) {
-                Environment.Exit(0);
-            }
+            input.startLevel(s);
+            
             
 
         }
