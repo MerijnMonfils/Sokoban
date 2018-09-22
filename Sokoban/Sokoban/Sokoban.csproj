@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Chest.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
-    <Compile Include="inputVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
     <Compile Include="View\InputView.cs" />
     <Compile Include="Wall.cs" />

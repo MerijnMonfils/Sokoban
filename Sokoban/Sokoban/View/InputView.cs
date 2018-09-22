@@ -7,9 +7,10 @@ namespace Sokoban
 {
     public class InputView
     {
+    InputViewVM input = new InputViewVM();
         public InputView()
         {
-
+           
         }
     }
 }

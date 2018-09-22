@@ -18,10 +18,12 @@ namespace Sokoban
 
         private List<Object[,]> levels;
 
-        public void ReadFiles()
+        public void ReadFiles(string q)
         {
+
+            
             //Size of this variable is the amount of rows
-            string[] lines = System.IO.File.ReadAllLines(@"C:\level1.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\level"+ q +".txt");
 
             //Size of this variable is the amount of columns
             string longest = lines.OrderByDescending(s => s.Length).First();
@@ -84,5 +86,7 @@ namespace Sokoban
             }
             return value;
         }
+
+       
     }
 }
