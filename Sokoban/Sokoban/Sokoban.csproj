@@ -63,9 +63,8 @@
     <Compile Include="Chest.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
-    <Compile Include="View\InputView.cs" />
     <Compile Include="Wall.cs" />
-    <Compile Include="View\OutputView.cs" />
+    <Compile Include="View\MainView.cs" />
     <Compile Include="ViewModel\ParseLevelVM.cs" />
     <Compile Include="View\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

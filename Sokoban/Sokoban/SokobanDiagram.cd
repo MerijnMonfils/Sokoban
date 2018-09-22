@@ -1,21 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Sokoban.InputView" Collapsed="true">
-    <Position X="8" Y="0.75" Width="1.5" />
+  <Class Name="Sokoban.MainView">
+    <Position X="9" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>View\InputView.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainView.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.OutputView" Collapsed="true">
-    <Position X="6.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>View\OutputView.cs</FileName>
-    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="input" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Program">
-    <Position X="9.5" Y="3" Width="1.5" />
+    <Position X="12.75" Y="3.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -24,10 +20,10 @@
       <FileName>View\Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.ParseLevels">
-    <Position X="3.75" Y="3" Width="1.5" />
+  <Class Name="Sokoban.ParseLevelVM">
+    <Position X="4.75" Y="3" Width="1.5" />
     <NestedTypes>
-      <Enum Name="Sokoban.ParseLevels.Characters" Collapsed="true">
+      <Enum Name="Sokoban.ParseLevelVM.Characters" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>ViewModel\ParseLevelVM.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -38,16 +34,13 @@
       <FileName>ViewModel\ParseLevelVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.ViewModel">
-    <Position X="7" Y="2.25" Width="1.5" />
+  <Class Name="Sokoban.OutputViewVM">
+    <Position X="7.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAABAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAABAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\OutputViewVM.cs</FileName>
-      <NewMemberFileName>ViewModel\OutputviewVM.cs</NewMemberFileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_inputView" />
-      <Field Name="_outputView" />
       <Field Name="_parseLevels" />
     </ShowAsAssociation>
   </Class>
@@ -73,7 +66,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Tile">
-    <Position X="7" Y="4.5" Width="1.5" />
+    <Position X="11" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tile.cs</FileName>
@@ -86,17 +79,10 @@
       <FileName>Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.inputVM">
-    <Position X="10.5" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>inputVM.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Sokoban.InputViewVM">
-    <Position X="8.5" Y="8.25" Width="1.5" />
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAEAA=</HashCode>
       <FileName>ViewModel\InputViewVM.cs</FileName>
     </TypeIdentifier>
   </Class>

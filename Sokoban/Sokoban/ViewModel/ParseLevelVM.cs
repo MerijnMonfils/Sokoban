@@ -18,9 +18,8 @@ namespace Sokoban
 
         private List<Object[,]> levels;
 
-        public void ReadFiles(string q)
+        public char[,] ReadFiles(string q)
         {
-
             
             //Size of this variable is the amount of rows
             string[] lines = System.IO.File.ReadAllLines(@"C:\level"+ q +".txt");
@@ -48,15 +47,7 @@ namespace Sokoban
                    first[x,i] = CheckCharacterAt(lines[x], i);
                 }
             }
-            for(int x = 0; x < first.GetLength(0); x++)
-            {
-                for(int i = 0; i < first.GetLength(1); i++)
-                {
-                    Console.Write(first.GetValue(x, i));
-                }
-                Console.WriteLine();
-            }
-            Console.Read();
+            return first;
         }
 
         private char CheckCharacterAt(string line, int postionInRow)

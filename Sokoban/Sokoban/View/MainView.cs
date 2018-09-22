@@ -5,11 +5,16 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class OutputView
+    public class MainView
     {
-        InputViewVM input = new InputViewVM();
+        private InputViewVM input;
 
-        public void startScreen()
+        public MainView()
+        {
+            input = new InputViewVM();
+        }
+
+        public void StartScreen()
         {
             Console.WriteLine("______________________________________________________");
             Console.WriteLine("|                              |                     |");
@@ -35,12 +40,17 @@ namespace Sokoban
 
             Console.WriteLine("> Kies een doolhof (1 -4), s = stop");
             Console.WriteLine("Enjoy!");
+        }
+
+        public void StartListening()
+        {
             string s = Console.ReadLine();
-
             input.startLevel(s);
-            
-            
+        }
 
+        public void WriteLine(string line)
+        {
+            Console.WriteLine(line);
         }
 
     }

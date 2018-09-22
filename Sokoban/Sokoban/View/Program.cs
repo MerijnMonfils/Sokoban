@@ -7,7 +7,7 @@ namespace Sokoban
     {
         static void Main()
         {
-           OutputView output = new OutputView();
+           MainView output = new MainView();
             ParseLevelVM parse = new ParseLevelVM();
 
             output.startScreen();

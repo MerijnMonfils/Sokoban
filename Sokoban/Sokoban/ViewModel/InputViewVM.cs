@@ -7,39 +7,39 @@ namespace Sokoban
 {
     public class InputViewVM
     {
-
-        public ParseLevelVM Level;
+        private MainView _view;
+        private OutputViewVM _output;
+        private ParseLevelVM _level;
 
         public InputViewVM()
         {
-            Level = new ParseLevelVM();
+            _view = new MainView();
+            _output = new OutputViewVM();
+            _level = new ParseLevelVM();
         }
 
         public void startLevel(string x)
         {
-
-            
             switch (x)
             {
                 case "1":
-                    Level.ReadFiles(x);
+                    _output.OutputLevel(_level.ReadFiles(x));
                     break;
                 case "2":
-                    Level.ReadFiles(x);
+                    _output.OutputLevel(_level.ReadFiles(x));
                     break;
                 case "3":
-                    Level.ReadFiles(x);
+                    _output.OutputLevel(_level.ReadFiles(x));
                     break;
                 case "4":
-                    Level.ReadFiles(x);
+                    _output.OutputLevel(_level.ReadFiles(x));
                     break;
                 default:
-                    Environment.Exit(0);
+                    _view.WriteLine("Error, please choose correctly!");
                     break;
 
             }
         }
-
-
+        
     }
 }
