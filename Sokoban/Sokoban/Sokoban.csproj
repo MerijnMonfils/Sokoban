@@ -91,7 +91,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mazes\Maze1.txt" />
+    <Content Include="Mazes\level1.txt" />
+    <Content Include="Mazes\level2.txt" />
+    <Content Include="Mazes\level3.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
