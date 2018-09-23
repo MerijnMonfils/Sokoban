@@ -44,7 +44,7 @@ namespace Sokoban
 
         public void StartListening()
         {
-            string s = Console.ReadLine();
+            int s = Console.Read();
             input.StartLevel(s);
         }
 

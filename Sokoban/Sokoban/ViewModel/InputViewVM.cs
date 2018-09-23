@@ -23,28 +23,29 @@ namespace Sokoban
             return _level._amount;
         }
 
-        public void StartLevel(string x)
+        public void StartLevel(int x)
         {
-            if (x.Equals("s"))
-            {
-                Environment.Exit(0);
-            }
+            
             try
             {
-                int input = int.Parse(x);
-                switch (input)
+                string input = x.ToString();
+                if (x.Equals("s"))
+                {
+                    Environment.Exit(0);
+                }
+                switch (x)
                 {
                     case 1:
-                        _output.OutputLevel(_level.ReadFiles(input));
+                        _output.OutputLevel(_level.ReadFiles(x));
                         break;
                     case 2:
-                        _output.OutputLevel(_level.ReadFiles(input));
+                        _output.OutputLevel(_level.ReadFiles(x));
                         break;
                     case 3:
-                        _output.OutputLevel(_level.ReadFiles(input));
+                        _output.OutputLevel(_level.ReadFiles(x));
                         break;
                     case 4:
-                        _output.OutputLevel(_level.ReadFiles(input));
+                        _output.OutputLevel(_level.ReadFiles(x));
                         break;
                     default:
                         AskAgain();
@@ -54,7 +55,7 @@ namespace Sokoban
             }
             catch (Exception e)
             {
-                _view.WriteLine("Something went horribly wrong...");
+                AskAgain();
             }
         }
 
