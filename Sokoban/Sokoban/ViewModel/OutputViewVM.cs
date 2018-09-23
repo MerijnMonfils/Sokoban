@@ -12,17 +12,18 @@ namespace Sokoban
     public class OutputViewVM
     {
         private MainView _mainView;
-        private ParseLevelVM _parseLevels;
+        private ParseLevel _parseLevels;
 
 
         public OutputViewVM()
         {
-            _mainView = new MainView();
-            _parseLevels = new ParseLevelVM();
+            _mainView = new MainView(this);
+            _parseLevels = new ParseLevel();
         }
 
-        public void start()
+        public void Start()
         {
+            _parseLevels.CountLevels();
             _mainView.StartScreen();
             _mainView.StartListening();
         }
@@ -33,8 +34,9 @@ namespace Sokoban
             {
                 for (int i = 0; i < level.GetLength(1); i++)
                 {
-                    _mainView.WriteLine(level.GetValue(x, i).ToString());
+                    _mainView.Write(level.GetValue(x, i).ToString());
                 }
+                _mainView.WriteLine("");
             }
             _mainView.StartListening();
         }

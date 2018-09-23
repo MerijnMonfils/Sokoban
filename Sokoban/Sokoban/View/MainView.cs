@@ -9,9 +9,9 @@ namespace Sokoban
     {
         private InputViewVM input;
 
-        public MainView()
+        public MainView(OutputViewVM output)
         {
-            input = new InputViewVM();
+            input = new InputViewVM(this, output);
         }
 
         public void StartScreen()
@@ -28,7 +28,7 @@ namespace Sokoban
                 "           |    Duw met de truck |");
             Console.WriteLine("|█ : muur" +
                 "                      |    de krat(ten)     |");
-            Console.WriteLine(". : vloer" + 
+            Console.WriteLine("|. : vloer" + 
                 "                      |   Naar de bestemming|");
 
             Console.WriteLine("|O : krat                      |                     |");
@@ -38,14 +38,19 @@ namespace Sokoban
             Console.WriteLine("______________________________________________________");
 
 
-            Console.WriteLine("> Kies een doolhof (1 -4), s = stop");
+            Console.WriteLine("> Kies een doolhof (1 - " + input.GetAmountOfLevels() +  "), s = stop");
             Console.WriteLine("Enjoy!");
         }
 
         public void StartListening()
         {
             string s = Console.ReadLine();
-            input.startLevel(s);
+            input.StartLevel(s);
+        }
+
+        public void Write(string line)
+        {
+            Console.Write(line);
         }
 
         public void WriteLine(string line)

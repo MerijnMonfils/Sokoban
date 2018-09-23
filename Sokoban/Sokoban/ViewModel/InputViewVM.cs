@@ -9,16 +9,21 @@ namespace Sokoban
     {
         private MainView _view;
         private OutputViewVM _output;
-        private ParseLevelVM _level;
+        private ParseLevel _level;
 
-        public InputViewVM()
+        public InputViewVM(MainView mainView, OutputViewVM output)
         {
-            _view = new MainView();
-            _output = new OutputViewVM();
-            _level = new ParseLevelVM();
+            _view = mainView;
+            _output = output;
+            _level = new ParseLevel();
         }
 
-        public void startLevel(string x)
+        public int GetAmountOfLevels()
+        {
+            return _level._amount;
+        }
+
+        public void StartLevel(string x)
         {
             try
             {
@@ -45,7 +50,7 @@ namespace Sokoban
             }
             catch (Exception e)
             {
-                _view.WriteLine("Error, please choose correctly!");
+                _view.WriteLine( "ERROR: " + e.StackTrace + ", please choose correctly!");
                 _view.StartListening();
             }
         }

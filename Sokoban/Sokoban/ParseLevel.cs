@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace Sokoban
 {
-    public class ParseLevelVM
+    public class ParseLevel
+
     {
+        public int _amount { get; private set; }
 
         private enum Characters{
             Wall = '#',
@@ -15,9 +18,17 @@ namespace Sokoban
             Player = '@',
             Chest = 'o'
         }
-
-        private List<Object[,]> levels;
-
+        
+        public void CountLevels()
+        {
+            string path = Environment.CurrentDirectory;
+            path = path.Substring(0, (path.Length - 9)) + "Mazes";
+            DirectoryInfo di = new DirectoryInfo(path);
+            foreach (FileInfo f in di.GetFiles())
+            {
+                _amount = _amount + 1; // amount of files in map
+            }
+        }
         public char[,] ReadFiles(string q)
         {
             //Size of this variable is the amount of rows
