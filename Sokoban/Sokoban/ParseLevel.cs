@@ -11,6 +11,10 @@ namespace Sokoban
     {
         public int _amount { get; private set; }
 
+        private string _path;
+        private string[] _levels; 
+        private DirectoryInfo _di;
+
         private enum Characters{
             Wall = '#',
             Tile = '.',
@@ -21,18 +25,20 @@ namespace Sokoban
         
         public void CountLevels()
         {
-            string path = Environment.CurrentDirectory;
-            path = path.Substring(0, (path.Length - 9)) + "Mazes";
-            DirectoryInfo di = new DirectoryInfo(path);
-            foreach (FileInfo f in di.GetFiles())
+            this._path = Environment.CurrentDirectory;
+            this._path = _path.Substring(0, (_path.Length - 9)) + "Mazes";
+            this._di = new DirectoryInfo(_path);
+            _levels = new string[_di.GetFiles().Count()];
+            foreach (FileInfo f in _di.GetFiles())
             {
-                _amount = _amount + 1; // amount of files in map
+                _levels[_amount] = f.FullName;
+                this._amount = _amount + 1; // amount of files in map
             }
         }
-        public char[,] ReadFiles(string q)
+        public char[,] ReadFiles(int a)
         {
             //Size of this variable is the amount of rows
-            string[] lines = System.IO.File.ReadAllLines(@"C:\level"+ q +".txt");
+            string[] lines = System.IO.File.ReadAllLines(_levels[a - 1]);
 
             //Size of this variable is the amount of columns
             string longest = lines.OrderByDescending(s => s.Length).First();

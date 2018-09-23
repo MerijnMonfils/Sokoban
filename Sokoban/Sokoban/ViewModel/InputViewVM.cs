@@ -11,11 +11,11 @@ namespace Sokoban
         private OutputViewVM _output;
         private ParseLevel _level;
 
-        public InputViewVM(MainView mainView, OutputViewVM output)
+        public InputViewVM(MainView mainView, OutputViewVM output, ParseLevel level)
         {
             _view = mainView;
             _output = output;
-            _level = new ParseLevel();
+            _level = level;
         }
 
         public int GetAmountOfLevels()
@@ -25,34 +25,43 @@ namespace Sokoban
 
         public void StartLevel(string x)
         {
+            if (x.Equals("s"))
+            {
+                Environment.Exit(0);
+            }
             try
             {
-                switch (x)
+                int input = int.Parse(x);
+                switch (input)
                 {
-                    case "1":
-                        _output.OutputLevel(_level.ReadFiles(x));
+                    case 1:
+                        _output.OutputLevel(_level.ReadFiles(input));
                         break;
-                    case "2":
-                        _output.OutputLevel(_level.ReadFiles(x));
+                    case 2:
+                        _output.OutputLevel(_level.ReadFiles(input));
                         break;
-                    case "3":
-                        _output.OutputLevel(_level.ReadFiles(x));
+                    case 3:
+                        _output.OutputLevel(_level.ReadFiles(input));
                         break;
-                    case "4":
-                        _output.OutputLevel(_level.ReadFiles(x));
+                    case 4:
+                        _output.OutputLevel(_level.ReadFiles(input));
                         break;
                     default:
-                        _view.WriteLine("Error, please choose correctly!");
-                        _view.StartListening();
+                        AskAgain();
                         break;
 
                 }
             }
             catch (Exception e)
             {
-                _view.WriteLine( "ERROR: " + e.StackTrace + ", please choose correctly!");
-                _view.StartListening();
+                _view.WriteLine("Something went horribly wrong...");
             }
+        }
+
+        private void AskAgain()
+        {
+            _view.WriteLine("?");
+            _view.StartListening();
         }
         
     }

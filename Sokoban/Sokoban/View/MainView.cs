@@ -9,9 +9,9 @@ namespace Sokoban
     {
         private InputViewVM input;
 
-        public MainView(OutputViewVM output)
+        public MainView(OutputViewVM output, ParseLevel parse)
         {
-            input = new InputViewVM(this, output);
+            input = new InputViewVM(this, output, parse);
         }
 
         public void StartScreen()
@@ -29,10 +29,10 @@ namespace Sokoban
             Console.WriteLine("|█ : muur" +
                 "                      |    de krat(ten)     |");
             Console.WriteLine("|. : vloer" + 
-                "                      |   Naar de bestemming|");
+                "                     |   Naar de bestemming|");
 
             Console.WriteLine("|O : krat                      |                     |");
-            Console.WriteLine("|0 : krat of bestemming        |                     |");
+            Console.WriteLine("|0 : krat op bestemming        |                     |");
             Console.WriteLine("|x : bestemming                |                     |");
             Console.WriteLine("|@ : truck                     |                     |");
             Console.WriteLine("______________________________________________________");

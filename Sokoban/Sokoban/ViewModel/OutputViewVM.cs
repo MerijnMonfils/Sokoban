@@ -17,8 +17,8 @@ namespace Sokoban
 
         public OutputViewVM()
         {
-            _mainView = new MainView(this);
             _parseLevels = new ParseLevel();
+            _mainView = new MainView(this, _parseLevels);
         }
 
         public void Start()
