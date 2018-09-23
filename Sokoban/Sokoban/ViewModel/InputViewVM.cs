@@ -20,24 +20,33 @@ namespace Sokoban
 
         public void startLevel(string x)
         {
-            switch (x)
+            try
             {
-                case "1":
-                    _output.OutputLevel(_level.ReadFiles(x));
-                    break;
-                case "2":
-                    _output.OutputLevel(_level.ReadFiles(x));
-                    break;
-                case "3":
-                    _output.OutputLevel(_level.ReadFiles(x));
-                    break;
-                case "4":
-                    _output.OutputLevel(_level.ReadFiles(x));
-                    break;
-                default:
-                    _view.WriteLine("Error, please choose correctly!");
-                    break;
+                switch (x)
+                {
+                    case "1":
+                        _output.OutputLevel(_level.ReadFiles(x));
+                        break;
+                    case "2":
+                        _output.OutputLevel(_level.ReadFiles(x));
+                        break;
+                    case "3":
+                        _output.OutputLevel(_level.ReadFiles(x));
+                        break;
+                    case "4":
+                        _output.OutputLevel(_level.ReadFiles(x));
+                        break;
+                    default:
+                        _view.WriteLine("Error, please choose correctly!");
+                        _view.StartListening();
+                        break;
 
+                }
+            }
+            catch (Exception e)
+            {
+                _view.WriteLine("Error, please choose correctly!");
+                _view.StartListening();
             }
         }
         

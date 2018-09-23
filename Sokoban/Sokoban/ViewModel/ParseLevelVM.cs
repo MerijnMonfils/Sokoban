@@ -20,7 +20,6 @@ namespace Sokoban
 
         public char[,] ReadFiles(string q)
         {
-            
             //Size of this variable is the amount of rows
             string[] lines = System.IO.File.ReadAllLines(@"C:\level"+ q +".txt");
 
