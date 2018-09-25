@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,13 @@ namespace Sokoban
         private string[] _levels; 
         private DirectoryInfo _di;
 
-        private enum Characters{
-            Wall = '#',
-            Tile = '.',
-            Destination = 'x',
-            Player = '@',
-            Chest = 'o'
+        private Characters _characters;
+
+        public ParseLevel()
+        {
+            _characters = new Characters();
         }
-        
+
         public void CountLevels()
         {
             this._path = Environment.CurrentDirectory;
@@ -72,23 +72,23 @@ namespace Sokoban
             char value = ' ';
             switch (c)
             {
-                case (char)Characters.Wall:
-                    value = (char)Characters.Wall;
+                case '#':
+                    value = _characters._wall;
                     break;
-                case (char)Characters.Tile:
-                    value = (char)Characters.Tile;
+                case 'O':
+                    value = _characters._crate;
                     break;
-                case (char)Characters.Player:
-                    value = (char)Characters.Player;
+                case '.':
+                    value = _characters._tile;
                     break;
-                case (char)Characters.Destination:
-                    value = (char)Characters.Destination;
+                case '@':
+                    value = _characters._truck;
                     break;
-                case (char)Characters.Chest:
-                    value = (char)Characters.Chest;
+                case '0':
+                    value = _characters._destination;
                     break;
                 default: // not accepted characters
-                    value = (char)Characters.Wall;
+                    value = _characters._wall;
                     break;
             }
             return value;
