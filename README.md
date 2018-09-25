@@ -13,15 +13,16 @@ Sokoban in C#
 
 ## To Do
 ## Danish Afzal: 
-> 1. Ability to move Truck.
-> 2. Ability to swap characters.
+> 1. Code cleanup
 
 ## Merijn Monfils:
-> 1. Change Char Array to *Dubbel Gelinkte Array*
+> 2. Code cleanup
 
 ## Done
 > 1. Welcome Screen
 > 2. Ability to read all levels through user input. 
 > 3. Able to read levels through Mazes folder rather than local folders.
+> 4. Ability to move Truck.
+> 5. Ability to swap characters.
 
 ## Made by Danish Afzal & Merijn Monfils
