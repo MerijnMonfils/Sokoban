@@ -65,6 +65,12 @@ namespace Sokoban
             isPlaying = true;
             while (isPlaying)
             {
+                if (!logic.gameFinished(_currentLevel))
+                {
+                    Console.WriteLine("Congratulations. You finished the level!");
+                    Console.WriteLine("Press M to return to Menu");
+                    Console.Write("Press S to close application");
+                }
                 checkInput(Console.ReadKey().Key, logic);
             }
         }
@@ -89,6 +95,7 @@ namespace Sokoban
                 // _currentLevel = logic.movePlayerUp(_currentLevel);
                 _currentLevel = logic.MoveToTop(_currentLevel);
                 this.OutputLevel(_currentLevel);
+
             } else if (input == ConsoleKey.DownArrow)
             {
                 _currentLevel = logic.MoveToBottom(_currentLevel);
