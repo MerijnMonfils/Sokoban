@@ -20,8 +20,15 @@ namespace Sokoban
                     if (level[i, k].Equals(_characters._truck))
                     {
 
-                        //going forwaard with a truck
+                        //going forward with a truck
                         if (level[i, k + 1].Equals(_characters._tile))
+                        {
+                            level[i, k + 1] = _characters._truck;
+                            level[i, k] = _characters._tile;
+                            return level;
+                        }
+                        //moving onto a Destination tile
+                        if (level[i, k + 1].Equals(_characters._destination))
                         {
                             level[i, k + 1] = _characters._truck;
                             level[i, k] = _characters._tile;
