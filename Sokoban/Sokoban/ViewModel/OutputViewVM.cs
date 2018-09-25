@@ -13,6 +13,7 @@ namespace Sokoban
     {
         private MainView _mainView;
         private ParseLevel _parseLevels;
+        private GameLogic logic;
 
         private char[,] _currentLevel; // the current array thats being used
         private bool isPlaying;
@@ -56,13 +57,14 @@ namespace Sokoban
 
         public void StartPlaying()
         {
+            logic = new GameLogic();
             while (isPlaying)
             {
-                checkInput(Console.ReadKey().Key);
+                checkInput(Console.ReadKey().Key, logic);
             }
         }
 
-        private void checkInput(ConsoleKey input)
+        private void checkInput(ConsoleKey input, GameLogic logic)
         {
             if (input == ConsoleKey.S)
             {
@@ -79,7 +81,8 @@ namespace Sokoban
 
             if(input == ConsoleKey.UpArrow)
             {
-                
+                // _currentLevel = logic.movePlayerUp(_currentLevel);
+                this.OutputLevel(_currentLevel);
             } else if (input == ConsoleKey.DownArrow)
             {
                 
