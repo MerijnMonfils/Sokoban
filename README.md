@@ -4,9 +4,9 @@ Sokoban in C#
 ## Symbols:
 > 1. : # = Wall
 > 2. : . = Tile
-> 3. : o = Crate
+> 3. : O = Crate
 > 4. : @ = Player
-> 5. : x = Destination
+> 5. : 0 = Destination
 
 
 ## Tasks:
