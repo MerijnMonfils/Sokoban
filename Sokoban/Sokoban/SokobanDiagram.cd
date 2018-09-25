@@ -75,7 +75,7 @@
   <Class Name="Sokoban.GameLogic">
     <Position X="6" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAABCAAAAAAACAAAAAAAAABAA=</HashCode>
       <FileName>Model\GameLogic.cs</FileName>
     </TypeIdentifier>
   </Class>
