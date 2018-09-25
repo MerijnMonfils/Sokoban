@@ -6,6 +6,8 @@ namespace Sokoban
     {
         private Characters _characters;
 
+        private bool _isOnDestination;
+
         public GameLogic()
         {
             _characters = new Characters();
@@ -24,7 +26,15 @@ namespace Sokoban
                         if (level[i, k + 1].Equals(_characters._tile))
                         {
                             level[i, k + 1] = _characters._truck;
-                            level[i, k] = _characters._tile;
+                            if (_isOnDestination)
+                            {
+                                level[i, k] = _characters._destination;
+                                _isOnDestination = false;
+                            }
+                            else
+                            {
+                                level[i, k] = _characters._tile;
+                            }
                             return level;
                         }
                         //moving onto a Destination tile
@@ -32,6 +42,7 @@ namespace Sokoban
                         {
                             level[i, k + 1] = _characters._truck;
                             level[i, k] = _characters._tile;
+                            _isOnDestination = true;
                             return level;
                         }
 
@@ -89,7 +100,6 @@ namespace Sokoban
                             level[i, k - 1] = _characters._truck;
                             level[i, k - 2] = _characters._crate;
                             return level;
-
                         }
 
                         //pushing a crate to the destination.
@@ -186,7 +196,7 @@ namespace Sokoban
                         {
                             level[i, k] = _characters._tile;
                             level[i + 1, k] = _characters._crate;
-                            level[i + 2, k] = _characters._crateOnDestination;            
+                            level[i + 2, k] = _characters._crateOnDestination;
                             return level;
                         }
                     }
