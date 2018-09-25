@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Characters.cs" />
     <Compile Include="Chest.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />

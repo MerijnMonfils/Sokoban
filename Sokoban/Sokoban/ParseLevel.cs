@@ -84,9 +84,10 @@ namespace Sokoban
                 case '@':
                     value = _characters._truck;
                     break;
-                case '0':
+                case 'X':
                     value = _characters._destination;
                     break;
+     
                 default: // not accepted characters
                     value = _characters._wall;
                     break;
