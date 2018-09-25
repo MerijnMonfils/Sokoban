@@ -2,11 +2,11 @@
 Sokoban in C#
 
 ## Symbols:
-> -: # = Wall
-> -: . = Tile
-> -: o = Crate
-> -: @ = Player
->-: x = Destination
+> 1. : # = Wall
+> 2. : . = Tile
+> 3. : o = Crate
+> 4. : @ = Player
+> 5. : x = Destination
 
 
 ## Tasks:
