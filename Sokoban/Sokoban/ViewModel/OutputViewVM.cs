@@ -14,6 +14,7 @@ namespace Sokoban
         private MainView _mainView;
         private ParseLevel _parseLevels;
 
+        private char[,] _currentLevel; // the current array thats being used
 
         public OutputViewVM()
         {
@@ -26,6 +27,11 @@ namespace Sokoban
             _parseLevels.CountLevels();
             _mainView.StartScreen();
             _mainView.StartListening();
+        }
+
+        public void SetCurrentLevel(char[,] level)
+        {
+            _currentLevel = level;
         }
 
         public void OutputLevel(char[,] level)

@@ -36,16 +36,16 @@ namespace Sokoban
                 switch (x)
                 {
                     case 1:
-                        _output.OutputLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x));
                         break;
                     case 2:
-                        _output.OutputLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x));
                         break;
                     case 3:
-                        _output.OutputLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x));
                         break;
                     case 4:
-                        _output.OutputLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x));
                         break;
                     default:
                         AskAgain();
@@ -57,6 +57,12 @@ namespace Sokoban
             {
                 AskAgain();
             }
+        }
+
+        private void SetupLevel(char[,] level)
+        {
+            _output.SetCurrentLevel(level);
+            _output.OutputLevel(level);
         }
 
         private void AskAgain()
