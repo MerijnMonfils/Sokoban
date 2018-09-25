@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace Sokoban
 {
-    public class ParseLevelVM
+    public class ParseLevel
+
     {
+        public int _amount { get; private set; }
+
+        private string _path;
+        private string[] _levels; 
+        private DirectoryInfo _di;
 
         private enum Characters{
             Wall = '#',
@@ -15,13 +22,23 @@ namespace Sokoban
             Player = '@',
             Chest = 'o'
         }
-
-        private List<Object[,]> levels;
-
-        public void ReadFiles()
+        
+        public void CountLevels()
+        {
+            this._path = Environment.CurrentDirectory;
+            this._path = _path.Substring(0, (_path.Length - 9)) + "Mazes";
+            this._di = new DirectoryInfo(_path);
+            _levels = new string[_di.GetFiles().Count()];
+            foreach (FileInfo f in _di.GetFiles())
+            {
+                _levels[_amount] = f.FullName;
+                this._amount = _amount + 1; // amount of files in map
+            }
+        }
+        public char[,] ReadFiles(int a)
         {
             //Size of this variable is the amount of rows
-            string[] lines = System.IO.File.ReadAllLines(@"C:\level1.txt");
+            string[] lines = System.IO.File.ReadAllLines(_levels[a - 1]);
 
             //Size of this variable is the amount of columns
             string longest = lines.OrderByDescending(s => s.Length).First();
@@ -46,15 +63,7 @@ namespace Sokoban
                    first[x,i] = CheckCharacterAt(lines[x], i);
                 }
             }
-            for(int x = 0; x < first.GetLength(0); x++)
-            {
-                for(int i = 0; i < first.GetLength(1); i++)
-                {
-                    Console.Write(first.GetValue(x, i));
-                }
-                Console.WriteLine();
-            }
-            Console.Read();
+            return first;
         }
 
         private char CheckCharacterAt(string line, int postionInRow)
@@ -84,5 +93,7 @@ namespace Sokoban
             }
             return value;
         }
+
+       
     }
 }

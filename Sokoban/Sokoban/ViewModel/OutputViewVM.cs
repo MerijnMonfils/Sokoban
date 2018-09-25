@@ -11,22 +11,39 @@ namespace Sokoban
 {
     public class OutputViewVM
     {
-        private InputView _inputView;
-        private OutputView _outputView;
-        private ParseLevelVM _parseLevels;
+        private MainView _mainView;
+        private ParseLevel _parseLevels;
 
 
         public OutputViewVM()
         {
-            _inputView = new InputView();
-            _outputView = new OutputView();
-            _parseLevels = new ParseLevelVM();
-
-            _parseLevels.ReadFiles(); // reads all .txt files\
+            _parseLevels = new ParseLevel();
+            _mainView = new MainView(this, _parseLevels);
         }
 
-    }
+        public void Start()
+        {
+            _parseLevels.CountLevels();
+            _mainView.StartScreen();
+            _mainView.StartListening();
+        }
 
+        public void OutputLevel(char[,] level)
+        {
+            for (int x = 0; x < level.GetLength(0); x++)
+            {
+                for (int i = 0; i < level.GetLength(1); i++)
+                {
+                    _mainView.Write(level.GetValue(x, i).ToString());
+                }
+                _mainView.WriteLine("");
+            }
+            _mainView.StartListening();
+        }
+    }
 }
+
+
+
 
 

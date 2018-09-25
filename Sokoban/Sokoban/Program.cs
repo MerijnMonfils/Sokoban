@@ -7,8 +7,10 @@ namespace Sokoban
     {
         static void Main()
         {
-     
+
+            OutputViewVM o = new OutputViewVM();
+            o.start();
         }
     }
-    
+
 }

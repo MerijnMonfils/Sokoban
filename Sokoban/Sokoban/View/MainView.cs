@@ -5,10 +5,16 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class OutputView
+    public class MainView
     {
+        private InputViewVM input;
 
-        public void startScreen()
+        public MainView(OutputViewVM output, ParseLevel parse)
+        {
+            input = new InputViewVM(this, output, parse);
+        }
+
+        public void StartScreen()
         {
             Console.WriteLine("______________________________________________________");
             Console.WriteLine("|                              |                     |");
@@ -22,25 +28,34 @@ namespace Sokoban
                 "           |    Duw met de truck |");
             Console.WriteLine("|█ : muur" +
                 "                      |    de krat(ten)     |");
-            Console.WriteLine(". : vloer" + 
-                "                      |   Naar de bestemming|");
+            Console.WriteLine("|. : vloer" + 
+                "                     |   Naar de bestemming|");
 
             Console.WriteLine("|O : krat                      |                     |");
-            Console.WriteLine("|0 : krat of bestemming        |                     |");
+            Console.WriteLine("|0 : krat op bestemming        |                     |");
             Console.WriteLine("|x : bestemming                |                     |");
             Console.WriteLine("|@ : truck                     |                     |");
             Console.WriteLine("______________________________________________________");
 
 
-            Console.WriteLine("> Kies een doolhof (1 -4), s = stop");
+            Console.WriteLine("> Kies een doolhof (1 - " + input.GetAmountOfLevels() +  "), s = stop");
             Console.WriteLine("Enjoy!");
+        }
+
+        public void StartListening()
+        {
             string s = Console.ReadLine();
+            input.StartLevel(s);
+        }
 
-            if (s.Equals("s")) {
-                Environment.Exit(0);
-            }
-            
+        public void Write(string line)
+        {
+            Console.Write(line);
+        }
 
+        public void WriteLine(string line)
+        {
+            Console.WriteLine(line);
         }
 
     }
