@@ -4,12 +4,6 @@ namespace Sokoban
 {
     public class GameLogic
     {
-        private OutputViewVM output;
-
-        public GameLogic(OutputViewVM output)
-        {
-            this.output = output;
-        }
 
         public char[,] MoveToRight(char[,] level)
         {
@@ -27,11 +21,8 @@ namespace Sokoban
                         }
                     }
                 }
-
-                Console.WriteLine("WUT");
             }
-
-            return output._currentLevel;
+            return level;
         }
 
         public char[,] MoveToLeft(char[,] level)
@@ -50,16 +41,12 @@ namespace Sokoban
                         } 
                     }
                 }
-                Console.WriteLine("WUT");
-
-
             }
-            return output._currentLevel;
+            return level;
         }
 
          public char[,] MoveToTop(char[,] level)
         {
-
             for (int i = 0; i < level.GetLength(0); i++)
             {
                 for (int k = 0; k < level.GetLength(1); k++)
@@ -74,12 +61,8 @@ namespace Sokoban
                         }
                     }
                 }
-           
-
-
             }
-            return output._currentLevel;
-
+            return level;
         }
 
         public char[,] MoveToBottom(char[,] level)
@@ -98,11 +81,8 @@ namespace Sokoban
                         }
                     }
                 }
-               
-
-
             }
-            return output._currentLevel;
+            return level;
         }
     }
 }

@@ -60,19 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Characters.cs" />
-    <Compile Include="Chest.cs" />
-    <Compile Include="ViewModel\GameLogic.cs" />
+    <Compile Include="Model\Characters.cs" />
+    <Compile Include="Model\GameLogic.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
-    <Compile Include="Wall.cs" />
     <Compile Include="View\MainView.cs" />
-    <Compile Include="ParseLevel.cs" />
-    <Compile Include="View\Program.cs" />
+    <Compile Include="Model\ParseLevel.cs" />
+    <Compile Include="ViewModel\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Truck.cs" />
-    <Compile Include="Tile.cs" />
-    <Compile Include="Destination.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

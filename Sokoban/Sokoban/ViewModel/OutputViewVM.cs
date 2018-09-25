@@ -61,7 +61,7 @@ namespace Sokoban
 
         public void StartPlaying()
         {
-            logic = new GameLogic(this);
+            logic = new GameLogic();
             isPlaying = true;
             while (isPlaying)
             {
