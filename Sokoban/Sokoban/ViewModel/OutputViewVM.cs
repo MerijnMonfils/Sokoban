@@ -15,6 +15,7 @@ namespace Sokoban
         private ParseLevel _parseLevels;
 
         private char[,] _currentLevel; // the current array thats being used
+        private bool isPlaying;
 
         public OutputViewVM()
         {
@@ -36,6 +37,11 @@ namespace Sokoban
 
         public void OutputLevel(char[,] level)
         {
+            Console.Clear();
+
+            _mainView.WriteLine("Press 's' to leave and 'm' to show menu.");
+            _mainView.WriteLine("");
+
             for (int x = 0; x < level.GetLength(0); x++)
             {
                 for (int i = 0; i < level.GetLength(1); i++)
@@ -44,7 +50,46 @@ namespace Sokoban
                 }
                 _mainView.WriteLine("");
             }
-            _mainView.StartListening();
+
+            isPlaying = true;
+        }
+
+        public void StartPlaying()
+        {
+            while (isPlaying)
+            {
+                checkInput(Console.ReadKey().Key);
+            }
+        }
+
+        private void checkInput(ConsoleKey input)
+        {
+            if (input == ConsoleKey.S)
+            {
+                Environment.Exit(0);
+            }
+
+            if (input == ConsoleKey.M)
+            {
+                Console.Clear();
+                isPlaying = false;
+                _mainView.StartScreen();
+                _mainView.StartListening();
+            }
+
+            if(input == ConsoleKey.UpArrow)
+            {
+                
+            } else if (input == ConsoleKey.DownArrow)
+            {
+                
+            } else if (input == ConsoleKey.LeftArrow)
+            {
+                
+            } else if (input == ConsoleKey.RightArrow)
+            {
+                
+            }
         }
     }
 }
