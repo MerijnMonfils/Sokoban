@@ -24,5 +24,7 @@ Sokoban in C#
 > 3. Able to read levels through Mazes folder rather than local folders.
 > 4. Ability to move Truck.
 > 5. Ability to swap characters.
+> 6. Ability to finish a level
+> 7. Ability to start a new level after finishing a level.
 
 ## Made by Danish Afzal & Merijn Monfils
