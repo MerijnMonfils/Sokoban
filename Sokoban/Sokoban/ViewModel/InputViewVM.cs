@@ -23,16 +23,16 @@ namespace Sokoban
             return _level._amount;
         }
 
-        public void StartLevel(int x)
+        public void StartLevel(string input)
         {
-            
+            if (input.Equals("s"))
+            {
+                Environment.Exit(0);
+            }
+
             try
             {
-                string input = x.ToString();
-                if (x.Equals("s"))
-                {
-                    Environment.Exit(0);
-                }
+                int x = int.Parse(input);
                 switch (x)
                 {
                     case 1:
@@ -64,6 +64,6 @@ namespace Sokoban
             _view.WriteLine("?");
             _view.StartListening();
         }
-        
+
     }
 }
