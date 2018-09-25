@@ -55,7 +55,7 @@ namespace Sokoban
             }
             catch (Exception e)
             {
-                Console.Write(e.StackTrace);
+                
                 AskAgain();
             }
         }
