@@ -22,7 +22,7 @@ namespace Sokoban
             _mainView = new MainView(this, _parseLevels);
         }
 
-        public void Start()
+        public void ShowMenu()
         {
             _parseLevels.CountLevels();
             _mainView.StartScreen();
