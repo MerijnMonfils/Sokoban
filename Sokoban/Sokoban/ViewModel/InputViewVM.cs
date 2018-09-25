@@ -36,16 +36,16 @@ namespace Sokoban
                 switch (x)
                 {
                     case 1:
-                        SetupLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x), x);
                         break;
                     case 2:
-                        SetupLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x), x);
                         break;
                     case 3:
-                        SetupLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x), x);
                         break;
                     case 4:
-                        SetupLevel(_level.ReadFiles(x));
+                        SetupLevel(_level.ReadFiles(x), x);
                         break;
                     default:
                         AskAgain();
@@ -60,9 +60,9 @@ namespace Sokoban
             }
         }
 
-        private void SetupLevel(char[,] level)
+        private void SetupLevel(char[,] level, int lvlNumb)
         {
-            _output.SetCurrentLevel(level);
+            _output.SetCurrentLevel(level, lvlNumb);
             _output.OutputLevel(level);
             _output.StartPlaying();
         }

@@ -16,6 +16,7 @@ namespace Sokoban
         private GameLogic logic;
 
         public char[,] _currentLevel; // the current array thats being used
+        private int _currentLevelNumber { get; set; }
         private bool isPlaying;
 
         public OutputViewVM()
@@ -31,9 +32,10 @@ namespace Sokoban
             _mainView.StartListening();
         }
 
-        public void SetCurrentLevel(char[,] level)
+        public void SetCurrentLevel(char[,] level, int lvlNumb)
         {
             _currentLevel = level;
+            _currentLevelNumber = lvlNumb;
         }
 
         public char[,] getCurrentLevelArray()
@@ -45,7 +47,7 @@ namespace Sokoban
         {
             Console.Clear();
 
-            _mainView.WriteLine("Press 's' to leave and 'm' to show menu.");
+            _mainView.WriteLine("'s' to leave\n'm' to show menu\n'r' to reset");
             _mainView.WriteLine("");
 
             for (int x = 0; x < level.GetLength(0); x++)
@@ -88,6 +90,13 @@ namespace Sokoban
                 isPlaying = false;
                 _mainView.StartScreen();
                 _mainView.StartListening();
+            }
+
+            if (input == ConsoleKey.R)
+            {
+                InputViewVM v = new InputViewVM(_mainView, this, _parseLevels);
+                Console.Clear();
+                v.StartLevel("" + _currentLevelNumber);
             }
 
             if(input == ConsoleKey.UpArrow)

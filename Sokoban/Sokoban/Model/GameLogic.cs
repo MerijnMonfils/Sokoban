@@ -50,9 +50,16 @@ namespace Sokoban
                         if (k + 2 < level.GetLength(1) && level[i, k + 1].Equals(_characters._crate) &&
                             level[i, k + 2].Equals(_characters._tile))
                         {
-                            level[i, k] = _characters._tile;
+                           
                             level[i, k + 1] = _characters._truck;
                             level[i, k + 2] = _characters._crate;
+                            if (_isOnDestination)
+                            {
+                                level[i, k] = _characters._destination;
+                                _isOnDestination = false;
+                                return level;
+                            }
+                            level[i, k] = _characters._tile;
                             return level;
 
                         }
@@ -91,7 +98,6 @@ namespace Sokoban
                             if (_isOnDestination)
                             {
                                 level[i, k] = _characters._destination;
-                                
                                 _isOnDestination = false;
                                 return level;
                             }
@@ -115,9 +121,15 @@ namespace Sokoban
                         if (k - 2 >= 0 && level[i, k - 1].Equals(_characters._crate) &&
                         level[i, k - 2].Equals(_characters._tile))
                         {
-                            level[i, k] = _characters._tile;
                             level[i, k - 1] = _characters._truck;
                             level[i, k - 2] = _characters._crate;
+                            if (_isOnDestination)
+                            {
+                                level[i, k] = _characters._destination;
+                                _isOnDestination = false;
+                                return level;
+                            }
+                            level[i, k] = _characters._tile;
                             return level;
                         }
 
@@ -174,9 +186,15 @@ namespace Sokoban
                         if (i - 2 >= 0 && level[i - 1, k].Equals(_characters._crate) &&
                             level[i - 2, k].Equals(_characters._tile))
                         {
-                            level[i, k] = _characters._tile;
                             level[i - 1, k] = _characters._truck;
                             level[i - 2, k] = _characters._crate;
+                            if (_isOnDestination)
+                            {
+                                level[i, k] = _characters._destination;
+                                _isOnDestination = false;
+                                return level;
+                            }
+                            level[i, k] = _characters._tile;
                             return level;
 
                         }
@@ -233,9 +251,15 @@ namespace Sokoban
                         if (i + 2 < level.GetLength(0) && level[i + 1, k].Equals(_characters._crate) &&
                             level[i + 2, k].Equals(_characters._tile))
                         {
-                            level[i, k] = _characters._tile;
                             level[i + 1, k] = _characters._truck;
                             level[i + 2, k] = _characters._crate;
+                            if (_isOnDestination)
+                            {
+                                level[i, k] = _characters._destination;
+                                _isOnDestination = false;
+                                return level;
+                            }
+                            level[i, k] = _characters._tile;
                             return level;
 
                         }
