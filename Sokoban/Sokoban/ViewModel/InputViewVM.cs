@@ -63,6 +63,7 @@ namespace Sokoban
         {
             _output.SetCurrentLevel(level);
             _output.OutputLevel(level);
+            _output.StartPlaying();
         }
 
         private void AskAgain()
