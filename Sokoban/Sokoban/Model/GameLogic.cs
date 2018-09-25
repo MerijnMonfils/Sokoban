@@ -241,12 +241,14 @@ namespace Sokoban
                         }
 
                         //pushing a crate to the destination.
+                        
                         if (i + 2 < level.GetLength(0) && level[i + 1, k].Equals(_characters._crate) &&
                             level[i + 2, k].Equals(_characters._destination))
                         {
                             level[i, k] = _characters._tile;
                             level[i + 1, k] = _characters._crate;
                             level[i + 2, k] = _characters._crateOnDestination;
+                            
                             return level;
                         }
                     }
