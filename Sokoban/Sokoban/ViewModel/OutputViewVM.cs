@@ -15,7 +15,8 @@ namespace Sokoban
         private ParseLevel _parseLevels;
         private GameLogic logic;
 
-        private char[,] _currentLevel; // the current array thats being used
+        public char[,] _currentLevel; // the current array thats being used
+        private int _currentLevelNumber { get; set; }
         private bool isPlaying;
 
         public OutputViewVM()
@@ -31,16 +32,22 @@ namespace Sokoban
             _mainView.StartListening();
         }
 
-        public void SetCurrentLevel(char[,] level)
+        public void SetCurrentLevel(char[,] level, int lvlNumb)
         {
             _currentLevel = level;
+            _currentLevelNumber = lvlNumb;
+        }
+
+        public char[,] getCurrentLevelArray()
+        {
+            return _currentLevel;
         }
 
         public void OutputLevel(char[,] level)
         {
             Console.Clear();
 
-            _mainView.WriteLine("Press 's' to leave and 'm' to show menu.");
+            _mainView.WriteLine("'s' to leave\n'm' to show menu\n'r' to reset");
             _mainView.WriteLine("");
 
             for (int x = 0; x < level.GetLength(0); x++)
@@ -52,14 +59,20 @@ namespace Sokoban
                 _mainView.WriteLine("");
             }
 
-            isPlaying = true;
         }
 
         public void StartPlaying()
         {
             logic = new GameLogic();
+            isPlaying = true;
             while (isPlaying)
             {
+                if (!logic.gameFinished(_currentLevel))
+                {
+                    Console.WriteLine("Congratulations. You finished the level!");
+                    Console.WriteLine("Press M to return to Menu");
+                    Console.Write("Press S to close application");
+                }
                 checkInput(Console.ReadKey().Key, logic);
             }
         }
@@ -79,19 +92,33 @@ namespace Sokoban
                 _mainView.StartListening();
             }
 
+            if (input == ConsoleKey.R)
+            {
+                InputViewVM v = new InputViewVM(_mainView, this, _parseLevels);
+                Console.Clear();
+                v.StartLevel("" + _currentLevelNumber);
+            }
+
             if(input == ConsoleKey.UpArrow)
             {
                 // _currentLevel = logic.movePlayerUp(_currentLevel);
+                _currentLevel = logic.MoveToTop(_currentLevel);
                 this.OutputLevel(_currentLevel);
+
             } else if (input == ConsoleKey.DownArrow)
             {
-                
+                _currentLevel = logic.MoveToBottom(_currentLevel);
+                this.OutputLevel(_currentLevel);
             } else if (input == ConsoleKey.LeftArrow)
             {
+                _currentLevel = logic.MoveToLeft(_currentLevel);
+                this.OutputLevel(_currentLevel);
                 
             } else if (input == ConsoleKey.RightArrow)
             {
-                
+                _currentLevel = logic.MoveToRight(_currentLevel);
+                this.OutputLevel(_currentLevel);
+
             }
         }
     }
