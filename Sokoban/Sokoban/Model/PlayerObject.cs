@@ -12,6 +12,7 @@ namespace Sokoban.Model
 
         protected new bool _canHavePlayer = false;
 
+
         protected new char GetChar()
         {
 

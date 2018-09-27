@@ -61,8 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Characters.cs" />
+    <Compile Include="Model\ChestObject.cs" />
+    <Compile Include="Model\DestinationObject.cs" />
     <Compile Include="Model\GameLogic.cs" />
-    <Compile Include="Model\LinkedObject.cs" />
+    <Compile Include="Model\GameObjectsLinkedListcs.cs" />
+    <Compile Include="Model\LinkedGameObject.cs" />
+    <Compile Include="Model\PlayerObject.cs" />
+    <Compile Include="Model\TileObject.cs" />
+    <Compile Include="Model\WallObject.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
     <Compile Include="View\MainView.cs" />

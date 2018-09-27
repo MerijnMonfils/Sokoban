@@ -10,6 +10,7 @@ namespace Sokoban.Model
     {
         private char _destinationValue { get; set; }
 
+
         protected new bool _canHavePlayer = true;
 
         protected new char GetChar()

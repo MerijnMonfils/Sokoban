@@ -10,6 +10,7 @@ namespace Sokoban.Model
     {
         private object gameObject;
 
+
         public object GetGameObject()
         {
             return gameObject;

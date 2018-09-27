@@ -10,6 +10,7 @@ namespace Sokoban.Model
     {
         public LinkedGameObject First { get; set; }
 
+
         public LinkedGameObject Last { get; set; }
 
         private int _currentRow;
