@@ -16,6 +16,7 @@ namespace Sokoban.Model
 
         public void InsertInRow(LinkedGameObject obj, int currRow)
         {
+
             if (First == null)
             {
                 First = new LinkedGameObject();

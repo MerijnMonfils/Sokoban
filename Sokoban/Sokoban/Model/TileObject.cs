@@ -14,6 +14,7 @@ namespace Sokoban.Model
 
         protected char GetChar()
         {
+
             return _standardValue;
         }
     }

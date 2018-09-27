@@ -14,6 +14,7 @@ namespace Sokoban.Model
 
         protected new char GetChar()
         {
+
             return _chestValue;
         }
     }

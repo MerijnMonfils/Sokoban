@@ -17,6 +17,7 @@ namespace Sokoban.Model
 
         public void SetGameObject(object value)
         {
+
             gameObject = value;
         }
 
