@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Model\Characters.cs" />
     <Compile Include="Model\GameLogic.cs" />
+    <Compile Include="Model\LinkedObject.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
     <Compile Include="View\MainView.cs" />
