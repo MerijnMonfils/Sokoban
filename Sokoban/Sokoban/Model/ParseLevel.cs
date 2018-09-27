@@ -44,6 +44,9 @@ namespace Sokoban
 
         public void SaveCollection()
         {
+            // loop through all files
+            // foreach file create a linkedObject which gets updated for each after
+
             // execute for each file
             for(int x = 0; x < _amount; x++)
             {
@@ -70,12 +73,6 @@ namespace Sokoban
                         }
                     }
                 }
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    
-                }
-
-                // GameObjectsLinkedList
             }
 
         }
