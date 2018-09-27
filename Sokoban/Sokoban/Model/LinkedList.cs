@@ -9,7 +9,8 @@ namespace Sokoban.Model
     class LinkedList
     {
         public LinkedGameObject First { get; set; }
-
+        public LinkedGameObject FirstInCurrRow { get; set; }
+        public LinkedGameObject LastInCurrRow { get; set; }
         public LinkedGameObject Last { get; set; }
 
         private int _currentRow;
@@ -27,11 +28,10 @@ namespace Sokoban.Model
                 return;
             }
 
-            var temp = First;
-            First = new LinkedGameObject();
-            First.SetGameObject(obj);
-            First.ObjectNext = temp;
-            temp.ObjectPrevious = First;
+            Last.ObjectNext = new LinkedGameObject();
+            Last.ObjectNext.SetGameObject(obj);
+            Last.ObjectNext.ObjectPrevious = Last;
+            Last = Last.ObjectNext;
             return;
         }
     }
