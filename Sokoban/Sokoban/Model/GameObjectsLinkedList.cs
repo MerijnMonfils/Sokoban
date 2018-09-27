@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class GameObjectsLinkedListcs
+    class GameObjectsLinkedList
     {
         public LinkedGameObject First { get; set; }
 
