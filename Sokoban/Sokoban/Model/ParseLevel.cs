@@ -19,8 +19,6 @@ namespace Sokoban
         private DirectoryInfo _di;
 
         private Characters _characters;
-
-        private Object[] _level;
         private Object[] _allLevels;
 
         public ParseLevel()
@@ -47,34 +45,29 @@ namespace Sokoban
             // loop through all files
             // foreach file create a linkedObject which gets updated for each after
 
-            // execute for each file
-            for(int x = 0; x < _amount; x++)
-            {
-                // read all lines
-                string[] lines = System.IO.File.ReadAllLines(_files[x]);
+            // create linkedlist
+            LinkedList list;
 
-                //Size of this variable is the amount of columns
-                string longest = lines.OrderByDescending(s => s.Length).First();
+            // execute for each file
+            for (int x = 0; x < _amount; x++) 
+            {
+                // initialize linkedlist
+                list = new LinkedList();
+
+                // read all lines in current file
+                string[] lines = System.IO.File.ReadAllLines(_files[x]);
                 
-                // new object with max memory
-                _level = new Object[SetupCurrentLevel(lines)];
-                
-                // create current linkedObject
-                for (int z = 0; z < lines.Length; z++)
+                // setup linkedlist
+                for (int z = 0; z < lines.Length; z++) // for each row
                 {
-                    for (int i = 0; i < (lines[z].Length); i++)
+                    for (int i = 0; i < (lines[z].Length); i++) // for length of row
                     {
-                        if(i == 0)
-                        {
-                            _level[x] = CheckCharacterAt(lines[z], i);
-                        } else
-                        {
-                            _level[x] = CheckCharacterAt(lines[z], i);
-                        }
+                        list.InsertInRow(CheckCharacterAt(lines[z], i), z);
                     }
                 }
+                // finally add current linkedlist to array of all levels
+                _allLevels[x] = list;
             }
-
         }
 
         private int SetupCurrentLevel(string[] lines)

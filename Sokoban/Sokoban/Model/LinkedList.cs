@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class GameObjectsLinkedListcs
+    class LinkedList
     {
         public LinkedGameObject First { get; set; }
-
 
         public LinkedGameObject Last { get; set; }
 
@@ -17,6 +16,8 @@ namespace Sokoban.Model
 
         public void InsertInRow(LinkedGameObject obj, int currRow)
         {
+            // assign left and right in first row
+            // assign left right and up and down in second row and continue
 
             if (First == null)
             {
