@@ -25,14 +25,20 @@ namespace Sokoban.Model
                 First = new LinkedGameObject();
                 First.SetGameObject(obj);
                 Last = First;
+                FirstInCurrRow = First;
+                return;
+            } else if(currRow < 0)
+            {
+                Last.ObjectNext = new LinkedGameObject();
+                Last.ObjectNext.SetGameObject(obj);
+                Last.ObjectNext.ObjectPrevious = Last;
+                Last = Last.ObjectNext;
+                LastInCurrRow = Last;
                 return;
             }
 
-            Last.ObjectNext = new LinkedGameObject();
-            Last.ObjectNext.SetGameObject(obj);
-            Last.ObjectNext.ObjectPrevious = Last;
-            Last = Last.ObjectNext;
-            return;
+
+            
         }
     }
 }
