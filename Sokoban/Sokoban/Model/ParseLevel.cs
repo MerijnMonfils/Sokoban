@@ -116,26 +116,18 @@ namespace Sokoban
             switch (c)
             {
                 case '#':
-                    newGameObject = new WallObject();
-                    break;
+                    return newGameObject = new WallObject();
                 case 'O':
-                    newGameObject = new ChestObject();
-                    break;
+                    return newGameObject = new ChestObject();
                 case '.':
-                    newGameObject = new TileObject();
-                    break;
+                    return newGameObject = new TileObject();
                 case '@':
-                    newGameObject = new PlayerObject();
-                    break;
+                    return newGameObject = new PlayerObject();
                 case 'X':
-                    newGameObject = new DestinationObject();
-                    break;
-     
+                    return newGameObject = new DestinationObject();
                 default: // not accepted characters
-                    newGameObject = new WallObject();
-                    break;
+                    return newGameObject = new WallObject();
             }
-            return new object();
         }
         
     }
