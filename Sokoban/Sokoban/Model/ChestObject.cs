@@ -8,7 +8,7 @@ namespace Sokoban.Model
 {
     class ChestObject : TileObject
     {
-        private char _chestValue = 'O';
+        public char _chestValue = 'O';
 
         private bool _canHavePlayer = false;
 

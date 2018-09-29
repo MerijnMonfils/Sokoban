@@ -8,19 +8,7 @@ namespace Sokoban.Model
 {
     public class LinkedGameObject
     {
-        private object gameObject;
-
-        public object GetGameObject()
-        {
-            return gameObject;
-        }
-
-        public void SetGameObject(object value)
-        {
-
-            gameObject = value;
-        }
-
+        public object GameObject { get; set; }
         public LinkedGameObject ObjectAbove { get; set; }
         public LinkedGameObject ObjectPrevious { get; set; }
         public LinkedGameObject ObjectBelow { get; set; }

@@ -116,23 +116,23 @@ namespace Sokoban
             switch (c)
             {
                 case '#':
-                    newGameObject.SetGameObject(new WallObject());
+                    newGameObject.GameObject = new WallObject();
                     break;
                 case 'O':
-                    newGameObject.SetGameObject(new ChestObject());
+                    newGameObject.GameObject = new ChestObject();
                     break;
                 case '.':
-                    newGameObject.SetGameObject(new TileObject());
+                    newGameObject.GameObject = new TileObject();
                     break;
                 case '@':
-                    newGameObject.SetGameObject(new PlayerObject());
+                    newGameObject.GameObject = new PlayerObject();
                     break;
                 case 'X':
-                    newGameObject.SetGameObject(new DestinationObject());
+                    newGameObject.GameObject = new DestinationObject();
                     break;
      
                 default: // not accepted characters
-                    newGameObject.SetGameObject(new WallObject());
+                    newGameObject.GameObject = new WallObject();
                     break;
             }
             return new LinkedGameObject();

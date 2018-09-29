@@ -21,14 +21,14 @@ namespace Sokoban.Model
             if (First == null)
             {
                 First = new LinkedGameObject();
-                First.SetGameObject(obj);
+                First.GameObject = obj;
                 Last = First;
                 FirstInPreviousRow = First;
                 return;
             } else if(currRow < 0)
             {
                 Last.ObjectNext = new LinkedGameObject();
-                Last.ObjectNext.SetGameObject(obj);
+                Last.ObjectNext.GameObject = obj;
                 Last.ObjectNext.ObjectPrevious = Last;
                 Last = Last.ObjectNext;
                 _prevRow = currRow;
@@ -68,10 +68,10 @@ namespace Sokoban.Model
                 Last = l;
             }
             // set game object
-            l.SetGameObject(obj);
+            l.GameObject = obj;
 
             // Assign top neighbour
-            if(l == FirstInCurrentRow)
+            if (l == FirstInCurrentRow)
             {
                 l.ObjectAbove = FirstInPreviousRow;
                 FirstInPreviousRow.ObjectBelow = l;
