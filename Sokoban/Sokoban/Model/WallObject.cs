@@ -8,13 +8,13 @@ namespace Sokoban.Model
 {
     class WallObject : TileObject
     {
-        private char _wallValue = '#';
+        private char _standardValue = '#';
 
         private bool _canHavePlayer = false;
 
         public new char GetChar()
         {
-            return _wallValue;
+            return _standardValue;
         }
     }
 }

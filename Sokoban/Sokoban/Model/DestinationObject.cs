@@ -8,24 +8,24 @@ namespace Sokoban.Model
 {
     class DestinationObject : TileObject
     {
-        private char _destinationValue { get; set; }
+        private char _standardValue { get; set; }
 
         public DestinationObject()
         {
-            _destinationValue = 'X';
+            _standardValue = 'X';
         }
 
         public new char GetChar()
         {
-            return _destinationValue;
+            return _standardValue;
         }
 
         public void HasChest(bool hasChest)
         {
             if (hasChest)
-                this._destinationValue = '0';
+                this._standardValue = '0';
             else
-                this._destinationValue = 'X';            
+                this._standardValue = 'X';            
         }
     }
 }

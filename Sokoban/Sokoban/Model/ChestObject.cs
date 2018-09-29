@@ -8,13 +8,13 @@ namespace Sokoban.Model
 {
     class ChestObject : TileObject
     {
-        public char _chestValue = 'O';
+        public char _standardValue = 'O';
 
         private bool _canHavePlayer = false;
 
         public new char GetChar()
         {
-            return _chestValue;
+            return _standardValue;
         }
     }
 }
