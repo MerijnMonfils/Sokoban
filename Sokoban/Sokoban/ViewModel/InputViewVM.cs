@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-namespace Sokoban
+using Sokoban.Model;
+namespace Sokoban.ViewModel
 {
     public class InputViewVM
     {

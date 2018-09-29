@@ -6,15 +6,21 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class ChestObject : TileObject
+    class ChestObject : baseObject
     {
-        public char _standardValue = 'O';
-
-        private bool _canHavePlayer = false;
-
-        public new char GetChar()
+        private char _test = '#';
+        public override char _value
         {
-            return _standardValue;
+            get
+            {
+                return _test;
+            }
+            set
+            {
+
+                _test = value;
+
+            }
         }
     }
 }

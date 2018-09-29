@@ -6,8 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Sokoban.Model;
 
-namespace Sokoban
+namespace Sokoban.ViewModel
+
 {
     public class OutputViewVM
     {
@@ -22,7 +24,7 @@ namespace Sokoban
         public OutputViewVM()
         {
             _parseLevels = new ParseLevel();
-            _mainView = new MainView(this, _parseLevels);
+          //  _mainView = new MainView(this, _parseLevels);
         }
 
         // TESTING PURPOSES
@@ -101,9 +103,9 @@ namespace Sokoban
 
             if (input == ConsoleKey.R)
             {
-                InputViewVM v = new InputViewVM(_mainView, this, _parseLevels);
+                // InputViewVM v = new InputViewVM(_mainView, this, _parseLevels);
                 Console.Clear();
-                v.StartLevel("" + _currentLevelNumber);
+               // v.StartLevel("" + _currentLevelNumber);
             }
 
             if(input == ConsoleKey.UpArrow)

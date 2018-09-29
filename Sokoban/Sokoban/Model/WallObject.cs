@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class WallObject : TileObject
+    class WallObject : baseObject
     {
-        private char _standardValue = '#';
+        private char _test = '#';
+     
 
-        private bool _canHavePlayer = false;
-
-        public new char GetChar()
+        public override char GetChar()
         {
-            return _standardValue;
+            return _test;
         }
     }
 }

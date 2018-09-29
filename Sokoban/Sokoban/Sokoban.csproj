@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\baseObject.cs" />
     <Compile Include="Model\Characters.cs" />
     <Compile Include="Model\ChestObject.cs" />
     <Compile Include="Model\DestinationObject.cs" />

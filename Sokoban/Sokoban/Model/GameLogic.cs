@@ -1,15 +1,17 @@
 ﻿using System;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
     public class GameLogic
     {
         private Characters _characters;
 
         private bool _isOnDestination;
+   
 
         public GameLogic()
         {
+          
             _characters = new Characters();
         }
 
@@ -77,10 +79,16 @@ namespace Sokoban
 
                     }
                 }
+
+               
             }
 
             return level;
+
+           
         }
+
+        
 
         public char[,] MoveToLeft(char[,] level)
         {

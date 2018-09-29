@@ -14,8 +14,9 @@ namespace Sokoban.Model
         public LinkedGameObject Last { get; set; }
 
         private int _prevRow;
+        
 
-        public void InsertInRow(Object obj, int currRow, int currCol)
+        public void InsertInRow(baseObject obj, int currRow, int currCol)
         {
             // first row
             if (First == null)
@@ -38,8 +39,10 @@ namespace Sokoban.Model
 
 
             // TODO REMOVE THIS
-            Console.Write("New Object Added: '" + obj.ToString() + "'\n");
+            Console.Write("New Object Added: '" + obj.GetChar() + "'\n");
             Console.Read();
+
+           
 
             // new row
             if (_prevRow != currRow)
@@ -63,7 +66,7 @@ namespace Sokoban.Model
             }
             
             LinkedGameObject l = new LinkedGameObject();
-
+            
             if (FirstInCurrentRow == null)
             {
                 // first object in new row

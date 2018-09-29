@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
     public class ParseLevel
 
@@ -109,12 +109,16 @@ namespace Sokoban
         }
 
         // check symbol in file -> returns new gameObject
-        private Object CheckCharacterAt(string line, int postionInRow)
+        private baseObject CheckCharacterAt(string line, int postionInRow)
         {
+            baseObject test;
             char c = line[postionInRow];
             switch (c)
             {
                 case '#':
+
+                    test = new WallObject();
+                    test.GetChar();
                     return new WallObject();
                 case 'O':
                     return new ChestObject();

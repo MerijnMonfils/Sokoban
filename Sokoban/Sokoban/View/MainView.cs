@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Sokoban.ViewModel;
 
-namespace Sokoban
+namespace Sokoban.View
 {
     public class MainView
     {
         private InputViewVM input;
+        
 
         public MainView(OutputViewVM output, ParseLevel parse)
         {
             input = new InputViewVM(this, output, parse);
+
+
         }
 
         public void StartScreen()
@@ -44,8 +48,12 @@ namespace Sokoban
 
         public void StartListening()
         {
+
+            
             string s = Console.ReadLine();
             input.StartLevel(s);
+
+            
         }
 
         public void Write(string line)

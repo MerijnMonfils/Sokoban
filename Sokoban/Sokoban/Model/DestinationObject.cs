@@ -6,26 +6,21 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class DestinationObject : TileObject
+    class DestinationObject : baseObject
     {
-        private char _standardValue { get; set; }
-
-        public DestinationObject()
+        private char _test = '#';
+        public override char _value
         {
-            _standardValue = 'X';
-        }
+            get
+            {
+                return _test;
+            }
+            set
+            {
 
-        public new char GetChar()
-        {
-            return _standardValue;
-        }
+                _test = value;
 
-        public void HasChest(bool hasChest)
-        {
-            if (hasChest)
-                this._standardValue = '0';
-            else
-                this._standardValue = 'X';            
+            }
         }
     }
 }
