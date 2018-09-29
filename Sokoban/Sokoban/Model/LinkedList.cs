@@ -15,7 +15,7 @@ namespace Sokoban.Model
 
         private int _prevRow;
 
-        public void InsertInRow(object obj, int currRow, int currCol)
+        public void InsertInRow(Object obj, int currRow, int currCol)
         {
             // first row
             if (First == null)
@@ -25,7 +25,8 @@ namespace Sokoban.Model
                 Last = First;
                 FirstInPreviousRow = First;
                 return;
-            } else if(currRow < 0)
+            }
+            else if (currRow < 0)
             {
                 Last.ObjectNext = new LinkedGameObject();
                 Last.ObjectNext.GameObject = obj;
@@ -35,25 +36,34 @@ namespace Sokoban.Model
                 return;
             }
 
+
+            // TODO REMOVE THIS
+            Console.Write("New Object Added: '" + obj.ToString() + "'\n");
+            Console.Read();
+
             // new row
-            if(_prevRow != currRow)
+            if (_prevRow != currRow)
             {
                 FirstInCurrentRow = null;
                 _prevRow = currRow;
-            } 
-
-            // find most right element in current row
-            var mostRightObj = FirstInCurrentRow;
-            for(int x = 0; x < currCol; x++)
-            {
-                if(mostRightObj.ObjectNext != null)
-                {
-                    mostRightObj = mostRightObj.ObjectNext;
-                } 
             }
 
-            LinkedGameObject l = new LinkedGameObject();
+            var mostRightObj = new LinkedGameObject();
+            // find most right element in current row
+            if (FirstInCurrentRow != null)
+            {
+                mostRightObj = FirstInCurrentRow;
+                for (int x = 0; x < currCol; x++)
+                {
+                    if (mostRightObj.ObjectNext != null)
+                    {
+                        mostRightObj = mostRightObj.ObjectNext;
+                    }
+                }
+            }
             
+            LinkedGameObject l = new LinkedGameObject();
+
             if (FirstInCurrentRow == null)
             {
                 // first object in new row
@@ -75,7 +85,8 @@ namespace Sokoban.Model
             {
                 l.ObjectAbove = FirstInPreviousRow;
                 FirstInPreviousRow.ObjectBelow = l;
-            } else
+            }
+            else
             {
                 var mostRightInPreviousRow = FirstInPreviousRow;
                 for (int x = 0; x <= currCol; x++)

@@ -109,9 +109,9 @@ namespace Sokoban
         }
 
         // check symbol in file -> returns new gameObject
-        private object CheckCharacterAt(string line, int postionInRow)
+        private Object CheckCharacterAt(string line, int postionInRow)
         {
-            object newGameObject;
+            Object newGameObject;
             char c = line[postionInRow];
             switch (c)
             {

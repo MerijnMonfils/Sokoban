@@ -25,6 +25,13 @@ namespace Sokoban
             _mainView = new MainView(this, _parseLevels);
         }
 
+        // TESTING PURPOSES
+        public void Test()
+        {
+            _parseLevels.CountLevels();
+            _parseLevels.SaveCollection();
+        }
+
         public void ShowMenu()
         {
             _parseLevels.CountLevels();
