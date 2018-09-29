@@ -62,7 +62,7 @@ namespace Sokoban
                 {
                     for (int i = 0; i < (lines[z].Length); i++) // for length of row
                     {
-                        list.InsertInRow(CheckCharacterAt(lines[z], i), z);
+                        list.InsertInRow(CheckCharacterAt(lines[z], i), z, i);
                     }
                 }
                 // finally add current linkedlist to array of all levels
