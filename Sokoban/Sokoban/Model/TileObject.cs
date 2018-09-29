@@ -8,26 +8,17 @@ namespace Sokoban.Model
 {
      class TileObject : baseObject
     {
-        private char _test = '.';
+        private char _tileValue = '.';
         public override char _value
         {
             get
             {
-                return _test;
+                return _tileValue;
             }
             set
             {
-
-                _test = value;
-
+                _tileValue = value;
             }
         }
-
-        public override char GetChar()
-        {
-            return base.GetChar();
-        }
-
-
     }
 }

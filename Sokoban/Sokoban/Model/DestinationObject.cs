@@ -8,19 +8,25 @@ namespace Sokoban.Model
 {
     class DestinationObject : baseObject
     {
-        private char _test = '#';
+        private char _destinationValue = 'X';
         public override char _value
         {
             get
             {
-                return _test;
+                return _destinationValue;
             }
             set
             {
-
-                _test = value;
-
+                _destinationValue = value;
             }
+        }
+
+        public void HasChest(bool hasChest)
+        {
+            if (hasChest)
+                this._destinationValue = '0';
+            else
+                this._destinationValue = 'X';
         }
     }
 }

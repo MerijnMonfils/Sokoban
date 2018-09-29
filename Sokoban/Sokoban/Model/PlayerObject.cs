@@ -8,18 +8,16 @@ namespace Sokoban.Model
 {
     class PlayerObject : baseObject
     {
-        private char _test = '#';
+        private char _playerValue = '@';
         public override char _value
         {
             get
             {
-                return _test;
+                return _playerValue;
             }
             set
             {
-
-                _test = value;
-
+                _playerValue = value;
             }
         }
     }

@@ -11,9 +11,9 @@ namespace Sokoban.View
         private InputViewVM input;
         
 
-        public MainView(OutputViewVM output, ParseLevel parse)
+        public MainView(OutputViewVM output)
         {
-            input = new InputViewVM(this, output, parse);
+            // input = new InputViewVM(this, output, parse);
 
 
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Sokoban.ViewModel;
 
 namespace Sokoban
 {

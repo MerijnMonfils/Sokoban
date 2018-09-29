@@ -8,18 +8,16 @@ namespace Sokoban.Model
 {
     class ChestObject : baseObject
     {
-        private char _test = '#';
+        private char _chestValue = 'O';
         public override char _value
         {
             get
             {
-                return _test;
+                return _chestValue;
             }
             set
             {
-
-                _test = value;
-
+                _chestValue = value;
             }
         }
     }

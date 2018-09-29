@@ -13,7 +13,7 @@ namespace Sokoban.ViewModel
 {
     public class OutputViewVM
     {
-        private MainView _mainView;
+        //  private MainView _mainView;
         private ParseLevel _parseLevels;
         private GameLogic logic;
 
@@ -37,8 +37,8 @@ namespace Sokoban.ViewModel
         public void ShowMenu()
         {
             _parseLevels.CountLevels();
-            _mainView.StartScreen();
-            _mainView.StartListening();
+            // _mainView.StartScreen();
+            // _mainView.StartListening();
         }
 
         public void SetCurrentLevel(char[,] level, int lvlNumb)
@@ -56,16 +56,16 @@ namespace Sokoban.ViewModel
         {
             Console.Clear();
 
-            _mainView.WriteLine("'s' to leave\n'm' to show menu\n'r' to reset");
-            _mainView.WriteLine("");
+            // _mainView.WriteLine("'s' to leave\n'm' to show menu\n'r' to reset");
+            // _mainView.WriteLine("");
 
             for (int x = 0; x < level.GetLength(0); x++)
             {
                 for (int i = 0; i < level.GetLength(1); i++)
                 {
-                    _mainView.Write(level.GetValue(x, i).ToString());
+                    // _mainView.Write(level.GetValue(x, i).ToString());
                 }
-                _mainView.WriteLine("");
+                // _mainView.WriteLine("");
             }
 
         }
@@ -97,8 +97,8 @@ namespace Sokoban.ViewModel
             {
                 Console.Clear();
                 isPlaying = false;
-                _mainView.StartScreen();
-                _mainView.StartListening();
+                // _mainView.StartScreen();
+                // _mainView.StartListening();
             }
 
             if (input == ConsoleKey.R)

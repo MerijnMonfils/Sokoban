@@ -15,7 +15,7 @@ namespace Sokoban.Model
 
         // file reading resources
         private string _path;
-        private string[] _files; 
+        private string[] _files;
         private DirectoryInfo _di;
 
         private Characters _characters;
@@ -49,14 +49,14 @@ namespace Sokoban.Model
             LinkedList list;
 
             // execute for each file
-            for (int x = 0; x < _amount; x++) 
+            for (int x = 0; x < _amount; x++)
             {
                 // initialize linkedlist
                 list = new LinkedList();
 
                 // read all lines in current file
                 string[] lines = System.IO.File.ReadAllLines(_files[x]);
-                
+
                 // setup linkedlist
                 for (int z = 0; z < lines.Length; z++) // for each row
                 {
@@ -74,8 +74,7 @@ namespace Sokoban.Model
         {
             return _allLevels[input];
         }
-
-
+        
         // TODO REMOVE THIS METHOD
         public char[,] ReadFiles(int a)
         {
@@ -97,12 +96,12 @@ namespace Sokoban.Model
             int rows = lines.Length;
             int columns = longest.Length;
 
-            char[,] first = new char[rows,columns];
-            for(int x = 0; x < rows; x++)
+            char[,] first = new char[rows, columns];
+            for (int x = 0; x < rows; x++)
             {
-                for(int i = 0; i < (lines[x].Length); i++)
+                for (int i = 0; i < (lines[x].Length); i++)
                 {
-                   // first[x,i] = CheckCharacterAt(lines[x], i);
+                    // first[x,i] = CheckCharacterAt(lines[x], i);
                 }
             }
             return first;
@@ -132,6 +131,6 @@ namespace Sokoban.Model
                     return new WallObject();
             }
         }
-        
+
     }
 }

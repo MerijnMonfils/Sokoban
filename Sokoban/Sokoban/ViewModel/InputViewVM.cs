@@ -7,13 +7,11 @@ namespace Sokoban.ViewModel
 {
     public class InputViewVM
     {
-        private MainView _view;
         private OutputViewVM _output;
         private ParseLevel _level;
 
-        public InputViewVM(MainView mainView, OutputViewVM output, ParseLevel level)
+        public InputViewVM(OutputViewVM output, ParseLevel level)
         {
-            _view = mainView;
             _output = output;
             _level = level;
         }
@@ -69,8 +67,8 @@ namespace Sokoban.ViewModel
 
         private void AskAgain()
         {
-            _view.WriteLine("?");
-            _view.StartListening();
+            // _view.WriteLine("?");
+            // _view.StartListening();
         }
 
     }

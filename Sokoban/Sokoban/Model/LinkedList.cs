@@ -37,13 +37,6 @@ namespace Sokoban.Model
                 return;
             }
 
-
-            // TODO REMOVE THIS
-            Console.Write("New Object Added: '" + obj.GetChar() + "'\n");
-            Console.Read();
-
-           
-
             // new row
             if (_prevRow != currRow)
             {
