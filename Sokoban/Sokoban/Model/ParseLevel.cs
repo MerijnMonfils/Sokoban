@@ -111,22 +111,21 @@ namespace Sokoban
         // check symbol in file -> returns new gameObject
         private Object CheckCharacterAt(string line, int postionInRow)
         {
-            Object newGameObject;
             char c = line[postionInRow];
             switch (c)
             {
                 case '#':
-                    return newGameObject = new WallObject();
+                    return new WallObject();
                 case 'O':
-                    return newGameObject = new ChestObject();
+                    return new ChestObject();
                 case '.':
-                    return newGameObject = new TileObject();
+                    return new TileObject();
                 case '@':
-                    return newGameObject = new PlayerObject();
+                    return new PlayerObject();
                 case 'X':
-                    return newGameObject = new DestinationObject();
-                default: // not accepted characters
-                    return newGameObject = new WallObject();
+                    return new DestinationObject();
+                default:
+                    return new WallObject();
             }
         }
         
