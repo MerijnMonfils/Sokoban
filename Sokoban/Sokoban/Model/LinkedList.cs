@@ -15,7 +15,7 @@ namespace Sokoban.Model
 
         private int _prevRow;
 
-        public void InsertInRow(LinkedGameObject obj, int currRow, int currCol)
+        public void InsertInRow(object obj, int currRow, int currCol)
         {
             // first row
             if (First == null)

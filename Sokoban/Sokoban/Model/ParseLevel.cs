@@ -109,33 +109,33 @@ namespace Sokoban
         }
 
         // check symbol in file -> returns new gameObject
-        private LinkedGameObject CheckCharacterAt(string line, int postionInRow)
+        private object CheckCharacterAt(string line, int postionInRow)
         {
-            LinkedGameObject newGameObject = new LinkedGameObject();
+            object newGameObject;
             char c = line[postionInRow];
             switch (c)
             {
                 case '#':
-                    newGameObject.GameObject = new WallObject();
+                    newGameObject = new WallObject();
                     break;
                 case 'O':
-                    newGameObject.GameObject = new ChestObject();
+                    newGameObject = new ChestObject();
                     break;
                 case '.':
-                    newGameObject.GameObject = new TileObject();
+                    newGameObject = new TileObject();
                     break;
                 case '@':
-                    newGameObject.GameObject = new PlayerObject();
+                    newGameObject = new PlayerObject();
                     break;
                 case 'X':
-                    newGameObject.GameObject = new DestinationObject();
+                    newGameObject = new DestinationObject();
                     break;
      
                 default: // not accepted characters
-                    newGameObject.GameObject = new WallObject();
+                    newGameObject = new WallObject();
                     break;
             }
-            return new LinkedGameObject();
+            return new object();
         }
         
     }
