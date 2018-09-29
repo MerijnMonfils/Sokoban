@@ -10,12 +10,10 @@ namespace Sokoban.Model
     {
         private char _chestValue = 'O';
 
-
         protected new bool _canHavePlayer = false;
 
         protected new char GetChar()
         {
-
             return _chestValue;
         }
     }

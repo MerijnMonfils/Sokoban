@@ -12,10 +12,8 @@ namespace Sokoban.Model
 
         protected bool _canHavePlayer = true;
 
-
         protected char GetChar()
         {
-
             return _standardValue;
         }
     }
