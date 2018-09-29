@@ -19,7 +19,7 @@ namespace Sokoban
         private DirectoryInfo _di;
 
         private Characters _characters;
-        private Object[] _allLevels;
+        private LinkedList[] _allLevels;
 
         public ParseLevel()
         {
@@ -37,7 +37,7 @@ namespace Sokoban
                 _files[_amount] = f.FullName;
                 this._amount = _amount + 1; // amount of files in map
             }
-            _allLevels = new Object[_amount];
+            _allLevels = new LinkedList[_amount];
         }
 
         public void SaveCollection()
@@ -70,19 +70,13 @@ namespace Sokoban
             }
         }
 
-        private int SetupCurrentLevel(string[] lines)
+        public LinkedList GetLevel(int input)
         {
-            //Amount of characters in the txt file
-            int amountOfChars = 0;
-            for (int i = 0; i < lines.Length; i++)
-            {
-                //Add the lenght of each row to determine the amount of chars
-                amountOfChars += lines[i].Length;
-            }
-            return amountOfChars;
+            return _allLevels[input];
         }
 
 
+        // TODO REMOVE THIS METHOD
         public char[,] ReadFiles(int a)
         {
             //Size of this variable is the amount of rows
@@ -114,6 +108,7 @@ namespace Sokoban
             return first;
         }
 
+        // check symbol in file -> returns new gameObject
         private LinkedGameObject CheckCharacterAt(string line, int postionInRow)
         {
             LinkedGameObject newGameObject = new LinkedGameObject();

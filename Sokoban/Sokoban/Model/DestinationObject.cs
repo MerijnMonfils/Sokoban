@@ -10,16 +10,17 @@ namespace Sokoban.Model
     {
         private char _destinationValue { get; set; }
 
-
-        protected new bool _canHavePlayer = true;
-
-        protected new char GetChar()
+        public DestinationObject()
         {
+            _destinationValue = 'X';
+        }
 
+        public new char GetChar()
+        {
             return _destinationValue;
         }
 
-        protected void HasChest(bool hasChest)
+        public void HasChest(bool hasChest)
         {
             if (hasChest)
                 this._destinationValue = '0';

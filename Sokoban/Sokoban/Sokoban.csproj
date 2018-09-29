@@ -65,7 +65,7 @@
     <Compile Include="Model\DestinationObject.cs" />
     <Compile Include="Model\GameLogic.cs" />
     <Compile Include="Model\LinkedGameObject.cs" />
-    <Compile Include="Model\LinkedList.cs" />
+    <Compile Include="Model\LinkedListGameObjects.cs" />
     <Compile Include="Model\PlayerObject.cs" />
     <Compile Include="Model\TileObject.cs" />
     <Compile Include="Model\WallObject.cs" />

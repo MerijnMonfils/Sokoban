@@ -10,12 +10,10 @@ namespace Sokoban.Model
     {
         private char _playerValue = '@';
 
-        protected new bool _canHavePlayer = false;
+        private bool _canHavePlayer = false;
 
-
-        protected new char GetChar()
+        public new char GetChar()
         {
-
             return _playerValue;
         }
     }

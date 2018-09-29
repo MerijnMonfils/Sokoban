@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class TileObject
+    public class TileObject
     {
-        protected char _standardValue = '.';
+        private char _standardValue = '.';
 
-        protected bool _canHavePlayer = true;
+        private bool _canHavePlayer = true;
 
-        protected char GetChar()
+        public char GetChar()
         {
             return _standardValue;
         }

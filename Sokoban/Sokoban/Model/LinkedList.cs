@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class LinkedList
+    public class LinkedList
     {
         public LinkedGameObject First { get; set; }
         public LinkedGameObject FirstInPreviousRow { get; set; }
@@ -14,7 +14,7 @@ namespace Sokoban.Model
         public LinkedGameObject Last { get; set; }
 
         private int _prevRow;
-        
+
         public void InsertInRow(LinkedGameObject obj, int currRow, int currCol)
         {
             // first row
@@ -35,9 +35,9 @@ namespace Sokoban.Model
                 return;
             }
 
+            // new row
             if(_prevRow != currRow)
             {
-                FirstInPreviousRow = FirstInCurrentRow;
                 FirstInCurrentRow = null;
                 _prevRow = currRow;
             } 
@@ -78,9 +78,12 @@ namespace Sokoban.Model
             } else
             {
                 var mostRightInPreviousRow = FirstInPreviousRow;
-                while (mostRightInPreviousRow.ObjectNext != null)
+                for (int x = 0; x <= currCol; x++)
                 {
-                    mostRightInPreviousRow = mostRightInPreviousRow.ObjectNext;
+                    if (mostRightInPreviousRow.ObjectNext != null)
+                    {
+                        mostRightInPreviousRow = mostRightInPreviousRow.ObjectNext;
+                    }
                 }
                 l.ObjectAbove = mostRightInPreviousRow;
                 mostRightInPreviousRow.ObjectBelow = l;
