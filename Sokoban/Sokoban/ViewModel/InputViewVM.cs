@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Sokoban.Model;
+﻿using Sokoban.Model;
 using Sokoban.View;
+using System;
 
 namespace Sokoban.ViewModel
 {
@@ -11,6 +8,7 @@ namespace Sokoban.ViewModel
     {
         private OutputViewVM _output;
         private MainView _view;
+        private GameLogic logic;
 
         public InputViewVM(OutputViewVM output, MainView view)
         {
@@ -28,7 +26,10 @@ namespace Sokoban.ViewModel
             {
                 string x = input.ToString().Substring(1,1);
                 int i = int.Parse(x);
-                _output.LoadLevel(i);
+                logic = new GameLogic();
+                _output.LoadLevel(i - 1);
+                logic.SetPlayer(_output._currentLevel);
+                _output.ShowLevel();
             } catch (Exception e)
             {
                 _view.StartListening();
@@ -51,24 +52,29 @@ namespace Sokoban.ViewModel
             }
             else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
             {
-                // Up movement
+                _output._currentLevel = logic.MoveUp(_output._currentLevel);
+                _output.ShowLevel();
             }
             else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
             {
-                // Left movement
+               // _output._currentLevel = logic.MoveLeft(_output._currentLevel);
+               // _output.ShowLevel();
             }
             else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
             {
-                // Down movement
+               // _output._currentLevel = logic.MoveDown(_output._currentLevel);
+               // _output.ShowLevel();
             }
             else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
             {
-                // Right movement
+               // _output._currentLevel = logic.MoveRight(_output._currentLevel);
+               // _output.ShowLevel();
             }
             else
             {
                 _view.StartPlaying();
             }
+            _view.StartPlaying(); // TODO: remove this
         }
     }
 }

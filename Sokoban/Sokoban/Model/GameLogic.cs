@@ -4,306 +4,90 @@ namespace Sokoban.Model
 {
     public class GameLogic
     {
-        private Characters _characters;
+        private LinkedGameObject PlayerObject;
 
-        private bool _isOnDestination;
-   
-
-        public GameLogic()
+        public void SetPlayer(LinkedList currentLevel)
         {
-          
-            _characters = new Characters();
+            var rows = currentLevel.First;
+            var columns = currentLevel.First;
+
+            while (rows != null)
+            {
+                while (columns != null)
+                {
+                    if(columns.GameObject.GetChar() == '@')
+                    {
+                        PlayerObject = columns;
+                        return;
+                    }
+                    columns = columns.ObjectNext;
+                }
+                rows = rows.ObjectBelow;
+                columns = rows;
+            }            
         }
 
-        public char[,] MoveToRight(char[,] level)
+        private void SwapTwo(LinkedGameObject first, LinkedGameObject second)
         {
-            for (int i = 0; i < level.GetLength(0); i++)
-            {
-                for (int k = 0; k < level.GetLength(1); k++)
-                {
-                    if (level[i, k].Equals(_characters._truck))
-                    {
+            var temp = first.GameObject;
 
-                        //going forward with a truck
-                        if (level[i, k + 1].Equals(_characters._tile))
-                        {
-                            level[i, k + 1] = _characters._truck;
-                            if (_isOnDestination)
-                            {
-                                level[i, k] = _characters._destination;
-                                _isOnDestination = false;
-                            }
-                            else
-                            {
-                                level[i, k] = _characters._tile;
-                            }
-                            return level;
-                        }
-                        //moving onto a Destination tile
-                        if (level[i, k + 1].Equals(_characters._destination))
-                        {
-                            level[i, k + 1] = _characters._truck;
-                            level[i, k] = _characters._tile;
-                            _isOnDestination = true;
-                            return level;
-                        }
+            first.GameObject = second.GameObject;
 
-                        //Pushing a crate to the next tile
-                        if (k + 2 < level.GetLength(1) && level[i, k + 1].Equals(_characters._crate) &&
-                            level[i, k + 2].Equals(_characters._tile))
-                        {
-                           
-                            level[i, k + 1] = _characters._truck;
-                            level[i, k + 2] = _characters._crate;
-                            if (_isOnDestination)
-                            {
-                                level[i, k] = _characters._destination;
-                                _isOnDestination = false;
-                                return level;
-                            }
-                            level[i, k] = _characters._tile;
-                            return level;
-
-                        }
-
-                        //pushing a crate to the destination.
-                        if (k + 2 < level.GetLength(1) && level[i, k + 1].Equals(_characters._crate) &&
-                            level[i, k + 2].Equals(_characters._destination))
-                        {
-                            level[i, k] = _characters._tile;
-                            level[i, k + 1] = _characters._crate;
-                            level[i, k + 2] = _characters._crateOnDestination;
-                            return level;
-                        }
-
-
-                    }
-                }
-
-               
-            }
-
-            return level;
-
-           
+            second.GameObject = temp;
         }
 
-        
-
-        public char[,] MoveToLeft(char[,] level)
+        public LinkedList MoveUp(LinkedList currentLevel)
         {
-            for (int i = 0; i < level.GetLength(0); i++)
+            Console.WriteLine("ObjectAbove: " + PlayerObject.ObjectAbove.GameObject.GetChar());
+            Console.WriteLine("ObjectBelow: " + PlayerObject.ObjectBelow.GameObject.GetChar());
+            Console.WriteLine("ObjectPrevious: " + PlayerObject.ObjectPrevious.GameObject.GetChar());
+            Console.WriteLine("ObjectNext: " + PlayerObject.ObjectNext.GameObject.GetChar());
+
+            Console.ReadLine();
+            if (PlayerObject.ObjectAbove.GameObject.GetChar() == '.')
             {
-                for (int k = 0; k < level.GetLength(1); k++)
+                SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
+                PlayerObject = PlayerObject.ObjectAbove;
+            }
+            return currentLevel;
+            //if above neighbour == crate
+
+            if (PlayerObject.ObjectAbove.GameObject.GetChar() == 'O')
+            {
+                //If above the crate are either a tile or a destination objects: 
+                if (PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == 'X' ||
+                    PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == '.')
                 {
-                    if (level[i, k].Equals(_characters._truck))
-                    {
+                    //Swap em all!
 
-                        //going forwaard with a truck
-                        if (level[i, k - 1].Equals(_characters._tile))
-                        {
-                            level[i, k - 1] = _characters._truck;
-                            if (_isOnDestination)
-                            {
-                                level[i, k] = _characters._destination;
-                                _isOnDestination = false;
-                                return level;
-                            }
+                    var temp1 = PlayerObject.ObjectAbove.ObjectAbove.GameObject; //.
+                    var temp = PlayerObject.ObjectAbove.GameObject; //O
+                    var p = PlayerObject.GameObject; //@
+
+                    PlayerObject.ObjectAbove.GameObject = PlayerObject.ObjectAbove.ObjectAbove.GameObject;
+                    PlayerObject.ObjectAbove.ObjectAbove.GameObject = temp;
 
 
-                            level[i, k] = _characters._tile;
-                            return level;
-
-                        }
-
-                        //moving onto a Destination tile
-                        if (level[i, k - 1].Equals(_characters._destination))
-                        {
-                            level[i, k - 1] = _characters._truck;
-                            level[i, k] = _characters._tile;
-                            _isOnDestination = true;
-                            return level;
-                        }
-
-                        //Pushing a crate to the next tile
-                        if (k - 2 >= 0 && level[i, k - 1].Equals(_characters._crate) &&
-                        level[i, k - 2].Equals(_characters._tile))
-                        {
-                            level[i, k - 1] = _characters._truck;
-                            level[i, k - 2] = _characters._crate;
-                            if (_isOnDestination)
-                            {
-                                level[i, k] = _characters._destination;
-                                _isOnDestination = false;
-                                return level;
-                            }
-                            level[i, k] = _characters._tile;
-                            return level;
-                        }
-
-                        //pushing a crate to the destination.
-                        if (k - 2 >= 0 && level[i, k - 1].Equals(_characters._crate) &&
-                            level[i, k - 2].Equals(_characters._destination))
-                        {
-                            level[i, k] = _characters._tile;
-                            level[i, k - 1] = _characters._crate;
-                            level[i, k - 2] = _characters._crateOnDestination;
-                            return level;
-                        }
-
-
-                    }
+                    PlayerObject.GameObject = temp1;
+                    PlayerObject.ObjectAbove.GameObject = p;
                 }
             }
-
-            return level;
+            return currentLevel;
         }
 
-        public char[,] MoveToTop(char[,] level)
+        public LinkedList MoveLeft(LinkedList currentLevel)
         {
-            for (int i = 0; i < level.GetLength(0); i++)
-            {
-                for (int k = 0; k < level.GetLength(1); k++)
-                {
-                    if (i - 1 >= 0 && level[i, k].Equals(_characters._truck))
-                    {
-                        //Going downwards with the truck
-                        if (level[i - 1, k].Equals(_characters._tile))
-                        {
-                            level[i - 1, k] = _characters._truck;
-                            if (_isOnDestination)
-                            {
-                                _isOnDestination = false;
-                                level[i, k] = _characters._destination;
-                                return level;
-                            }
-                            level[i, k] = _characters._tile;
-                            return level;
-                        }
-
-                        //moving onto a Destination tile
-                        if (level[i-1, k].Equals(_characters._destination))
-                        {
-                            level[i - 1, k] = _characters._truck;
-                            level[i, k] = _characters._tile;
-                            _isOnDestination = true;
-                            return level;
-                        }
-
-                        //Pushing a crate to the next tile
-                        if (i - 2 >= 0 && level[i - 1, k].Equals(_characters._crate) &&
-                            level[i - 2, k].Equals(_characters._tile))
-                        {
-                            level[i - 1, k] = _characters._truck;
-                            level[i - 2, k] = _characters._crate;
-                            if (_isOnDestination)
-                            {
-                                level[i, k] = _characters._destination;
-                                _isOnDestination = false;
-                                return level;
-                            }
-                            level[i, k] = _characters._tile;
-                            return level;
-
-                        }
-
-                        //pushing a crate to the destination.
-                        if (i - 2 >= 0 && level[i - 1, k].Equals(_characters._crate) &&
-                            level[i - 2, k].Equals(_characters._destination))
-                        {
-                            level[i, k] = _characters._tile;
-                            level[i - 1, k] = _characters._crate;
-                            level[i - 2, k] = _characters._crateOnDestination;
-                            return level;
-                        }
-                    }
-                }
-            }
-
-            return level;
+            throw new NotImplementedException();
         }
 
-        public char[,] MoveToBottom(char[,] level)
+        public LinkedList MoveDown(LinkedList currentLevel)
         {
-            for (int i = 0; i < level.GetLength(0); i++)
-            {
-                for (int k = 0; k < level.GetLength(1); k++)
-                {
-                    if (i + 1 < level.GetLength(0) && level[i, k].Equals(_characters._truck))
-                    {
-                        //Going downwards with the truck
-                        if (level[i + 1, k].Equals(_characters._tile))
-                        {
-                            level[i + 1, k] = _characters._truck;
-                            if (_isOnDestination)
-                            {
-                                level[i, k] = _characters._destination;
-                                _isOnDestination = false;
-                                return level;
-
-                            }
-                            level[i, k] = _characters._tile;
-                            return level;
-                        }
-
-
-                        //moving onto a Destination tile
-                        if (level[i + 1, k].Equals(_characters._destination))
-                        {
-                            level[i + 1, k] = _characters._truck;
-                            level[i, k] = _characters._tile;
-                            _isOnDestination = true;
-                            return level;
-                        }
-                        //Pushing a crate to the next tile
-                        if (i + 2 < level.GetLength(0) && level[i + 1, k].Equals(_characters._crate) &&
-                            level[i + 2, k].Equals(_characters._tile))
-                        {
-                            level[i + 1, k] = _characters._truck;
-                            level[i + 2, k] = _characters._crate;
-                            if (_isOnDestination)
-                            {
-                                level[i, k] = _characters._destination;
-                                _isOnDestination = false;
-                                return level;
-                            }
-                            level[i, k] = _characters._tile;
-                            return level;
-
-                        }
-
-                        //pushing a crate to the destination.
-                        
-                        if (i + 2 < level.GetLength(0) && level[i + 1, k].Equals(_characters._crate) &&
-                            level[i + 2, k].Equals(_characters._destination))
-                        {
-                            level[i, k] = _characters._tile;
-                            level[i + 1, k] = _characters._crate;
-                            level[i + 2, k] = _characters._crateOnDestination;
-                            
-                            return level;
-                        }
-                    }
-                }
-            }
-
-            return level;
+            throw new NotImplementedException();
         }
 
-        public Boolean gameFinished(char[,] level)
+        public LinkedList MoveRight(LinkedList currentLevel)
         {
-            for (int i = 0; i < level.GetLength(0); i++)
-            {
-                for (int k = 0; k < level.GetLength(1); k++)
-                {
-                    if (level[i, k].Equals(_characters._truck))
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+            throw new NotImplementedException();
         }
     }
 }

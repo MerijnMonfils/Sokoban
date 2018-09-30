@@ -16,9 +16,8 @@ namespace Sokoban.ViewModel
     {
         private MainView _mainView;
         private ParseLevel _parseLevels;
-        private GameLogic logic;
 
-        private LinkedList _currentLevel { get; set; }
+        public LinkedList _currentLevel { get; set; }
         public int _currentLevelNumber { get; private set; }
 
         public OutputViewVM()
@@ -47,10 +46,9 @@ namespace Sokoban.ViewModel
         {
             _currentLevel = _parseLevels.GetLevel(level);
             _currentLevelNumber = level;
-            OutputLevel();
         }
 
-        public void OutputLevel()
+        public void ShowLevel()
         {
             _mainView.Clear();
             
