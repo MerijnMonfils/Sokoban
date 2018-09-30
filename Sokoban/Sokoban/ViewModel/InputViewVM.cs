@@ -23,19 +23,28 @@ namespace Sokoban.ViewModel
             if (input == ConsoleKey.S)
             {
                 Environment.Exit(0);
-            } else if (input == ConsoleKey.D1)
+            }
+            else if (input == ConsoleKey.D1)
             {
                 _output.LoadLevel(0);
-            } else if (input == ConsoleKey.D2)
+            }
+            else if (input == ConsoleKey.D2)
             {
                 _output.LoadLevel(1);
-            } else if (input == ConsoleKey.D3)
+            }
+            else if (input == ConsoleKey.D3)
             {
                 _output.LoadLevel(2);
-            } else if (input == ConsoleKey.D4)
+            }
+            else if (input == ConsoleKey.D4)
             {
                 _output.LoadLevel(3);
-            } else
+            }
+            else if (input == ConsoleKey.D5)
+            {
+                _output.LoadLevel(4);
+            }
+            else
             {
                 _view.StartListening();
             }
@@ -70,7 +79,8 @@ namespace Sokoban.ViewModel
             else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
             {
                 // Right movement
-            } else
+            }
+            else
             {
                 _view.StartPlaying();
             }
