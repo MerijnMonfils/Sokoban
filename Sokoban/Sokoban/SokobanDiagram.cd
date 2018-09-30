@@ -25,21 +25,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.WallObject" Collapsed="true">
-    <Position X="3.25" Y="16.75" Width="1.5" />
+    <Position X="9.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\WallObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.TileObject" Collapsed="true">
-    <Position X="5.25" Y="16.75" Width="1.5" />
+    <Position X="11.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\TileObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.PlayerObject" Collapsed="true">
-    <Position X="7.5" Y="16.75" Width="1.5" />
+    <Position X="13.5" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\PlayerObject.cs</FileName>
@@ -56,35 +56,35 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Model.LinkedList" Collapsed="true">
-    <Position X="5.5" Y="13.25" Width="1.5" />
+    <Position X="11.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAQAAAAAAAACAAAAAAAAAAhACAAAAAAA=</HashCode>
       <FileName>Model\LinkedList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.LinkedGameObject" Collapsed="true">
-    <Position X="5.5" Y="14.25" Width="1.5" />
+    <Position X="11.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Model\LinkedGameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.DestinationObject" Collapsed="true">
-    <Position X="9.5" Y="16.75" Width="1.5" />
+    <Position X="15.5" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\DestinationObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.ChestObject" Collapsed="true">
-    <Position X="1.25" Y="16.75" Width="1.5" />
+    <Position X="7.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ChestObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.baseObject" Collapsed="true">
-    <Position X="5.5" Y="15.5" Width="1.5" />
+    <Position X="11.5" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\baseObject.cs</FileName>
