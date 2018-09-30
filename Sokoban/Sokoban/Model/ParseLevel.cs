@@ -9,22 +9,15 @@ using System.Text;
 namespace Sokoban.Model
 {
     public class ParseLevel
-
     {
-        public int _amount { get; private set; }
-
         // file reading resources
         private string _path;
         private string[] _files;
         private DirectoryInfo _di;
 
-        private Characters _characters;
+        // list of levels
+        public int _amount { get; private set; }
         private LinkedList[] _allLevels;
-
-        public ParseLevel()
-        {
-            _characters = new Characters();
-        }
 
         public void CountLevels()
         {
@@ -42,10 +35,6 @@ namespace Sokoban.Model
 
         public void SaveCollection()
         {
-            // loop through all files
-            // foreach file create a linkedObject which gets updated for each after
-
-            // create linkedlist
             LinkedList list;
 
             // execute for each file
@@ -73,38 +62,6 @@ namespace Sokoban.Model
         public LinkedList GetLevel(int input)
         {
             return _allLevels[input];
-        }
-        
-        // TODO REMOVE THIS METHOD
-        public char[,] ReadFiles(int a)
-        {
-            //Size of this variable is the amount of rows
-            string[] lines = System.IO.File.ReadAllLines(_files[a - 1]);
-
-            //Size of this variable is the amount of columns
-            string longest = lines.OrderByDescending(s => s.Length).First();
-
-            //Amount of characters in the txt file
-            int amountOfChars = 0;
-            for (int i = 0; i < lines.Length; i++)
-            {
-                //Add the lenght of each row to determine the amount of chars
-                amountOfChars += lines[i].Length;
-            }
-
-            //Rows and columns are now dynamic depending on the file input. 
-            int rows = lines.Length;
-            int columns = longest.Length;
-
-            char[,] first = new char[rows, columns];
-            for (int x = 0; x < rows; x++)
-            {
-                for (int i = 0; i < (lines[x].Length); i++)
-                {
-                    // first[x,i] = CheckCharacterAt(lines[x], i);
-                }
-            }
-            return first;
         }
 
         // check symbol in file -> returns new gameObject

@@ -3,73 +3,77 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Sokoban.Model;
+using Sokoban.View;
+
 namespace Sokoban.ViewModel
 {
     public class InputViewVM
     {
         private OutputViewVM _output;
-        private ParseLevel _level;
+        private MainView _view;
 
-        public InputViewVM(OutputViewVM output, ParseLevel level)
+        public InputViewVM(OutputViewVM output, MainView view)
         {
+            _view = view;
             _output = output;
-            _level = level;
         }
 
-        public int GetAmountOfLevels()
+        public void LoadLevel(ConsoleKey input)
         {
-            return _level._amount;
+            if (input == ConsoleKey.S)
+            {
+                Environment.Exit(0);
+            } else if (input == ConsoleKey.D1)
+            {
+                _output.LoadLevel(0);
+            } else if (input == ConsoleKey.D2)
+            {
+                _output.LoadLevel(1);
+            } else if (input == ConsoleKey.D3)
+            {
+                _output.LoadLevel(2);
+            } else if (input == ConsoleKey.D4)
+            {
+                _output.LoadLevel(3);
+            } else
+            {
+                _view.StartListening();
+            }
         }
 
-        public void StartLevel(string input)
+        public void PlayLevel(ConsoleKey key)
         {
-            if (input.Equals("s"))
+            if (key == ConsoleKey.S)
             {
                 Environment.Exit(0);
             }
-
-            try
+            else if (key == ConsoleKey.R)
             {
-                int x = int.Parse(input);
-                switch (x)
-                {
-                    case 1:
-                        SetupLevel(_level.ReadFiles(x), x);
-                        break;
-                    case 2:
-                        SetupLevel(_level.ReadFiles(x), x);
-                        break;
-                    case 3:
-                        SetupLevel(_level.ReadFiles(x), x);
-                        break;
-                    case 4:
-                        SetupLevel(_level.ReadFiles(x), x);
-                        break;
-                    default:
-                        AskAgain();
-                        break;
-
-                }
+                // reset level
             }
-            catch (Exception e)
+            else if (key == ConsoleKey.M)
             {
-                
-                AskAgain();
+                // go back to menu
+            }
+            else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
+            {
+                // Up movement
+            }
+            else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
+            {
+                // Left movement
+            }
+            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
+            {
+                // Down movement
+            }
+            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
+            {
+                // Right movement
+            } else
+            {
+                _view.StartPlaying();
             }
         }
-
-        private void SetupLevel(char[,] level, int lvlNumb)
-        {
-            _output.SetCurrentLevel(level, lvlNumb);
-            _output.OutputLevel(level);
-            _output.StartPlaying();
-        }
-
-        private void AskAgain()
-        {
-            // _view.WriteLine("?");
-            // _view.StartListening();
-        }
-
     }
 }

@@ -9,7 +9,7 @@ namespace Sokoban
         static void Main()
         {
             OutputViewVM output = new OutputViewVM();
-            output.Test();
+            output.ShowMenu();
         }
     }
     
