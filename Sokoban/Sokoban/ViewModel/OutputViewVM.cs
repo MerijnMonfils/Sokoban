@@ -47,6 +47,29 @@ namespace Sokoban.ViewModel
         {
             Console.Clear();
             
+            // Rows
+            var rows = _currentLevel.First;
+            // Columns
+            var columns = _currentLevel.First;
+
+            while(rows != null)
+            {
+                while (columns != null)
+                {
+                    _mainView.Write(columns.GameObject.GetChar() + "");
+                    columns = columns.ObjectNext;
+                }
+                _mainView.WriteLine("");
+                rows = rows.ObjectBelow;
+                columns = rows;
+            }
+            _mainView.StartPlaying();
+
+                // LOOP \\
+            // We know First
+            // We know Last
+            // First knows something below -> save to temp 
+            // if temp in next row does not have a neighbour below. Finished
 
         }
     }

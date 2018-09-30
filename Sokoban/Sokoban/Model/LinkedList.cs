@@ -27,7 +27,7 @@ namespace Sokoban.Model
                 FirstInPreviousRow = First;
                 return;
             }
-            else if (currRow < 0)
+            else if (currRow == 0)
             {
                 Last.ObjectNext = new LinkedGameObject();
                 Last.ObjectNext.GameObject = obj;
@@ -36,7 +36,6 @@ namespace Sokoban.Model
                 _prevRow = currRow;
                 return;
             }
-
             // new row
             if (_prevRow != currRow)
             {
