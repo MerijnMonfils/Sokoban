@@ -18,9 +18,8 @@ namespace Sokoban.ViewModel
         private ParseLevel _parseLevels;
         private GameLogic logic;
 
-        private int _currentLevelNumber { get; set; }
         private LinkedList _currentLevel { get; set; }
-        private bool isPlaying;
+        public int _currentLevelNumber { get; private set; }
 
         public OutputViewVM()
         {
@@ -37,19 +36,25 @@ namespace Sokoban.ViewModel
             _mainView.StartListening();            
         }
 
+        public void ReshowMenu()
+        {
+            _mainView.Clear();
+            _mainView.StartScreen();
+            _mainView.StartListening();
+        }
+
         public void LoadLevel(int level)
         {
             _currentLevel = _parseLevels.GetLevel(level);
+            _currentLevelNumber = level;
             OutputLevel();
         }
 
         public void OutputLevel()
         {
-            Console.Clear();
+            _mainView.Clear();
             
-            // Rows
             var rows = _currentLevel.First;
-            // Columns
             var columns = _currentLevel.First;
 
             while(rows != null)
@@ -64,13 +69,6 @@ namespace Sokoban.ViewModel
                 columns = rows;
             }
             _mainView.StartPlaying();
-
-                // LOOP \\
-            // We know First
-            // We know Last
-            // First knows something below -> save to temp 
-            // if temp in next row does not have a neighbour below. Finished
-
         }
     }
 }

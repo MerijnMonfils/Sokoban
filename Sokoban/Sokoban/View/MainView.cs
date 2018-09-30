@@ -44,6 +44,11 @@ namespace Sokoban.View
             Console.WriteLine("Enjoy!");
         }
 
+        public void Clear()
+        {
+            Console.Clear();
+        }
+
         public void StartListening()
         {
             input.LoadLevel(Console.ReadKey().Key);

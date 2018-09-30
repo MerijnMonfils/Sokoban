@@ -49,11 +49,11 @@ namespace Sokoban.ViewModel
             }
             else if (key == ConsoleKey.R)
             {
-                // reset level
+                _output.LoadLevel(_output._currentLevelNumber);
             }
             else if (key == ConsoleKey.M)
             {
-                // go back to menu
+                _output.ReshowMenu();
             }
             else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
             {
