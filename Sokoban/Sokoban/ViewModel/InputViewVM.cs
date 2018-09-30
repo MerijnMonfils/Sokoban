@@ -24,27 +24,12 @@ namespace Sokoban.ViewModel
             {
                 Environment.Exit(0);
             }
-            else if (input == ConsoleKey.D1)
+            try
             {
-                _output.LoadLevel(0);
-            }
-            else if (input == ConsoleKey.D2)
-            {
-                _output.LoadLevel(1);
-            }
-            else if (input == ConsoleKey.D3)
-            {
-                _output.LoadLevel(2);
-            }
-            else if (input == ConsoleKey.D4)
-            {
-                _output.LoadLevel(3);
-            }
-            else if (input == ConsoleKey.D5)
-            {
-                _output.LoadLevel(4);
-            }
-            else
+                string x = input.ToString().Substring(1,1);
+                int i = int.Parse(x);
+                _output.LoadLevel(i);
+            } catch (Exception e)
             {
                 _view.StartListening();
             }
