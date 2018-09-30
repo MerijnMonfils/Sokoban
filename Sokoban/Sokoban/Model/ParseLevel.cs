@@ -38,7 +38,7 @@ namespace Sokoban.Model
             LinkedList list;
 
             // execute for each file
-            for (int x = 0; x < 1; x++)
+            for (int x = 0; x < _amount; x++)
             {
                 // initialize linkedlist
                 list = new LinkedList();
@@ -51,7 +51,7 @@ namespace Sokoban.Model
                 {
                     for (int i = 0; i < (lines[z].Length); i++) // for length of row
                     {
-                        list.InsertInRow(CheckCharacterAt(lines[z], i), z, i);
+                        list.InsertInRow(CheckCharacterAt(lines[z], i), z);
                     }
                 }
                 // finally add current linkedlist to array of all levels

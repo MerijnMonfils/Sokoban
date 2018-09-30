@@ -34,7 +34,7 @@ namespace Sokoban.ViewModel
             _parseLevels.SaveCollection();
             _mainView._amount = _parseLevels._amount;
             _mainView.StartScreen();
-            _mainView.StartListening();
+            _mainView.StartListening();            
         }
 
         public void LoadLevel(int level)
