@@ -56,8 +56,8 @@ namespace Sokoban.Model
                 SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
             }
            
-            //if above neighbour == crate
 
+            //if above neighbour = crate
             if (PlayerObject.ObjectAbove.GameObject.GetChar() == 'O')
             {
                 //If above the crate are either a tile or a destination objects: 
@@ -70,7 +70,21 @@ namespace Sokoban.Model
                     SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
 
                 }
+
+                if (PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == 'X')
+                {
+                    P
+                    // move with chest
+                    SwapTwo(PlayerObject.ObjectAbove, PlayerObject.ObjectAbove.ObjectAbove, true);
+
+                    // move with player
+                    SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
+
+                }
+
             }
+
+
             return currentLevel;
         }
 
