@@ -109,6 +109,10 @@ namespace Sokoban.Model
             l.ObjectAbove = match;
             match.ObjectBelow = l;
         }
+
+
+
+
     }
 
  }

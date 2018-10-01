@@ -36,6 +36,8 @@ namespace Sokoban.ViewModel
             }
         }
 
+     
+
         public void PlayLevel(ConsoleKey key)
         {
             try { 
@@ -45,6 +47,7 @@ namespace Sokoban.ViewModel
             }
             else if (key == ConsoleKey.R)
             {
+               
                 _output.LoadLevel(_output._currentLevelNumber);
                 
             }
@@ -53,22 +56,29 @@ namespace Sokoban.ViewModel
                 _output.ReshowMenu();
                  
             }
-            else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
+            else if(logic.GameFinished(_output._currentLevel))
+                {
+                    _view.WriteLine("Congratulations, you have completed the level");
+                    _view.WriteLine("Press M to go to Menu");
+                    _view.WriteLine("Press R to play again");
+                    _view.StartPlaying();
+                }
+            else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveUp(_output._currentLevel);
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
+            else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveLeft(_output._currentLevel);
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
+            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveDown(_output._currentLevel);
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
+            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveRight(_output._currentLevel);
                 _output.ShowLevel();

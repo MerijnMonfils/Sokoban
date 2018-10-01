@@ -68,6 +68,8 @@ namespace Sokoban.ViewModel
             }
             _mainView.StartPlaying();
         }
+
+      
     }
 }
 
