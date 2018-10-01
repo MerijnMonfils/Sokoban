@@ -73,7 +73,7 @@ namespace Sokoban.Model
 
                 if (PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == 'X')
                 {
-                    P
+                    
                     // move with chest
                     SwapTwo(PlayerObject.ObjectAbove, PlayerObject.ObjectAbove.ObjectAbove, true);
 
