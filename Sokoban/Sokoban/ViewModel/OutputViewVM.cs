@@ -48,6 +48,11 @@ namespace Sokoban.ViewModel
             _currentLevelNumber = level;
         }
 
+        public void ReloadLevel(int currentLevelNumber)
+        {
+            _currentLevel = _parseLevels.ReloadLevel(currentLevelNumber);
+        }
+
         public void ShowLevel()
         {
             _mainView.Clear();
