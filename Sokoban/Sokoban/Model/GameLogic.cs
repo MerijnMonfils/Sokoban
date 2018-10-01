@@ -27,7 +27,7 @@ namespace Sokoban.Model
             }
         }
 
-        private void SwapTwo(LinkedGameObject first, LinkedGameObject second, LinkedList currentLevel)
+        private void SwapTwo(LinkedGameObject first, LinkedGameObject second)
         {
             var temp = first.GameObject;
 
@@ -42,7 +42,7 @@ namespace Sokoban.Model
         {
             if (PlayerObject.ObjectAbove.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectAbove, currentLevel);
+                SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
             }
             return currentLevel;
             //if above neighbour == crate
@@ -74,7 +74,7 @@ namespace Sokoban.Model
         {
             if (PlayerObject.ObjectPrevious.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectPrevious, currentLevel);
+                SwapTwo(PlayerObject, PlayerObject.ObjectPrevious);
             }
             return currentLevel;
         }
@@ -83,7 +83,7 @@ namespace Sokoban.Model
         {
             if (PlayerObject.ObjectBelow.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectBelow, currentLevel);
+                SwapTwo(PlayerObject, PlayerObject.ObjectBelow);
             }
             return currentLevel;
         }
@@ -92,7 +92,7 @@ namespace Sokoban.Model
         {
             if (PlayerObject.ObjectNext.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectNext, currentLevel);
+                SwapTwo(PlayerObject, PlayerObject.ObjectNext);
             }
             return currentLevel;
         }
