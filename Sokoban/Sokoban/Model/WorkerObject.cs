@@ -9,6 +9,7 @@ namespace Sokoban.Model
     class WorkerObject : BaseObject
     {
         private char _workerValue = '$';
+
         public override char _value
         {
             get

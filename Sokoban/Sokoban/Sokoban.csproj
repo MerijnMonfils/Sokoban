@@ -60,8 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\baseObject.cs" />
-    <Compile Include="Model\Characters.cs" />
+    <Compile Include="Model\BaseObject.cs" />
     <Compile Include="Model\ChestObject.cs" />
     <Compile Include="Model\DestinationObject.cs" />
     <Compile Include="Model\GameLogic.cs" />
@@ -69,7 +68,9 @@
     <Compile Include="Model\LinkedList.cs" />
     <Compile Include="Model\PlayerObject.cs" />
     <Compile Include="Model\TileObject.cs" />
+    <Compile Include="Model\TrapObject.cs" />
     <Compile Include="Model\WallObject.cs" />
+    <Compile Include="Model\WorkerObject.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
     <Compile Include="View\MainView.cs" />
