@@ -7,16 +7,21 @@ Sokoban in C#
 > 3. : O = Crate
 > 4. : @ = Player
 > 5. : 0 = Destination
-
+> 6. : ~ = Trap
+> 7. : $ = Worker
 
 ## Tasks:
 
-## To Do
+
+
 ## Danish Afzal: 
-> 1. Code cleanup
+> 1. The ability to move on X
+> 2. The ability to move a chest that is on a Destination (USE BOOLEAN IN MOVEMENT METHOD!!!!)
 
 ## Merijn Monfils:
-> 2. Code cleanup
+> 3. Implementation of Trap logic
+> 4. Implementation of Worker logic
+> 5. Code cleanup
 
 ## Done
 > 1. Welcome Screen
