@@ -89,20 +89,17 @@ namespace Sokoban.Model
         {
             int i = 0;
 
-            while(l.ObjectPrevious != null)
+            var temp = l;
+            while(temp.ObjectPrevious != null)
             {
-                l = l.ObjectPrevious;
+                temp = temp.ObjectPrevious;
                 i++;
             }
 
             var match = FirstInPreviousRow;
 
-            for(int x = 0; x < i; x++)
+            for (int x = 0; x < i; x++)
             {
-                if(match.ObjectNext == null)
-                {
-                    break;
-                }
                 match = match.ObjectNext;
             }
             l.ObjectAbove = match;
