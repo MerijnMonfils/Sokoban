@@ -38,7 +38,7 @@ namespace Sokoban.Model
             LinkedList list;
 
             // execute for each file
-            for (int x = 0; x < 1; x++)
+            for (int x = 0; x < _amount; x++)
             {
                 // initialize linkedlist
                 list = new LinkedList();
