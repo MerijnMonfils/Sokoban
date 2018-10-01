@@ -46,10 +46,12 @@ namespace Sokoban.ViewModel
             else if (key == ConsoleKey.R)
             {
                 _output.LoadLevel(_output._currentLevelNumber);
+                
             }
             else if (key == ConsoleKey.M)
             {
                 _output.ReshowMenu();
+                 
             }
             else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
             {

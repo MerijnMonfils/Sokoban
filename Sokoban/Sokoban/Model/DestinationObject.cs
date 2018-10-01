@@ -21,6 +21,11 @@ namespace Sokoban.Model
             }
         }
 
+        public override void SetChar(char x)
+        {
+            _destinationValue = x;
+            base.SetChar(_destinationValue);
+        }
         public void HasChest(bool hasChest)
         {
             if (hasChest)

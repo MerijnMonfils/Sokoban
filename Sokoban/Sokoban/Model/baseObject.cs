@@ -18,5 +18,10 @@ namespace Sokoban.Model
         {
             return _value;
         }
+
+        public virtual void SetChar(char x)
+        {
+            x = _value;
+        }
     }
 }

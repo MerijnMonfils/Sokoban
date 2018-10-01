@@ -54,6 +54,8 @@ namespace Sokoban.Model
             if (PlayerObject.ObjectAbove.GameObject.GetChar() == '.')
             {
                 SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
+
+                return currentLevel;
             }
            
 
@@ -68,18 +70,17 @@ namespace Sokoban.Model
                     
                     // move with player
                     SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
-
                 }
 
                 if (PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == 'X')
                 {
-                    
-                    // move with chest
-                    SwapTwo(PlayerObject.ObjectAbove, PlayerObject.ObjectAbove.ObjectAbove, true);
 
-                    // move with player
-                    SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
+                    PlayerObject.ObjectAbove.ObjectAbove.GameObject.SetChar('0');
+                    PlayerObject.ObjectAbove.GameObject.SetChar('@');
+                    PlayerObject.GameObject.SetChar('.');
 
+                    PlayerObject = PlayerObject.ObjectAbove;
+                   
                 }
 
             }
@@ -93,8 +94,35 @@ namespace Sokoban.Model
             if (PlayerObject.ObjectPrevious.GameObject.GetChar() == '.')
             {
                 SwapTwo(PlayerObject, PlayerObject.ObjectPrevious);
+                return currentLevel;
             }
-            return currentLevel;
+
+            if (PlayerObject.ObjectPrevious.GameObject.GetChar() == 'O')
+            {
+                //If above the crate are either a tile or a destination objects: 
+                if (PlayerObject.ObjectPrevious.ObjectPrevious.GameObject.GetChar() == '.')
+                {
+                    // move with chest
+                    SwapTwo(PlayerObject.ObjectPrevious, PlayerObject.ObjectPrevious.ObjectPrevious, true);
+
+                    // move with player
+                    SwapTwo(PlayerObject, PlayerObject.ObjectPrevious);
+                }
+
+                if (PlayerObject.ObjectPrevious.ObjectPrevious.GameObject.GetChar() == 'X')
+                {
+
+                    PlayerObject.ObjectPrevious.ObjectPrevious.GameObject.SetChar('0');
+                    PlayerObject.ObjectPrevious.GameObject.SetChar('@');
+                    PlayerObject.GameObject.SetChar('.');
+
+                    PlayerObject = PlayerObject.ObjectPrevious;
+
+                }
+            }
+
+                return currentLevel;
+           
         }
 
         public LinkedList MoveDown(LinkedList currentLevel)
@@ -102,8 +130,34 @@ namespace Sokoban.Model
             if (PlayerObject.ObjectBelow.GameObject.GetChar() == '.')
             {
                 SwapTwo(PlayerObject, PlayerObject.ObjectBelow);
+                return currentLevel;
             }
-            return currentLevel;
+
+            if (PlayerObject.ObjectBelow.GameObject.GetChar() == 'O')
+            {
+                //If neighbour below the crate is a tile object: 
+                if (PlayerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == '.')
+                {
+                    // move with chest
+                    SwapTwo(PlayerObject.ObjectBelow, PlayerObject.ObjectBelow.ObjectBelow, true);
+
+                    // move with player
+                    SwapTwo(PlayerObject, PlayerObject.ObjectBelow);
+                }
+
+                //If neighbour below the crate is a destination object: 
+                if (PlayerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == 'X')
+                {
+                   
+                    PlayerObject.ObjectBelow.ObjectBelow.GameObject.SetChar('0');
+                    PlayerObject.ObjectBelow.GameObject.SetChar('@');
+                    PlayerObject.GameObject.SetChar('.');
+
+                    PlayerObject = PlayerObject.ObjectBelow;
+
+                }
+            }
+                return currentLevel;
         }
 
         public LinkedList MoveRight(LinkedList currentLevel)
@@ -111,8 +165,35 @@ namespace Sokoban.Model
             if (PlayerObject.ObjectNext.GameObject.GetChar() == '.')
             {
                 SwapTwo(PlayerObject, PlayerObject.ObjectNext);
+                return currentLevel;
+            }
+
+            if (PlayerObject.ObjectNext.GameObject.GetChar() == 'O')
+            {
+                //If above the crate are either a tile or a destination objects: 
+                if (PlayerObject.ObjectNext.ObjectNext.GameObject.GetChar() == '.')
+                {
+                    // move with chest
+                    SwapTwo(PlayerObject.ObjectNext, PlayerObject.ObjectNext.ObjectNext, true);
+
+                    // move with player
+                    SwapTwo(PlayerObject, PlayerObject.ObjectNext);
+                }
+
+                if (PlayerObject.ObjectNext.ObjectNext.GameObject.GetChar() == 'X')
+                {
+
+                    PlayerObject.ObjectNext.ObjectNext.GameObject.SetChar('0');
+                    PlayerObject.ObjectNext.GameObject.SetChar('@');
+                    PlayerObject.GameObject.SetChar('.');
+
+                    PlayerObject = PlayerObject.ObjectNext;
+
+                }
             }
             return currentLevel;
         }
     }
+
+
 }

@@ -20,5 +20,13 @@ namespace Sokoban.Model
                 _tileValue = value;
             }
         }
+
+
+
+        public override void SetChar(char x)
+        {
+            _tileValue = x;
+            base.SetChar(_tileValue);
+        }
     }
 }

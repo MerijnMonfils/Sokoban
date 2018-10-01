@@ -20,5 +20,11 @@ namespace Sokoban.Model
                 _chestValue = value;
             }
         }
+
+        public override void SetChar(char x)
+        {
+            _chestValue = x;
+            base.SetChar(_chestValue);
+        }
     }
 }
