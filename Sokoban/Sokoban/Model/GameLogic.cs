@@ -27,6 +27,7 @@ namespace Sokoban.Model
             }
         }
 
+        // normal move
         private void SwapTwo(LinkedGameObject first, LinkedGameObject second)
         {
             var temp = first.GameObject;
@@ -36,6 +37,16 @@ namespace Sokoban.Model
             second.GameObject = temp;
 
             PlayerObject = second; 
+        }
+
+        // move with chest
+        private void SwapTwo(LinkedGameObject first, LinkedGameObject second, bool withChest)
+        {
+            var temp = first.GameObject;
+
+            first.GameObject = second.GameObject;
+
+            second.GameObject = temp;
         }
 
         public LinkedList MoveUp(LinkedList currentLevel)
@@ -52,9 +63,10 @@ namespace Sokoban.Model
                 //If above the crate are either a tile or a destination objects: 
                 if (PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == '.')
                 {
-                    //Swap em all!
-                    SwapTwo(PlayerObject.ObjectAbove, PlayerObject.ObjectAbove.ObjectAbove);
-
+                    // move with chest
+                    SwapTwo(PlayerObject.ObjectAbove, PlayerObject.ObjectAbove.ObjectAbove, true);
+                    
+                    // move with player
                     SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
 
                 }
