@@ -6,27 +6,21 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-     class TileObject : BaseObject
+    class TrapObject : BaseObject
     {
-        private char _tileValue = '.';
+        private char _trapValue = '~';
+
         public override char _value
         {
             get
             {
-                return _tileValue;
+                return _trapValue;
             }
             set
             {
-                _tileValue = value;
+                _trapValue = value;
             }
         }
 
-
-
-        public override void SetChar(char x)
-        {
-            _tileValue = x;
-            base.SetChar(_tileValue);
-        }
     }
 }

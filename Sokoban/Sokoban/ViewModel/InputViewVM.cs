@@ -24,13 +24,14 @@ namespace Sokoban.ViewModel
             }
             try
             {
-                string x = input.ToString().Substring(1,1);
+                string x = input.ToString().Substring(1, 1);
                 int i = int.Parse(x);
                 logic = new GameLogic();
                 _output.LoadLevel(i - 1);
                 logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 _view.StartListening();
             }
@@ -40,16 +41,21 @@ namespace Sokoban.ViewModel
 
         public void PlayLevel(ConsoleKey key)
         {
-            try { 
             if (key == ConsoleKey.S)
             {
                 Environment.Exit(0);
             }
             else if (key == ConsoleKey.R)
             {
+<<<<<<< HEAD
                
                 _output.LoadLevel(_output._currentLevelNumber);
                 
+=======
+                _output.ReloadLevel(_output._currentLevelNumber);
+                logic.SetPlayer(_output._currentLevel);
+                _output.ShowLevel();
+>>>>>>> UitbreidingBranch
             }
             else if (key == ConsoleKey.M)
             {
@@ -87,11 +93,7 @@ namespace Sokoban.ViewModel
             {
                 _view.StartPlaying();
             }
-        } catch(Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-                Console.Read();
-            }
+
         }
     }
 }

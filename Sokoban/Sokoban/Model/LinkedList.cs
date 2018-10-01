@@ -15,7 +15,7 @@ namespace Sokoban.Model
 
         private int _prevRow;
 
-        public void InsertInRow(baseObject obj, int currRow)
+        public void InsertInRow(BaseObject obj, int currRow)
         {
             // first row
             if (First == null)

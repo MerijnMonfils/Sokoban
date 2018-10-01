@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    public class baseObject
+    public class BaseObject
     {
 
         public virtual char _value

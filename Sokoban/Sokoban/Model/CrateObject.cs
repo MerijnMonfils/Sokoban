@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class ChestObject : baseObject
+    class CrateObject : BaseObject
     {
         private char _chestValue = 'O';
         public override char _value

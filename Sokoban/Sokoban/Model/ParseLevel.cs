@@ -59,31 +59,50 @@ namespace Sokoban.Model
             }
         }
 
+        public LinkedList ReloadLevel(int level)
+        {
+            LinkedList list = new LinkedList();
+            // read all lines in current file
+            string[] lines = System.IO.File.ReadAllLines(_files[level]);
+
+            // setup linkedlist
+            for (int z = 0; z < lines.Length; z++) // for each row
+            {
+                for (int i = 0; i < (lines[z].Length); i++) // for length of row
+                {
+                    list.InsertInRow(CheckCharacterAt(lines[z], i), z);
+                }
+            }
+            // finally add current linkedlist to array of all levels
+            _allLevels[level] = list;
+            return _allLevels[level];
+        }
+
         public LinkedList GetLevel(int input)
         {
             return _allLevels[input];
         }
 
         // check symbol in file -> returns new gameObject
-        private baseObject CheckCharacterAt(string line, int postionInRow)
+        private BaseObject CheckCharacterAt(string line, int postionInRow)
         {
-            baseObject test;
             char c = line[postionInRow];
             switch (c)
             {
                 case '#':
-
-                    test = new WallObject();
-                    test.GetChar();
                     return new WallObject();
                 case 'O':
-                    return new ChestObject();
+                    return new CrateObject();
                 case '.':
                     return new TileObject();
                 case '@':
                     return new PlayerObject();
                 case 'X':
                     return new DestinationObject();
+                case '~':
+                    return new TrapObject();
+                case '$':
+                    return new WorkerObject();
                 default:
                     return new WallObject();
             }
