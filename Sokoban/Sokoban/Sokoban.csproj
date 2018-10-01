@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\BaseObject.cs" />
-    <Compile Include="Model\ChestObject.cs" />
+    <Compile Include="Model\CrateObject.cs" />
     <Compile Include="Model\DestinationObject.cs" />
     <Compile Include="Model\GameLogic.cs" />
     <Compile Include="Model\LinkedGameObject.cs" />
