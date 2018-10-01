@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class Square
+    interface Square
     {
 
-         public char _square { get; set; }
-         public Object _neighbourBelow { get; set; }
-         public Object _neighbourAbove { get; set; }
-         public Object _neighbourRight { get; set; }
-         public Object _neighbourLeft  { get; set; }
+        char _square { get; set; }
+          Object _neighbourBelow { get; set; }
+          Object _neighbourAbove { get; set; }
+          Object _neighbourRight { get; set; }
+          Object _neighbourLeft  { get; set; }
 
     }
 }

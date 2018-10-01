@@ -65,10 +65,11 @@ namespace Sokoban
                    first[x,i] = CheckCharacterAt(lines[x], i);
                 }
             }
+         
             return first;
         }
 
-        private char CheckCharacterAt(string line, int postionInRow)
+        private object CheckCharacterAt(string line, int postionInRow)
         {
             
             char c = line[postionInRow];
@@ -77,25 +78,31 @@ namespace Sokoban
 
             {
                 case '#':
+                    value = '#';
                     level.Add(new Wall());
+                   
                     break;
                 case 'O':
+                    value = 'O';
                     level.Add(new Crate());
                     break;
                 case '.':
+                    value = '.';
                     level.Add(new Tile());
                     break;
                 case '@':
+                    value = '@';
                     level.Add(new Player());
                     break;
                 case 'X':
+                    value = 'X';
                     level.Add(new Destination());
                     break;
                 default: // not accepted characters
                     level.Add(new Wall());
                     break;
             }
-            return value;
+            return level;
         }
 
     
