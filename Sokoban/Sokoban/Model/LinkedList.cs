@@ -100,6 +100,10 @@ namespace Sokoban.Model
 
             for (int x = 0; x < i; x++)
             {
+                if(match.ObjectNext == null)
+                {
+                    break;
+                }
                 match = match.ObjectNext;
             }
             l.ObjectAbove = match;

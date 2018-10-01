@@ -84,6 +84,10 @@ namespace Sokoban.Model
                     return new PlayerObject();
                 case 'X':
                     return new DestinationObject();
+                case '~':
+                    return new TrapObject();
+                case '$':
+                    return new WorkerObject();
                 default:
                     return new WallObject();
             }
