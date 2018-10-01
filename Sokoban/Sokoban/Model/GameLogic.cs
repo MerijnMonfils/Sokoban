@@ -15,7 +15,7 @@ namespace Sokoban.Model
             {
                 while (columns != null)
                 {
-                    if(columns.GameObject.GetChar() == '@')
+                    if (columns.GameObject.GetChar() == '@')
                     {
                         PlayerObject = columns;
                         return;
@@ -24,7 +24,7 @@ namespace Sokoban.Model
                 }
                 rows = rows.ObjectBelow;
                 columns = rows;
-            }            
+            }
         }
 
         private void SwapTwo(LinkedGameObject first, LinkedGameObject second)
@@ -34,20 +34,16 @@ namespace Sokoban.Model
             first.GameObject = second.GameObject;
 
             second.GameObject = temp;
+
+            PlayerObject = second;
         }
 
         public LinkedList MoveUp(LinkedList currentLevel)
         {
-            Console.WriteLine("ObjectAbove: " + PlayerObject.ObjectAbove.GameObject.GetChar());
-            Console.WriteLine("ObjectBelow: " + PlayerObject.ObjectBelow.GameObject.GetChar());
-            Console.WriteLine("ObjectPrevious: " + PlayerObject.ObjectPrevious.GameObject.GetChar());
-            Console.WriteLine("ObjectNext: " + PlayerObject.ObjectNext.GameObject.GetChar());
-
-            Console.ReadLine();
+            SetPlayer(currentLevel);
             if (PlayerObject.ObjectAbove.GameObject.GetChar() == '.')
             {
                 SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
-                PlayerObject = PlayerObject.ObjectAbove;
             }
             return currentLevel;
             //if above neighbour == crate
@@ -77,17 +73,32 @@ namespace Sokoban.Model
 
         public LinkedList MoveLeft(LinkedList currentLevel)
         {
-            throw new NotImplementedException();
+            SetPlayer(currentLevel);
+            if (PlayerObject.ObjectPrevious.GameObject.GetChar() == '.')
+            {
+                SwapTwo(PlayerObject, PlayerObject.ObjectPrevious);
+            }
+            return currentLevel;
         }
 
         public LinkedList MoveDown(LinkedList currentLevel)
         {
-            throw new NotImplementedException();
+            SetPlayer(currentLevel);
+            if (PlayerObject.ObjectBelow.GameObject.GetChar() == '.')
+            {
+                SwapTwo(PlayerObject, PlayerObject.ObjectBelow);
+            }
+            return currentLevel;
         }
 
         public LinkedList MoveRight(LinkedList currentLevel)
         {
-            throw new NotImplementedException();
+            SetPlayer(currentLevel);
+            if (PlayerObject.ObjectNext.GameObject.GetChar() == '.')
+            {
+                SwapTwo(PlayerObject, PlayerObject.ObjectNext);
+            }
+            return currentLevel;
         }
     }
 }

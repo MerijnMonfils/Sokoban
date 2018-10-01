@@ -38,6 +38,7 @@ namespace Sokoban.ViewModel
 
         public void PlayLevel(ConsoleKey key)
         {
+            try { 
             if (key == ConsoleKey.S)
             {
                 Environment.Exit(0);
@@ -57,24 +58,28 @@ namespace Sokoban.ViewModel
             }
             else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
             {
-               // _output._currentLevel = logic.MoveLeft(_output._currentLevel);
-               // _output.ShowLevel();
+                _output._currentLevel = logic.MoveLeft(_output._currentLevel);
+                _output.ShowLevel();
             }
             else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
             {
-               // _output._currentLevel = logic.MoveDown(_output._currentLevel);
-               // _output.ShowLevel();
+                _output._currentLevel = logic.MoveDown(_output._currentLevel);
+                _output.ShowLevel();
             }
             else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
             {
-               // _output._currentLevel = logic.MoveRight(_output._currentLevel);
-               // _output.ShowLevel();
+                _output._currentLevel = logic.MoveRight(_output._currentLevel);
+                _output.ShowLevel();
             }
             else
             {
                 _view.StartPlaying();
             }
-            _view.StartPlaying(); // TODO: remove this
+        } catch(Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                Console.Read();
+            }
         }
     }
 }

@@ -81,14 +81,32 @@ namespace Sokoban.Model
             }
             else
             {
-                var mostRightInPreviousRow = FirstInPreviousRow;
-                while (mostRightInPreviousRow.ObjectNext != null)
-                {
-                    mostRightInPreviousRow = mostRightInPreviousRow.ObjectNext;
-                }
-                l.ObjectAbove = mostRightInPreviousRow;
-                mostRightInPreviousRow.ObjectBelow = l;
+                AssignTopAndBottom(l);                
             }
+        }
+
+        private void AssignTopAndBottom(LinkedGameObject l)
+        {
+            int i = 0;
+
+            while(l.ObjectPrevious != null)
+            {
+                l = l.ObjectPrevious;
+                i++;
+            }
+
+            var match = FirstInPreviousRow;
+
+            for(int x = 0; x < i; x++)
+            {
+                if(match.ObjectNext == null)
+                {
+                    break;
+                }
+                match = match.ObjectNext;
+            }
+            l.ObjectAbove = match;
+            match.ObjectBelow = l;
         }
     }
 
