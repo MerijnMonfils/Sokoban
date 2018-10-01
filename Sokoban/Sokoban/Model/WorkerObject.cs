@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class ChestObject : BaseObject
+    class WorkerObject : BaseObject
     {
-        private char _chestValue = 'O';
+        private char _workerValue = '$';
         public override char _value
         {
             get
             {
-                return _chestValue;
+                return _workerValue;
             }
             set
             {
-                _chestValue = value;
+                _workerValue = value;
             }
         }
     }

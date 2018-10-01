@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class PlayerObject : baseObject
+    class PlayerObject : BaseObject
     {
         private char _playerValue = '@';
         public override char _value

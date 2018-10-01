@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-     class TileObject : baseObject
+     class TileObject : BaseObject
     {
         private char _tileValue = '.';
         public override char _value

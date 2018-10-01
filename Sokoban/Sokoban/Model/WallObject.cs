@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class WallObject : baseObject
+    class WallObject : BaseObject
     {
         private char _playerValue = '#';
         public override char _value

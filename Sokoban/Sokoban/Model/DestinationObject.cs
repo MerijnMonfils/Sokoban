@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class DestinationObject : baseObject
+    class DestinationObject : BaseObject
     {
         private char _destinationValue = 'X';
         public override char _value

@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class ChestObject : BaseObject
+    class TrapObject : BaseObject
     {
-        private char _chestValue = 'O';
+        private char _trapValue = '~';
+
         public override char _value
         {
             get
             {
-                return _chestValue;
+                return _trapValue;
             }
             set
             {
-                _chestValue = value;
+                _trapValue = value;
             }
         }
+
     }
 }

@@ -65,9 +65,9 @@ namespace Sokoban.Model
         }
 
         // check symbol in file -> returns new gameObject
-        private baseObject CheckCharacterAt(string line, int postionInRow)
+        private BaseObject CheckCharacterAt(string line, int postionInRow)
         {
-            baseObject test;
+            BaseObject test;
             char c = line[postionInRow];
             switch (c)
             {
