@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Model;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.SymbolStore;
 using System.IO;
@@ -17,6 +18,7 @@ namespace Sokoban
         private DirectoryInfo _di;
 
         private Characters _characters;
+        public List<Object> level = new List<Object>();
 
         public ParseLevel()
         {
@@ -68,32 +70,35 @@ namespace Sokoban
 
         private char CheckCharacterAt(string line, int postionInRow)
         {
+            
             char c = line[postionInRow];
             char value = ' ';
             switch (c)
+
             {
                 case '#':
-                    value = _characters._wall;
+                    level.Add(new Wall());
                     break;
                 case 'O':
-                    value = _characters._crate;
+                    level.Add(new Crate());
                     break;
                 case '.':
-                    value = _characters._tile;
+                    level.Add(new Tile());
                     break;
                 case '@':
-                    value = _characters._truck;
+                    level.Add(new Player());
                     break;
                 case 'X':
-                    value = _characters._destination;
+                    level.Add(new Destination());
                     break;
-     
                 default: // not accepted characters
-                    value = _characters._wall;
+                    level.Add(new Wall());
                     break;
             }
             return value;
         }
+
+    
 
        
     }

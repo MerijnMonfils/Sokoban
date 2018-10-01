@@ -14,15 +14,18 @@ namespace Sokoban
         private MainView _mainView;
         private ParseLevel _parseLevels;
         private GameLogic logic;
-
+     
         public char[,] _currentLevel; // the current array thats being used
         private int _currentLevelNumber { get; set; }
         private bool isPlaying;
 
         public OutputViewVM()
         {
+
+            
             _parseLevels = new ParseLevel();
             _mainView = new MainView(this, _parseLevels);
+            
         }
 
         public void ShowMenu()
@@ -58,6 +61,11 @@ namespace Sokoban
                 }
                 _mainView.WriteLine("");
             }
+
+            testList();
+
+
+
 
         }
 
@@ -119,6 +127,15 @@ namespace Sokoban
                 _currentLevel = logic.MoveToRight(_currentLevel);
                 this.OutputLevel(_currentLevel);
 
+            }
+        }
+
+        public void testList()
+        {
+            foreach (Object s in _parseLevels.level)
+            {
+                Console.WriteLine(s);
+               
             }
         }
     }

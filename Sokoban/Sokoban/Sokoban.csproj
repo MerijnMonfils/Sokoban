@@ -61,7 +61,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Characters.cs" />
+    <Compile Include="Model\Crate.cs" />
+    <Compile Include="Model\Destination.cs" />
     <Compile Include="Model\GameLogic.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Square.cs" />
+    <Compile Include="Model\Tile.cs" />
+    <Compile Include="Model\Wall.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
     <Compile Include="View\MainView.cs" />
