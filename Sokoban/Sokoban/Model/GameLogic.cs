@@ -35,7 +35,7 @@ namespace Sokoban.Model
 
             second.GameObject = temp;
 
-            PlayerObject = second;
+            PlayerObject = second; 
         }
 
         public LinkedList MoveUp(LinkedList currentLevel)
@@ -44,27 +44,19 @@ namespace Sokoban.Model
             {
                 SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
             }
-            return currentLevel;
+           
             //if above neighbour == crate
 
             if (PlayerObject.ObjectAbove.GameObject.GetChar() == 'O')
             {
                 //If above the crate are either a tile or a destination objects: 
-                if (PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == 'X' ||
-                    PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == '.')
+                if (PlayerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == '.')
                 {
                     //Swap em all!
+                    SwapTwo(PlayerObject.ObjectAbove, PlayerObject.ObjectAbove.ObjectAbove);
 
-                    var temp1 = PlayerObject.ObjectAbove.ObjectAbove.GameObject; //.
-                    var temp = PlayerObject.ObjectAbove.GameObject; //O
-                    var p = PlayerObject.GameObject; //@
+                    SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
 
-                    PlayerObject.ObjectAbove.GameObject = PlayerObject.ObjectAbove.ObjectAbove.GameObject;
-                    PlayerObject.ObjectAbove.ObjectAbove.GameObject = temp;
-
-
-                    PlayerObject.GameObject = temp1;
-                    PlayerObject.ObjectAbove.GameObject = p;
                 }
             }
             return currentLevel;
