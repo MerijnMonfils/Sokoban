@@ -27,7 +27,7 @@ namespace Sokoban.Model
             }
         }
 
-        private void SwapTwo(LinkedGameObject first, LinkedGameObject second)
+        private void SwapTwo(LinkedGameObject first, LinkedGameObject second, LinkedList currentLevel)
         {
             var temp = first.GameObject;
 
@@ -40,10 +40,9 @@ namespace Sokoban.Model
 
         public LinkedList MoveUp(LinkedList currentLevel)
         {
-            SetPlayer(currentLevel);
             if (PlayerObject.ObjectAbove.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectAbove);
+                SwapTwo(PlayerObject, PlayerObject.ObjectAbove, currentLevel);
             }
             return currentLevel;
             //if above neighbour == crate
@@ -73,30 +72,27 @@ namespace Sokoban.Model
 
         public LinkedList MoveLeft(LinkedList currentLevel)
         {
-            SetPlayer(currentLevel);
             if (PlayerObject.ObjectPrevious.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectPrevious);
+                SwapTwo(PlayerObject, PlayerObject.ObjectPrevious, currentLevel);
             }
             return currentLevel;
         }
 
         public LinkedList MoveDown(LinkedList currentLevel)
         {
-            SetPlayer(currentLevel);
             if (PlayerObject.ObjectBelow.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectBelow);
+                SwapTwo(PlayerObject, PlayerObject.ObjectBelow, currentLevel);
             }
             return currentLevel;
         }
 
         public LinkedList MoveRight(LinkedList currentLevel)
         {
-            SetPlayer(currentLevel);
             if (PlayerObject.ObjectNext.GameObject.GetChar() == '.')
             {
-                SwapTwo(PlayerObject, PlayerObject.ObjectNext);
+                SwapTwo(PlayerObject, PlayerObject.ObjectNext, currentLevel);
             }
             return currentLevel;
         }
