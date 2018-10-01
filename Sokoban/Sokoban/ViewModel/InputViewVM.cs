@@ -47,15 +47,9 @@ namespace Sokoban.ViewModel
             }
             else if (key == ConsoleKey.R)
             {
-<<<<<<< HEAD
-               
-                _output.LoadLevel(_output._currentLevelNumber);
-                
-=======
                 _output.ReloadLevel(_output._currentLevelNumber);
                 logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
->>>>>>> UitbreidingBranch
             }
             else if (key == ConsoleKey.M)
             {
