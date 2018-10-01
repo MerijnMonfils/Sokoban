@@ -100,6 +100,7 @@
     <Content Include="Mazes\level3.txt" />
     <Content Include="Mazes\level2.txt" />
     <Content Include="Mazes\level1.txt" />
+    <Content Include="Mazes\level6.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

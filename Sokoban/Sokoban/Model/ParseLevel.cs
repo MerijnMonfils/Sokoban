@@ -67,17 +67,13 @@ namespace Sokoban.Model
         // check symbol in file -> returns new gameObject
         private BaseObject CheckCharacterAt(string line, int postionInRow)
         {
-            BaseObject test;
             char c = line[postionInRow];
             switch (c)
             {
                 case '#':
-
-                    test = new WallObject();
-                    test.GetChar();
                     return new WallObject();
                 case 'O':
-                    return new ChestObject();
+                    return new CrateObject();
                 case '.':
                     return new TileObject();
                 case '@':
