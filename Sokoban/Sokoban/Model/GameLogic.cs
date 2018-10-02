@@ -6,6 +6,7 @@ namespace Sokoban.Model
     {
         private LinkedGameObject _playerObject;
         public bool GameWon { get; set; }
+        public bool PlayerOnDestination { get; set; }
         public void SetPlayer(LinkedList currentLevel)
         {
             var rows = currentLevel.First;
@@ -59,6 +60,19 @@ namespace Sokoban.Model
 
                 return currentLevel;
             }
+
+            
+                if (_playerObject.ObjectAbove.GameObject.GetChar() == 'X')
+                {
+                    _playerObject.ObjectAbove.GameObject.SetChar('@');
+                    _playerObject.GameObject.SetChar('.');
+
+                    _playerObject = _playerObject.ObjectAbove;
+                  
+                    return currentLevel;
+                }
+            
+          
            
 
             //if above neighbour = crate
