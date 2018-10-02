@@ -6,13 +6,13 @@ namespace Sokoban.Model
     {
         private LinkedGameObject _playerObject;
         public bool GameWon { get; set; }
+        
+
         public void SetPlayer(LinkedList currentLevel)
         {
             var rows = currentLevel.First;
             var columns = currentLevel.First;
-
-           
-
+            
             while (rows != null)
             {
                 while (columns != null)
@@ -51,6 +51,15 @@ namespace Sokoban.Model
             second.GameObject = temp;
         }
 
+        private void MoveToTrap(LinkedGameObject move)
+        {
+            move.GameObject.SetChar('.');
+            SwapTwo(_playerObject, move);
+
+            // set trap to know it has a player ontop
+            // if player moves off, last place of playerObject is a trap
+        }
+
         public LinkedList MoveUp(LinkedList currentLevel)
         {
             if (_playerObject.ObjectAbove.GameObject.GetChar() == '.')
@@ -59,7 +68,14 @@ namespace Sokoban.Model
 
                 return currentLevel;
             }
-           
+
+            if (_playerObject.ObjectAbove.GameObject.GetChar() == '~')
+            {
+                MoveToTrap(_playerObject.ObjectAbove);
+
+                return currentLevel;
+            }
+
 
             //if above neighbour = crate
             if (_playerObject.ObjectAbove.GameObject.GetChar() == 'O')
@@ -91,11 +107,19 @@ namespace Sokoban.Model
             return currentLevel;
         }
 
+
         public LinkedList MoveLeft(LinkedList currentLevel)
         {
             if (_playerObject.ObjectPrevious.GameObject.GetChar() == '.')
             {
                 SwapTwo(_playerObject, _playerObject.ObjectPrevious);
+                return currentLevel;
+            }
+
+            if (_playerObject.ObjectPrevious.GameObject.GetChar() == '~')
+            {
+                MoveToTrap(_playerObject.ObjectPrevious);
+
                 return currentLevel;
             }
 
@@ -135,6 +159,13 @@ namespace Sokoban.Model
                 return currentLevel;
             }
 
+            if (_playerObject.ObjectBelow.GameObject.GetChar() == '~')
+            {
+                MoveToTrap(_playerObject.ObjectBelow);
+
+                return currentLevel;
+            }
+
             if (_playerObject.ObjectBelow.GameObject.GetChar() == 'O')
             {
                 //If neighbour below the crate is a tile object: 
@@ -167,6 +198,13 @@ namespace Sokoban.Model
             if (_playerObject.ObjectNext.GameObject.GetChar() == '.')
             {
                 SwapTwo(_playerObject, _playerObject.ObjectNext);
+                return currentLevel;
+            }
+
+            if (_playerObject.ObjectNext.GameObject.GetChar() == '~')
+            {
+                MoveToTrap(_playerObject.ObjectNext);
+
                 return currentLevel;
             }
 

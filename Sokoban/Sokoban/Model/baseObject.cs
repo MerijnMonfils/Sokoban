@@ -8,12 +8,12 @@ namespace Sokoban.Model
 {
     public class BaseObject
     {
-
         public virtual char _value
         {
             get { return _value; }
             set { _value = value; }
         }
+
         public virtual char GetChar()
         {
             return _value;
@@ -23,5 +23,6 @@ namespace Sokoban.Model
         {
             x = _value;
         }
+
     }
 }
