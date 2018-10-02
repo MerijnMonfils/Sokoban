@@ -8,7 +8,7 @@ namespace Sokoban.Model
 {
      class TileObject : BaseObject
     {
-        private char _tileValue = '.';
+        private char _tileValue = (char)Characters.Tile;
         public override char _value
         {
             get

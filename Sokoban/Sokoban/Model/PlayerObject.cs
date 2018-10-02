@@ -8,7 +8,7 @@ namespace Sokoban.Model
 {
     class PlayerObject : BaseObject
     {
-        private char _playerValue = '@';
+        private char _playerValue = (char)Characters.Player;
 
 
         public override char _value

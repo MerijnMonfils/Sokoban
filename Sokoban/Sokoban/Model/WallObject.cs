@@ -8,7 +8,8 @@ namespace Sokoban.Model
 {
     class WallObject : BaseObject
     {
-        private char _playerValue = '#';
+        private char _playerValue = (char) Characters.Wall;
+
         public override char _value
         {
             get

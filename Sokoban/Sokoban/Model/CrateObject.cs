@@ -8,7 +8,7 @@ namespace Sokoban.Model
 {
     class CrateObject : BaseObject
     {
-        private char _chestValue = 'O';
+        private char _chestValue = (char)Characters.Crate;
         public override char _value
         {
             get

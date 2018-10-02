@@ -89,19 +89,19 @@ namespace Sokoban.Model
             char c = line[postionInRow];
             switch (c)
             {
-                case '#':
+                case (char) Characters.Wall:
                     return new WallObject();
-                case 'O':
+                case (char) Characters.Crate:
                     return new CrateObject();
-                case '.':
+                case (char) Characters.Tile:
                     return new TileObject();
-                case '@':
+                case (char) Characters.Player:
                     return new PlayerObject();
-                case 'X':
+                case (char) Characters.Destination:
                     return new DestinationObject();
-                case '~':
+                case (char) Characters.Trap:
                     return new TrapObject();
-                case '$':
+                case (char) Characters.Worker:
                     return new WorkerObject();
                 default:
                     return new WallObject();

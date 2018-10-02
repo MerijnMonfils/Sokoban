@@ -74,7 +74,27 @@ namespace Sokoban.ViewModel
             _mainView.StartPlaying();
         }
 
-      
+        public void ShowLevel(bool victory)
+        {
+            _mainView.Clear();
+
+            var rows = _currentLevel.First;
+            var columns = _currentLevel.First;
+
+            while (rows != null)
+            {
+                while (columns != null)
+                {
+                    _mainView.Write(columns.GameObject.GetChar() + "");
+                    columns = columns.ObjectNext;
+                }
+                _mainView.WriteLine("");
+                rows = rows.ObjectBelow;
+                columns = rows;
+            }
+        }
+
+
     }
 }
 

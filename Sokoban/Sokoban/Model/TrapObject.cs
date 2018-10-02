@@ -8,7 +8,7 @@ namespace Sokoban.Model
 {
     class TrapObject : BaseObject
     {
-        private char _trapValue = '~';
+        private char _trapValue = (char)Characters.Trap;
         
         /// <summary>
         /// Wanneer er 3 keer een kist of vorkheftruk op dit veld wordt geplaatst, begeeft de vloer het

@@ -48,6 +48,7 @@ namespace Sokoban.ViewModel
             else if (key == ConsoleKey.R)
             {
                 _output.ReloadLevel(_output._currentLevelNumber);
+                logic.GameWon = false;
                 logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
             }
@@ -56,31 +57,28 @@ namespace Sokoban.ViewModel
                 _output.ReshowMenu();
                  
             }
-            else if(logic.GameFinished(_output._currentLevel))
-                {
-                    _view.WriteLine("Congratulations, you have completed the level");
-                    _view.WriteLine("Press M to go to Menu");
-                    _view.WriteLine("Press R to play again");
-                    _view.StartPlaying();
-                }
-            else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W && !logic.GameWon)
+            else if (key == ConsoleKey.UpArrow && !logic.GameWon || key == ConsoleKey.W && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveUp(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A && !logic.GameWon)
+            else if (key == ConsoleKey.LeftArrow && !logic.GameWon || key == ConsoleKey.A && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveLeft(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S && !logic.GameWon)
+            else if (key == ConsoleKey.DownArrow && !logic.GameWon || key == ConsoleKey.S && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveDown(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D && !logic.GameWon)
+            else if (key == ConsoleKey.RightArrow && !logic.GameWon || key == ConsoleKey.D && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveRight(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
             else
@@ -88,6 +86,17 @@ namespace Sokoban.ViewModel
                 _view.StartPlaying();
             }
 
+        }
+
+        private void CheckGameOver()
+        {
+            if (logic.GameFinished(_output._currentLevel)){
+                _output.ShowLevel(true);
+                _view.WriteLine("Congratulations, you have completed the level");
+                _view.WriteLine("Press M to go to Menu");
+                _view.WriteLine("Press R to play again");
+                _view.StartPlaying();
+            }
         }
     }
 }
