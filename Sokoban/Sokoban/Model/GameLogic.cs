@@ -61,7 +61,8 @@ namespace Sokoban.Model
                 if (_tempObject != null)
                 {
                     move.GameObject.SetChar((char)Characters.Player);
-                    _playerObject.GameObject.SetChar(_tempObject.GameObject.GetChar());
+                    // TEMPORARY!
+                    _playerObject.GameObject.SetChar((char)Characters.Destination); 
                     _playerObject = move;
                     _tempObject = null; // reset object
                     return true;
