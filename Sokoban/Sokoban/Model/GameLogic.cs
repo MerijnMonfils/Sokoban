@@ -6,13 +6,16 @@ namespace Sokoban.Model
     public class GameLogic
     {
         private LinkedGameObject _playerObject;
+        private LinkedGameObject _tempObject;
         public bool GameWon { get; set; }
 
+
+        // set PlayerObject
         public void SetPlayer(LinkedList currentLevel)
         {
             var rows = currentLevel.First;
             var columns = currentLevel.First;
-            
+
             while (rows != null)
             {
                 while (columns != null)
@@ -38,7 +41,7 @@ namespace Sokoban.Model
 
             second.GameObject = temp;
 
-            _playerObject = second; 
+            _playerObject = second;
         }
 
         // move with chest
@@ -51,44 +54,69 @@ namespace Sokoban.Model
             second.GameObject = temp;
         }
 
-        private void MoveToTrap(LinkedGameObject move)
+        private bool NormalMove(LinkedGameObject move)
         {
-            move.GameObject.SetChar((char)Characters.Tile);
-            SwapTwo(_playerObject, move);
-
-            // set trap to know it has a player ontop
-            // if player moves off, last place of playerObject is a trap
+            if (move.GameObject.GetChar() == (char)Characters.Tile)
+            {
+                if (_tempObject != null)
+                {
+                    move.GameObject.SetChar((char)Characters.Player);
+                    _playerObject.GameObject.SetChar(_tempObject.GameObject.GetChar());
+                    _playerObject = move;
+                    _tempObject = null; // reset object
+                    return true;
+                }
+                move.GameObject.SetChar((char)Characters.Player);
+                _playerObject.GameObject.SetChar((char)Characters.Tile);
+                _playerObject = move;
+                return true;
+            }
+            return false;
         }
+
+        private bool MoveOntoDestinationOrTrap(LinkedGameObject move)
+        {
+            if(move.GameObject.GetChar() == (char)Characters.Destination 
+                || move.GameObject.GetChar() == (char)Characters.Trap 
+                || move.GameObject.GetChar() == (char)Characters.OpenTrap)
+            {
+                
+                move.GameObject.SetChar((char)Characters.Player);
+                _playerObject.GameObject.SetChar((char)Characters.Tile); // player becomes a tile
+                _playerObject = move;
+                return true;
+            }
+            return false;
+        }
+
+
 
         public LinkedList MoveUp(LinkedList currentLevel)
         {
-            if (LessDestinationsThanCrates(currentLevel))
+            if (NormalMove(_playerObject.ObjectAbove))
+                return currentLevel;
+            if (MoveOntoDestinationOrTrap(_playerObject.ObjectAbove))
+                return currentLevel;
+
+
+
+
+
+            if (_playerObject.ObjectAbove.GameObject.GetChar() == 'O' &&
+                _playerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == '.')
             {
-                if (_playerObject.ObjectAbove.GameObject.GetChar() == '.')
-                {
-                    _playerObject.GameObject.SetChar('X');
-                    _playerObject.ObjectAbove.GameObject.SetChar('@');
+                _playerObject.GameObject.SetChar('X');
+                _playerObject.ObjectAbove.GameObject.SetChar('@');
+                _playerObject.ObjectAbove.ObjectAbove.GameObject.SetChar('O');
 
-                    _playerObject = _playerObject.ObjectAbove;
+                _playerObject = _playerObject.ObjectAbove;
 
-                    return currentLevel;
-                }
+                return currentLevel;
 
-                if (_playerObject.ObjectAbove.GameObject.GetChar() == 'O' &&
-                    _playerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == '.')
-                {
-                    _playerObject.GameObject.SetChar('X');
-                    _playerObject.ObjectAbove.GameObject.SetChar('@');
-                    _playerObject.ObjectAbove.ObjectAbove.GameObject.SetChar('O');
-
-                    _playerObject = _playerObject.ObjectAbove;
-
-                    return currentLevel;
-
-                }
-
-                
             }
+
+
+
 
             if (_playerObject.ObjectAbove.GameObject.GetChar() == 'X')
             {
@@ -107,13 +135,6 @@ namespace Sokoban.Model
                 return currentLevel;
             }
 
-            if (_playerObject.ObjectAbove.GameObject.GetChar() == (char)Characters.Trap)
-            {
-                MoveToTrap(_playerObject.ObjectAbove);
-
-                return currentLevel;
-            }
-
             //if above neighbour = crate
             if (_playerObject.ObjectAbove.GameObject.GetChar() == (char)Characters.Crate)
             {
@@ -123,7 +144,7 @@ namespace Sokoban.Model
                 {
                     // move with chest
                     SwapTwo(_playerObject.ObjectAbove, _playerObject.ObjectAbove.ObjectAbove, true);
-                    
+
                     // move with player
                     SwapTwo(_playerObject, _playerObject.ObjectAbove);
                 }
@@ -134,7 +155,7 @@ namespace Sokoban.Model
                     _playerObject.ObjectAbove.ObjectAbove.GameObject.SetChar((char)Characters.CrateOnDestination);
                     _playerObject.ObjectAbove.GameObject.SetChar((char)Characters.Player);
                     _playerObject.GameObject.SetChar((char)Characters.Tile);
-                    
+
                     _playerObject = _playerObject.ObjectAbove;
 
                     return currentLevel;
@@ -161,21 +182,12 @@ namespace Sokoban.Model
 
         public LinkedList MoveLeft(LinkedList currentLevel)
         {
+            if (NormalMove(_playerObject.ObjectPrevious))
+                return currentLevel;
+            if (MoveOntoDestinationOrTrap(_playerObject.ObjectPrevious))
+                return currentLevel;
 
-            if (LessDestinationsThanCrates(currentLevel))
-            {
-
-                if (_playerObject.ObjectPrevious.GameObject.GetChar() == '.')
-                {
-                    _playerObject.GameObject.SetChar('X');
-                    _playerObject.ObjectPrevious.GameObject.SetChar('@');
-
-                    _playerObject = _playerObject.ObjectPrevious;
-
-                    return currentLevel;
-                }
-
-                if (_playerObject.ObjectPrevious.GameObject.GetChar() == 'O' &&
+            if (_playerObject.ObjectPrevious.GameObject.GetChar() == 'O' &&
                     _playerObject.ObjectPrevious.ObjectPrevious.GameObject.GetChar() == '.')
                 {
                     _playerObject.GameObject.SetChar('X');
@@ -189,7 +201,7 @@ namespace Sokoban.Model
                 }
 
 
-            }
+            
 
             if (_playerObject.ObjectPrevious.GameObject.GetChar() == 'X')
             {
@@ -205,13 +217,6 @@ namespace Sokoban.Model
 
             {
                 SwapTwo(_playerObject, _playerObject.ObjectPrevious);
-                return currentLevel;
-            }
-
-            if (_playerObject.ObjectPrevious.GameObject.GetChar() == (char)Characters.Trap)
-            {
-                MoveToTrap(_playerObject.ObjectPrevious);
-
                 return currentLevel;
             }
 
@@ -239,24 +244,17 @@ namespace Sokoban.Model
                 }
             }
 
-                return currentLevel;
-           
+            return currentLevel;
+
         }
 
         public LinkedList MoveDown(LinkedList currentLevel)
         {
-
-            if (LessDestinationsThanCrates(currentLevel))
-            {
-                if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
-                {
-                    _playerObject.GameObject.SetChar((char)Characters.Destination);
-                    _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
-
-                    _playerObject = _playerObject.ObjectBelow;
-
-                    return currentLevel;
-                }
+            if (NormalMove(_playerObject.ObjectBelow))
+                return currentLevel;
+            if (MoveOntoDestinationOrTrap(_playerObject.ObjectBelow))
+                return currentLevel;
+           
 
                 if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Crate &&
                     _playerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
@@ -270,18 +268,11 @@ namespace Sokoban.Model
                     return currentLevel;
 
                 }
-            }
+            
             if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
 
             {
                 SwapTwo(_playerObject, _playerObject.ObjectBelow);
-                return currentLevel;
-            }
-
-            if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Trap)
-            {
-                MoveToTrap(_playerObject.ObjectBelow);
-
                 return currentLevel;
             }
 
@@ -300,7 +291,7 @@ namespace Sokoban.Model
                 //If neighbour below the crate is a destination object: 
                 if (_playerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == (char)Characters.Destination)
                 {
-                   
+
                     _playerObject.ObjectBelow.ObjectBelow.GameObject.SetChar((char)Characters.CrateOnDestination);
                     _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
                     _playerObject.GameObject.SetChar((char)Characters.Tile);
@@ -309,26 +300,18 @@ namespace Sokoban.Model
 
                 }
             }
-                return currentLevel;
+            return currentLevel;
         }
 
         public LinkedList MoveRight(LinkedList currentLevel)
         {
+            if (NormalMove(_playerObject.ObjectNext))
+                return currentLevel;
+            if (MoveOntoDestinationOrTrap(_playerObject.ObjectNext))
+                return currentLevel;
 
 
-            if (LessDestinationsThanCrates(currentLevel))
-            {
-                if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
-                {
-                    _playerObject.GameObject.SetChar((char)Characters.Destination);
-                    _playerObject.ObjectNext.GameObject.SetChar((char)Characters.Player);
-
-                    _playerObject = _playerObject.ObjectNext;
-
-                    return currentLevel;
-                }
-
-                if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Crate &&
+            if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Crate &&
                     _playerObject.ObjectNext.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
                 {
                     _playerObject.GameObject.SetChar((char)Characters.Destination);
@@ -340,20 +323,13 @@ namespace Sokoban.Model
                     return currentLevel;
 
                 }
-            }
+            
 
 
             if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
 
             {
                 SwapTwo(_playerObject, _playerObject.ObjectNext);
-                return currentLevel;
-            }
-
-            if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Trap)
-            {
-                MoveToTrap(_playerObject.ObjectNext);
-
                 return currentLevel;
             }
 
