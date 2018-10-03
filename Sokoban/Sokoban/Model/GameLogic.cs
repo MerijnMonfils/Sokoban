@@ -246,27 +246,30 @@ namespace Sokoban.Model
         public LinkedList MoveDown(LinkedList currentLevel)
         {
 
-            if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
+            if (LessDestinationsThanCrates(currentLevel))
             {
-                _playerObject.GameObject.SetChar((char)Characters.Destination);
-                _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
+                if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
+                {
+                    _playerObject.GameObject.SetChar((char)Characters.Destination);
+                    _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
 
-                _playerObject = _playerObject.ObjectBelow;
+                    _playerObject = _playerObject.ObjectBelow;
 
-                return currentLevel;
-            }
+                    return currentLevel;
+                }
 
-            if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Crate &&
-                _playerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
-            {
-                _playerObject.GameObject.SetChar((char)Characters.Destination);
-                _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
-                _playerObject.ObjectBelow.ObjectBelow.GameObject.SetChar((char)Characters.Crate);
+                if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Crate &&
+                    _playerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
+                {
+                    _playerObject.GameObject.SetChar((char)Characters.Destination);
+                    _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
+                    _playerObject.ObjectBelow.ObjectBelow.GameObject.SetChar((char)Characters.Crate);
 
-                _playerObject = _playerObject.ObjectBelow;
+                    _playerObject = _playerObject.ObjectBelow;
 
-                return currentLevel;
+                    return currentLevel;
 
+                }
             }
             if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
 
@@ -313,27 +316,30 @@ namespace Sokoban.Model
         {
 
 
-            if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
+            if (LessDestinationsThanCrates(currentLevel))
             {
-                _playerObject.GameObject.SetChar((char)Characters.Destination);
-                _playerObject.ObjectNext.GameObject.SetChar((char)Characters.Player);
+                if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
+                {
+                    _playerObject.GameObject.SetChar((char)Characters.Destination);
+                    _playerObject.ObjectNext.GameObject.SetChar((char)Characters.Player);
 
-                _playerObject = _playerObject.ObjectNext;
+                    _playerObject = _playerObject.ObjectNext;
 
-                return currentLevel;
-            }
+                    return currentLevel;
+                }
 
-            if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Crate &&
-                _playerObject.ObjectNext.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
-            {
-                _playerObject.GameObject.SetChar((char)Characters.Destination);
-                _playerObject.ObjectNext.GameObject.SetChar((char)Characters.Player);
-                _playerObject.ObjectNext.ObjectNext.GameObject.SetChar((char)Characters.Crate);
+                if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Crate &&
+                    _playerObject.ObjectNext.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
+                {
+                    _playerObject.GameObject.SetChar((char)Characters.Destination);
+                    _playerObject.ObjectNext.GameObject.SetChar((char)Characters.Player);
+                    _playerObject.ObjectNext.ObjectNext.GameObject.SetChar((char)Characters.Crate);
 
-                _playerObject = _playerObject.ObjectNext;
+                    _playerObject = _playerObject.ObjectNext;
 
-                return currentLevel;
+                    return currentLevel;
 
+                }
             }
 
 
