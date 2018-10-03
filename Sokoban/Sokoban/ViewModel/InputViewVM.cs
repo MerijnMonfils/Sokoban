@@ -60,21 +60,25 @@ namespace Sokoban.ViewModel
             else if (key == ConsoleKey.UpArrow && !logic.GameWon || key == ConsoleKey.W && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveUp(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
             else if (key == ConsoleKey.LeftArrow && !logic.GameWon || key == ConsoleKey.A && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveLeft(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
             else if (key == ConsoleKey.DownArrow && !logic.GameWon || key == ConsoleKey.S && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveDown(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
             else if (key == ConsoleKey.RightArrow && !logic.GameWon || key == ConsoleKey.D && !logic.GameWon)
             {
                 _output._currentLevel = logic.MoveRight(_output._currentLevel);
+                CheckGameOver();
                 _output.ShowLevel();
             }
             else
