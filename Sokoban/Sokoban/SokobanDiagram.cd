@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Sokoban.MainView">
-    <Position X="9" Y="0.75" Width="1.5" />
+  <Class Name="Sokoban.View.MainView">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <AssociationLine Name="input" Type="Sokoban.ViewModel.InputViewVM" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="1.375" />
+        <Point X="12.312" Y="1.375" />
+        <Point X="12.312" Y="5.5" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAgAAAAAAAIBAAAABAAAFAAIA=</HashCode>
       <FileName>View\MainView.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -11,80 +18,106 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Program">
-    <Position X="12.75" Y="3.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+    <Position X="2.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>View\Program.cs</FileName>
+      <FileName>ViewModel\Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.ParseLevelVM">
-    <Position X="4.75" Y="3" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="Sokoban.ParseLevelVM.Characters" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ViewModel\ParseLevelVM.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
+  <Class Name="Sokoban.Model.WallObject" Collapsed="true">
+    <Position X="9.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModel\ParseLevelVM.cs</FileName>
+      <HashCode>ABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\WallObject.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.OutputViewVM">
-    <Position X="7.75" Y="3" Width="1.5" />
+  <Class Name="Sokoban.Model.TileObject" Collapsed="true">
+    <Position X="11.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAABAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TileObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.PlayerObject" Collapsed="true">
+    <Position X="13.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PlayerObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.ParseLevel">
+    <Position X="5.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwgAAAAAACAAAAAAEAAAABAAEAAAAAAABAAAAAEAA=</HashCode>
+      <FileName>Model\ParseLevel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_allLevels" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.LinkedList" Collapsed="true">
+    <Position X="11.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAQAAAAAAAACAAAAAAAAAAhACAAAAAAA=</HashCode>
+      <FileName>Model\LinkedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.LinkedGameObject" Collapsed="true">
+    <Position X="11.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Model\LinkedGameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.DestinationObject" Collapsed="true">
+    <Position X="15.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\DestinationObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.ChestObject" Collapsed="true">
+    <Position X="7.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ChestObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.baseObject" Collapsed="true">
+    <Position X="11.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\baseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.ViewModel.InputViewVM">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <AssociationLine Name="_view" Type="Sokoban.View.MainView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.312" Y="5.5" />
+        <Point X="11.312" Y="1.854" />
+        <Point X="10" Y="1.854" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAEABAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\InputViewVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_output" />
+      <Field Name="_view" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.ViewModel.OutputViewVM">
+    <Position X="5.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAACAABAAAAAAAABEAAAAAAAAAAAAAAghAAA=</HashCode>
       <FileName>ViewModel\OutputViewVM.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Field Name="_mainView" />
       <Field Name="_parseLevels" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="Sokoban.Truck" Collapsed="true">
-    <Position X="9.25" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Truck.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.Wall" Collapsed="true">
-    <Position X="5.25" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Wall.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.Destination" Collapsed="true">
-    <Position X="7.25" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Destination.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.Tile">
-    <Position X="11" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tile.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.Chest" Collapsed="true">
-    <Position X="3.25" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Chest.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.InputViewVM">
-    <Position X="9.75" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAEAA=</HashCode>
-      <FileName>ViewModel\InputViewVM.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

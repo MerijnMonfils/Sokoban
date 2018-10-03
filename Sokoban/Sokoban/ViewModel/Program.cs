@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Sokoban.ViewModel;
 
 namespace Sokoban
 {
@@ -7,10 +8,9 @@ namespace Sokoban
     {
         static void Main()
         {
-
-            OutputViewVM o = new OutputViewVM();
-            o.start();
+            OutputViewVM output = new OutputViewVM();
+            output.ShowMenu();
         }
     }
-
+    
 }

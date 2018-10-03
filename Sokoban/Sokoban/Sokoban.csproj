@@ -60,17 +60,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chest.cs" />
+    <Compile Include="Model\BaseObject.cs" />
+    <Compile Include="Model\Characters.cs" />
+    <Compile Include="Model\CrateObject.cs" />
+    <Compile Include="Model\DestinationObject.cs" />
+    <Compile Include="Model\GameLogic.cs" />
+    <Compile Include="Model\LinkedGameObject.cs" />
+    <Compile Include="Model\LinkedList.cs" />
+    <Compile Include="Model\PlayerObject.cs" />
+    <Compile Include="Model\TileObject.cs" />
+    <Compile Include="Model\TrapObject.cs" />
+    <Compile Include="Model\WallObject.cs" />
+    <Compile Include="Model\WorkerObject.cs" />
     <Compile Include="ViewModel\InputViewVM.cs" />
     <Compile Include="ViewModel\OutputViewVM.cs" />
-    <Compile Include="Wall.cs" />
     <Compile Include="View\MainView.cs" />
-    <Compile Include="ParseLevel.cs" />
-    <Compile Include="View\Program.cs" />
+    <Compile Include="Model\ParseLevel.cs" />
+    <Compile Include="ViewModel\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Truck.cs" />
-    <Compile Include="Tile.cs" />
-    <Compile Include="Destination.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -90,9 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Mazes\level4.txt" />
+    <Content Include="Mazes\level5.txt" />
     <Content Include="Mazes\level3.txt" />
     <Content Include="Mazes\level2.txt" />
     <Content Include="Mazes\level1.txt" />
+    <Content Include="Mazes\level6.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

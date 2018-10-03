@@ -6,40 +6,95 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Sokoban.Model;
+using Sokoban.View;
 
-namespace Sokoban
+namespace Sokoban.ViewModel
+
 {
     public class OutputViewVM
     {
         private MainView _mainView;
         private ParseLevel _parseLevels;
 
+        public LinkedList _currentLevel { get; set; }
+        public int _currentLevelNumber { get; private set; }
 
         public OutputViewVM()
         {
             _parseLevels = new ParseLevel();
-            _mainView = new MainView(this, _parseLevels);
+            _mainView = new MainView(this);
         }
 
-        public void Start()
+        public void ShowMenu()
         {
             _parseLevels.CountLevels();
+            _parseLevels.SaveCollection();
+            _mainView._amount = _parseLevels._amount;
+            _mainView.StartScreen();
+            _mainView.StartListening();            
+        }
+
+        public void ReshowMenu()
+        {
+            _mainView.Clear();
             _mainView.StartScreen();
             _mainView.StartListening();
         }
 
-        public void OutputLevel(char[,] level)
+        public void LoadLevel(int level)
         {
-            for (int x = 0; x < level.GetLength(0); x++)
+            _currentLevel = _parseLevels.GetLevel(level);
+            _currentLevelNumber = level;
+        }
+
+        public void ReloadLevel(int currentLevelNumber)
+        {
+            _currentLevel = _parseLevels.ReloadLevel(currentLevelNumber);
+        }
+
+        public void ShowLevel()
+        {
+            _mainView.Clear();
+            
+            var rows = _currentLevel.First;
+            var columns = _currentLevel.First;
+
+            while(rows != null)
             {
-                for (int i = 0; i < level.GetLength(1); i++)
+                while (columns != null)
                 {
-                    _mainView.Write(level.GetValue(x, i).ToString());
+                    _mainView.Write(columns.GameObject.GetChar() + "");
+                    columns = columns.ObjectNext;
                 }
                 _mainView.WriteLine("");
+                rows = rows.ObjectBelow;
+                columns = rows;
             }
-            _mainView.StartListening();
+            _mainView.StartPlaying();
         }
+
+        public void ShowLevel(bool victory)
+        {
+            _mainView.Clear();
+
+            var rows = _currentLevel.First;
+            var columns = _currentLevel.First;
+
+            while (rows != null)
+            {
+                while (columns != null)
+                {
+                    _mainView.Write(columns.GameObject.GetChar() + "");
+                    columns = columns.ObjectNext;
+                }
+                _mainView.WriteLine("");
+                rows = rows.ObjectBelow;
+                columns = rows;
+            }
+        }
+
+
     }
 }
 
