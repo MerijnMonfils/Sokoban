@@ -15,6 +15,9 @@ namespace Sokoban.Model
        CrateOnDestination = '0',
        Player = '@',
        Trap = '~',
-       Worker = '$'
+       OpenTrap = ' ',
+       Worker = '$',
+       WorkerSleeping = 'z',
+
     }
 }

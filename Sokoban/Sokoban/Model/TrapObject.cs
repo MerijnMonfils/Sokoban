@@ -9,13 +9,13 @@ namespace Sokoban.Model
     class TrapObject : BaseObject
     {
         private char _trapValue = (char)Characters.Trap;
-        
-        /// <summary>
-        /// Wanneer er 3 keer een kist of vorkheftruk op dit veld wordt geplaatst, begeeft de vloer het
-        /// en wordt dit veld een gat weergegeven met een spatie ‘ ‘. Elk krat dat daarna op het
-        /// valkuil veld wordt geplaatst gaat verloren (wordt verwijderd uit het level). Een vorkheftruk
-        /// kan door de brede wielbasis wel over een ingestorte valkuil rijden.
-        /// </summary>
+
+
+
+        public void IsOnTrap()
+        {
+
+        }
 
         public override char _value
         {
