@@ -10,11 +10,24 @@ namespace Sokoban.Model
     {
         private char _trapValue = (char)Characters.Trap;
 
+        private int _amountOnTrap { get; set; }
+        private bool _isOpenTrap { get; set; }
 
+        public bool IsOpenTrap()
+        {
+            return _isOpenTrap;
+        }
 
         public void IsOnTrap()
         {
-
+            if(_amountOnTrap > 3)
+            {
+                this.SetChar((char)Characters.OpenTrap);
+                _isOpenTrap = true;
+            } else
+            {
+                _amountOnTrap++;
+            }
         }
 
         public override char _value
