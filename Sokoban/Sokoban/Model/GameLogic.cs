@@ -7,12 +7,7 @@ namespace Sokoban.Model
     {
         private LinkedGameObject _playerObject;
         public bool GameWon { get; set; }
-<<<<<<< HEAD
-        
 
-=======
-        public bool PlayerOnDestination { get; set; }
->>>>>>> Danish_LinkedList
         public void SetPlayer(LinkedList currentLevel)
         {
             var rows = currentLevel.First;
@@ -67,10 +62,6 @@ namespace Sokoban.Model
 
         public LinkedList MoveUp(LinkedList currentLevel)
         {
-<<<<<<< HEAD
-            if (_playerObject.ObjectAbove.GameObject.GetChar() == (char)Characters.Tile)
-=======
-            
             if (LessDestinationsThanCrates(currentLevel))
             {
                 if (_playerObject.ObjectAbove.GameObject.GetChar() == '.')
@@ -109,13 +100,12 @@ namespace Sokoban.Model
             }
 
             if (_playerObject.ObjectAbove.GameObject.GetChar() == '.')
->>>>>>> Danish_LinkedList
+
             {
                 SwapTwo(_playerObject, _playerObject.ObjectAbove);
 
                 return currentLevel;
             }
-<<<<<<< HEAD
 
             if (_playerObject.ObjectAbove.GameObject.GetChar() == (char)Characters.Trap)
             {
@@ -124,19 +114,12 @@ namespace Sokoban.Model
                 return currentLevel;
             }
 
-=======
->>>>>>> Danish_LinkedList
-
             //if above neighbour = crate
             if (_playerObject.ObjectAbove.GameObject.GetChar() == (char)Characters.Crate)
             {
-<<<<<<< HEAD
                 //If above the crate are either a tile or a destination objects: 
                 if (_playerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == (char)Characters.Tile)
-=======
-                //If above the crate is a tile object
-                if (_playerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == '.')
->>>>>>> Danish_LinkedList
+
                 {
                     // move with chest
                     SwapTwo(_playerObject.ObjectAbove, _playerObject.ObjectAbove.ObjectAbove, true);
@@ -145,23 +128,13 @@ namespace Sokoban.Model
                     SwapTwo(_playerObject, _playerObject.ObjectAbove);
                 }
 
-<<<<<<< HEAD
                 if (_playerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == (char)Characters.Destination)
                 {
-
+                    //if above the crate is a destination object
                     _playerObject.ObjectAbove.ObjectAbove.GameObject.SetChar((char)Characters.CrateOnDestination);
                     _playerObject.ObjectAbove.GameObject.SetChar((char)Characters.Player);
                     _playerObject.GameObject.SetChar((char)Characters.Tile);
-=======
-                //if above the crate is a destination object
-                if (_playerObject.ObjectAbove.ObjectAbove.GameObject.GetChar() == 'X')
-                {
-                    //Change values
-                    _playerObject.ObjectAbove.ObjectAbove.GameObject.SetChar('0');
-                    _playerObject.ObjectAbove.GameObject.SetChar('@');
-                    _playerObject.GameObject.SetChar('.');
->>>>>>> Danish_LinkedList
-
+                    
                     _playerObject = _playerObject.ObjectAbove;
 
                     return currentLevel;
@@ -188,9 +161,6 @@ namespace Sokoban.Model
 
         public LinkedList MoveLeft(LinkedList currentLevel)
         {
-<<<<<<< HEAD
-            if (_playerObject.ObjectPrevious.GameObject.GetChar() == (char)Characters.Tile)
-=======
 
             if (LessDestinationsThanCrates(currentLevel))
             {
@@ -232,7 +202,7 @@ namespace Sokoban.Model
 
 
             if (_playerObject.ObjectPrevious.GameObject.GetChar() == '.')
->>>>>>> Danish_LinkedList
+
             {
                 SwapTwo(_playerObject, _playerObject.ObjectPrevious);
                 return currentLevel;
@@ -275,34 +245,31 @@ namespace Sokoban.Model
 
         public LinkedList MoveDown(LinkedList currentLevel)
         {
-<<<<<<< HEAD
+
             if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
-=======
-
-            if (_playerObject.ObjectBelow.GameObject.GetChar() == '.')
             {
-                _playerObject.GameObject.SetChar('X');
-                _playerObject.ObjectBelow.GameObject.SetChar('@');
+                _playerObject.GameObject.SetChar((char)Characters.Destination);
+                _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
 
                 _playerObject = _playerObject.ObjectBelow;
 
                 return currentLevel;
             }
 
-            if (_playerObject.ObjectBelow.GameObject.GetChar() == 'O' &&
-                _playerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == '.')
+            if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Crate &&
+                _playerObject.ObjectBelow.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
             {
-                _playerObject.GameObject.SetChar('X');
-                _playerObject.ObjectBelow.GameObject.SetChar('@');
-                _playerObject.ObjectBelow.ObjectBelow.GameObject.SetChar('O');
+                _playerObject.GameObject.SetChar((char)Characters.Destination);
+                _playerObject.ObjectBelow.GameObject.SetChar((char)Characters.Player);
+                _playerObject.ObjectBelow.ObjectBelow.GameObject.SetChar((char)Characters.Crate);
 
                 _playerObject = _playerObject.ObjectBelow;
 
                 return currentLevel;
 
             }
-            if (_playerObject.ObjectBelow.GameObject.GetChar() == '.')
->>>>>>> Danish_LinkedList
+            if (_playerObject.ObjectBelow.GameObject.GetChar() == (char)Characters.Tile)
+
             {
                 SwapTwo(_playerObject, _playerObject.ObjectBelow);
                 return currentLevel;
@@ -344,26 +311,24 @@ namespace Sokoban.Model
 
         public LinkedList MoveRight(LinkedList currentLevel)
         {
-<<<<<<< HEAD
+
+
             if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
-=======
-
-            if (_playerObject.ObjectNext.GameObject.GetChar() == '.')
             {
-                _playerObject.GameObject.SetChar('X');
-                _playerObject.ObjectNext.GameObject.SetChar('@');
+                _playerObject.GameObject.SetChar((char)Characters.Destination);
+                _playerObject.ObjectNext.GameObject.SetChar((char)Characters.Player);
 
                 _playerObject = _playerObject.ObjectNext;
 
                 return currentLevel;
             }
 
-            if (_playerObject.ObjectNext.GameObject.GetChar() == 'O' &&
-                _playerObject.ObjectNext.ObjectNext.GameObject.GetChar() == '.')
+            if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Crate &&
+                _playerObject.ObjectNext.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
             {
-                _playerObject.GameObject.SetChar('X');
-                _playerObject.ObjectNext.GameObject.SetChar('@');
-                _playerObject.ObjectNext.ObjectNext.GameObject.SetChar('O');
+                _playerObject.GameObject.SetChar((char)Characters.Destination);
+                _playerObject.ObjectNext.GameObject.SetChar((char)Characters.Player);
+                _playerObject.ObjectNext.ObjectNext.GameObject.SetChar((char)Characters.Crate);
 
                 _playerObject = _playerObject.ObjectNext;
 
@@ -372,8 +337,8 @@ namespace Sokoban.Model
             }
 
 
-            if (_playerObject.ObjectNext.GameObject.GetChar() == '.')
->>>>>>> Danish_LinkedList
+            if (_playerObject.ObjectNext.GameObject.GetChar() == (char)Characters.Tile)
+
             {
                 SwapTwo(_playerObject, _playerObject.ObjectNext);
                 return currentLevel;
@@ -448,13 +413,13 @@ namespace Sokoban.Model
             {
                 while (columns != null)
                 {
-                    if (columns.GameObject.GetChar() == 'X')
+                    if (columns.GameObject.GetChar() == (char)Characters.Destination)
                     {
 
                         destinations++;
                     }
 
-                    if (columns.GameObject.GetChar() == 'O')
+                    if (columns.GameObject.GetChar() == (char)Characters.Crate)
                     {
                         crates++;
                     }
