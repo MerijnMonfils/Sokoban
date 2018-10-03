@@ -81,7 +81,7 @@ namespace Sokoban.Model
                 || move.GameObject.GetChar() == (char)Characters.Trap 
                 || move.GameObject.GetChar() == (char)Characters.OpenTrap)
             {
-                
+                _tempObject = move;
                 move.GameObject.SetChar((char)Characters.Player);
                 _playerObject.GameObject.SetChar((char)Characters.Tile); // player becomes a tile
                 _playerObject = move;
