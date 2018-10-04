@@ -149,6 +149,8 @@ namespace Sokoban.Model
 
                 if (moveAfter.GameObject.GetChar() == (char)Characters.CrateOnDestination)
                     return false;
+                if (moveAfter.GameObject.GetChar() == (char)Characters.Crate)
+                    return false;
 
                 if (moveAfter.GameObject.GetChar() == (char)Characters.Destination)
                 {
