@@ -125,6 +125,20 @@ namespace Sokoban.Model
                 return true;
             }
 
+            if (move.GameObject.GetChar() == (char) Characters.Crate &&
+                moveAfter.GameObject.GetChar() == (char) Characters.Trap)
+            {
+
+                SwapTwo(move, moveAfter, true);
+                if (_isOnSpecialSquare)
+                {
+                    move.GameObject.SetChar(_tempChar);
+                    _isOnSpecialSquare = false;
+                }
+                SwapTwo(_playerObject, move);
+                return true;
+            }
+
             
 
             // check to trap
