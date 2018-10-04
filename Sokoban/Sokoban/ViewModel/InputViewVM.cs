@@ -49,6 +49,7 @@ namespace Sokoban.ViewModel
             {
                 _output.ReloadLevel(_output._currentLevelNumber);
                 logic.GameWon = false;
+                logic._isOnSpecialSquare = false;
                 logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
             }
