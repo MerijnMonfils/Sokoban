@@ -35,6 +35,8 @@ namespace Sokoban.ViewModel
             {
                 _view.StartListening();
             }
+                
+
         }
 
 

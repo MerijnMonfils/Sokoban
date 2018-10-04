@@ -8,17 +8,17 @@ namespace Sokoban.Model
 {
     class WallObject : BaseObject
     {
-        private char _playerValue = (char) Characters.Wall;
+        private char _wallValue = (char) Characters.DesignWall;
 
         public override char _value
         {
             get
             {
-                return _playerValue;
+                return _wallValue;
             }
             set
             {
-                _playerValue = value;
+                _wallValue = value;
             }
         }
     }

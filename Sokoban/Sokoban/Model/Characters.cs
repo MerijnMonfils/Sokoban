@@ -10,7 +10,7 @@ namespace Sokoban.Model
     {
        Wall = '#',
        Tile = '.',
-       DesignWall = 'W',
+       DesignWall = '█',
        Destination = 'X',
        Crate = 'O',
        CrateOnDestination = '0',
