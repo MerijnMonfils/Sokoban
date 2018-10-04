@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 
 namespace Sokoban.Model
 {
@@ -98,6 +99,7 @@ namespace Sokoban.Model
             return false;
         }
 
+       
         private void SetChar(char c)
         {
             if (c == (char)Characters.Destination)
@@ -123,7 +125,19 @@ namespace Sokoban.Model
                 return true;
             }
 
+            
+
             // check to trap
+            //
+            if (move.GameObject.GetChar() == (char)Characters.Crate
+                && moveAfter.GameObject.GetChar() == (char)Characters.OpenTrap)
+            {
+                move.GameObject.SetChar((char)Characters.Tile);
+                SwapTwo(_playerObject, move);
+                return true;
+            }
+
+          
 
             if (move.GameObject.HasChest)
             {
