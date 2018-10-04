@@ -9,6 +9,9 @@ namespace Sokoban.Model
     class DestinationObject : BaseObject
     {
         private char _destinationValue = (char)Characters.Destination;
+
+        public override bool HasChest { get; set; }
+
         public override char _value
         {
             get
@@ -25,13 +28,6 @@ namespace Sokoban.Model
         {
             _destinationValue = x;
             base.SetChar(_destinationValue);
-        }
-        public void HasChest(bool hasChest)
-        {
-            if (hasChest)
-                this._destinationValue = (char)Characters.CrateOnDestination;
-            else
-                this._destinationValue = (char)Characters.Destination;
         }
     }
 }

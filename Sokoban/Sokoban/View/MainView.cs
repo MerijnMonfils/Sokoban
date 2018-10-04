@@ -56,7 +56,14 @@ namespace Sokoban.View
 
         public void StartPlaying()
         {
-            input.PlayLevel(Console.ReadKey().Key);
+            try
+            {
+                input.PlayLevel(Console.ReadKey().Key);
+            }catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                Console.Read();
+            }
         }
 
         public void Write(string line)

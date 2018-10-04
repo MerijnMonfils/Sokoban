@@ -8,6 +8,9 @@ namespace Sokoban.Model
 {
     public class BaseObject
     {
+        public virtual bool HasChest { get; set; }
+
+
         public virtual char _value
         {
             get { return _value; }

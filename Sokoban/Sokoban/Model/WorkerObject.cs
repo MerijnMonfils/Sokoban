@@ -8,7 +8,7 @@ namespace Sokoban.Model
 {
     class WorkerObject : BaseObject
     {
-        private char _workerValue = (char) Characters.Worker;
+        private char _workerValue = (char) Characters.WorkerSleeping;
 
         public override char _value
         {

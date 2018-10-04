@@ -65,7 +65,7 @@ namespace Sokoban.Model
             }
             else
             {
-                // current object(l) has a neighbour to his left
+                // current object(l) has a neighbor to his left
                 mostRightObj.ObjectNext = l;
                 l.ObjectPrevious = mostRightObj;
                 Last = l;
@@ -73,7 +73,7 @@ namespace Sokoban.Model
             // set game object
             l.GameObject = obj;
             
-            // Assign top neighbour
+            // Assign top neighbor
             if (l == FirstInCurrentRow )
             {
                 l.ObjectAbove = FirstInPreviousRow;
