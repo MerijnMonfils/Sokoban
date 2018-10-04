@@ -75,10 +75,15 @@ namespace Sokoban.Model
 
         private bool MoveOntoDestinationOrTrap(LinkedGameObject move)
         {
-            if (move.GameObject.GetChar() == (char)Characters.Destination
+            if (move.GameObject.GetChar() == (char)Characters.Destination 
                 || move.GameObject.GetChar() == (char)Characters.Trap
                 || move.GameObject.GetChar() == (char)Characters.OpenTrap)
             {
+                if(move.GameObject.GetChar() != (char)Characters.Destination)
+                {
+                    move.GameObject.IsOnTrap();
+                }
+
                 if (_isOnSpecialSquare)
                     _playerObject.GameObject.SetChar(_tempChar); // player becomes a tile
                 else
@@ -118,6 +123,8 @@ namespace Sokoban.Model
                 return true;
             }
 
+            // check to trap
+
             if (move.GameObject.HasChest)
             {
 
@@ -126,8 +133,6 @@ namespace Sokoban.Model
 
                 if(moveAfter.GameObject.GetChar() == (char)Characters.Destination)
                 {
-                    // SITUATION:
-                    // @-0-X
                     SwapTwo(move, moveAfter, true);
                     _isOnSpecialSquare = true;
                     _tempChar = (char)Characters.Destination;

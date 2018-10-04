@@ -10,6 +10,7 @@ namespace Sokoban.Model
     {
         public virtual bool HasChest { get; set; }
 
+        public virtual void IsOnTrap() { }
 
         public virtual char _value
         {

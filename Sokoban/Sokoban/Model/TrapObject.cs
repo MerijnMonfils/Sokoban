@@ -20,9 +20,9 @@ namespace Sokoban.Model
                 this.SetChar((char)Characters.OpenTrap);
         }
 
-        public void IsOnTrap()
+        public override void IsOnTrap()
         {
-            if(_amountOnTrap > 3)
+            if(_amountOnTrap >= 2)
             {
                 this.SetChar((char)Characters.OpenTrap);
                 _isOpenTrap = true;
