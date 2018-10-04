@@ -74,6 +74,11 @@ namespace Sokoban.ViewModel
             _mainView.StartPlaying();
         }
 
+        public int GetAmountOfLevels()
+        {
+            return _parseLevels._amount;
+        }
+
         public void ShowLevel(bool victory)
         {
             _mainView.Clear();

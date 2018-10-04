@@ -22,6 +22,7 @@ namespace Sokoban.Model
         public void CountLevels()
         {
             this._path = Environment.CurrentDirectory;
+            Console.WriteLine(_path);
             this._path = _path.Substring(0, (_path.Length - 9)) + "Mazes";
             this._di = new DirectoryInfo(_path);
             _files = new string[_di.GetFiles().Count()];
@@ -100,9 +101,13 @@ namespace Sokoban.Model
                 case (char) Characters.Destination:
                     return new DestinationObject();
                 case (char) Characters.Trap:
-                    return new TrapObject();
+                    return new TrapObject(false);
+                case (char)Characters.OpenTrap:
+                    return new TrapObject(true);
                 case (char) Characters.Worker:
-                    return new WorkerObject();
+                    return new WorkerObject(false);
+                case (char) Characters.WorkerSleeping:
+                    return new WorkerObject(true);
                 default:
                     return new WallObject();
             }

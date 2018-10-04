@@ -10,6 +10,7 @@ namespace Sokoban.Model
     {
        Wall = '#',
        Tile = '.',
+       DesignWall = 'W',
        Destination = 'X',
        Crate = 'O',
        CrateOnDestination = '0',
@@ -18,6 +19,5 @@ namespace Sokoban.Model
        OpenTrap = ' ',
        Worker = '$',
        WorkerSleeping = 'z',
-
     }
 }
