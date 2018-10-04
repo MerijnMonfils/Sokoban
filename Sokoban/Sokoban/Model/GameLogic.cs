@@ -120,6 +120,22 @@ namespace Sokoban.Model
 
             if (move.GameObject.HasChest)
             {
+
+                if (moveAfter.GameObject.GetChar() == (char)Characters.CrateOnDestination)
+                    return false;
+
+                if(moveAfter.GameObject.GetChar() == (char)Characters.Destination)
+                {
+                    // SITUATION:
+                    // @-0-X
+                    SwapTwo(move, moveAfter, true);
+                    _isOnSpecialSquare = true;
+                    _tempChar = (char)Characters.Destination;
+                    move.GameObject.SetChar((char)Characters.Tile);
+                    SwapTwo(_playerObject, move);
+                    return true;
+                }
+                
                 if (_isOnSpecialSquare)
                     move.GameObject.SetChar(_tempChar);
                 else
@@ -209,16 +225,13 @@ namespace Sokoban.Model
                     if (columns.GameObject.GetChar() == (char)Characters.Destination ||
                         columns.GameObject.GetChar() == (char)Characters.Crate)
                     {
-
                         GameWon = false;
                         return false;
                     }
                     columns = columns.ObjectNext;
                 }
-
                 rows = rows.ObjectBelow;
                 columns = rows;
-
             }
             GameWon = true;
             return true;
@@ -235,28 +248,16 @@ namespace Sokoban.Model
                 while (columns != null)
                 {
                     if (columns.GameObject.GetChar() == (char)Characters.Destination)
-                    {
-
                         destinations++;
-                    }
-
                     if (columns.GameObject.GetChar() == (char)Characters.Crate)
-                    {
                         crates++;
-                    }
                     columns = columns.ObjectNext;
                 }
-
                 rows = rows.ObjectBelow;
                 columns = rows;
-
             }
-
             if (destinations < crates)
-            {
                 return true;
-            }
-
             return false;
         }
     }
