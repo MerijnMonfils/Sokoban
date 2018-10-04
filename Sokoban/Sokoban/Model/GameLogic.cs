@@ -179,7 +179,6 @@ namespace Sokoban.Model
             return currentLevel;
         }
 
-
         public LinkedList MoveLeft(LinkedList currentLevel)
         {
             if (NormalMove(_playerObject.ObjectPrevious))

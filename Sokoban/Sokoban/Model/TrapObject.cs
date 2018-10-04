@@ -13,6 +13,13 @@ namespace Sokoban.Model
         private int _amountOnTrap { get; set; }
         private bool _isOpenTrap { get; set; }
 
+        public TrapObject(bool isOpen)
+        {
+            _isOpenTrap = isOpen;
+            if (_isOpenTrap)
+                this.SetChar((char)Characters.OpenTrap);
+        }
+
         public bool IsOpenTrap()
         {
             return _isOpenTrap;

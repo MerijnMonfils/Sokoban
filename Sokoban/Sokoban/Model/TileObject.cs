@@ -21,8 +21,6 @@ namespace Sokoban.Model
             }
         }
 
-
-
         public override void SetChar(char x)
         {
             _tileValue = x;
