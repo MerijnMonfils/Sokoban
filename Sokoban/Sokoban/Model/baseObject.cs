@@ -9,8 +9,8 @@ namespace Sokoban.Model
     public class BaseObject
     {
         public virtual bool HasChest { get; set; }
-
-        public virtual void IsOnTrap() { }
+        
+        public virtual bool ChestOnTrap { get; set; }
 
         public virtual char _value
         {
@@ -27,6 +27,8 @@ namespace Sokoban.Model
         {
             x = _value;
         }
+        
+        public virtual void IsOnTrap() { }
 
     }
 }

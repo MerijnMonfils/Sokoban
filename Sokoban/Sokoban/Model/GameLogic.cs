@@ -58,6 +58,16 @@ namespace Sokoban.Model
 
         private bool NormalMove(LinkedGameObject move)
         {
+            // fallback to same level if player goes to empty object
+            try
+            {
+                if (move.GameObject == null) ;
+            }
+            catch (Exception e) 
+            {
+                return true;
+            }
+
             if (move.GameObject.GetChar() == (char)Characters.Tile)
             {
                 if (_isOnSpecialSquare)
@@ -71,16 +81,17 @@ namespace Sokoban.Model
                 SwapTwo(_playerObject, move);
                 return true;
             }
+
             return false;
         }
 
         private bool MoveOntoDestinationOrTrap(LinkedGameObject move)
         {
-            if (move.GameObject.GetChar() == (char)Characters.Destination 
+            if (move.GameObject.GetChar() == (char)Characters.Destination
                 || move.GameObject.GetChar() == (char)Characters.Trap
                 || move.GameObject.GetChar() == (char)Characters.OpenTrap)
             {
-                if(move.GameObject.GetChar() != (char)Characters.Destination)
+                if (move.GameObject.GetChar() != (char)Characters.Destination)
                 {
                     move.GameObject.IsOnTrap();
                 }
@@ -99,7 +110,6 @@ namespace Sokoban.Model
             return false;
         }
 
-       
         private void SetChar(char c)
         {
             if (c == (char)Characters.Destination)
@@ -121,37 +131,18 @@ namespace Sokoban.Model
                     move.GameObject.SetChar(_tempChar);
                     _isOnSpecialSquare = false;
                 }
-                SwapTwo(_playerObject, move);
-                return true;
-            }
-
-            if (move.GameObject.GetChar() == (char) Characters.Crate &&
-                moveAfter.GameObject.GetChar() == (char) Characters.Trap)
-            {
-
-                SwapTwo(move, moveAfter, true);
-                if (_isOnSpecialSquare)
+                if (moveAfter.GameObject.ChestOnTrap)
                 {
-                    move.GameObject.SetChar(_tempChar);
-                    _isOnSpecialSquare = false;
+                    moveAfter.GameObject.ChestOnTrap = false;
+                    _isOnSpecialSquare = true;
+                    _tempChar = (char)Characters.Trap;
                 }
                 SwapTwo(_playerObject, move);
                 return true;
             }
 
-            
-
-            // check to trap
-            //
-            if (move.GameObject.GetChar() == (char)Characters.Crate
-                && moveAfter.GameObject.GetChar() == (char)Characters.OpenTrap)
-            {
-                move.GameObject.SetChar((char)Characters.Tile);
-                SwapTwo(_playerObject, move);
+            if (MoveCrateToTrap(move, moveAfter))
                 return true;
-            }
-
-          
 
             if (move.GameObject.HasChest)
             {
@@ -159,7 +150,7 @@ namespace Sokoban.Model
                 if (moveAfter.GameObject.GetChar() == (char)Characters.CrateOnDestination)
                     return false;
 
-                if(moveAfter.GameObject.GetChar() == (char)Characters.Destination)
+                if (moveAfter.GameObject.GetChar() == (char)Characters.Destination)
                 {
                     SwapTwo(move, moveAfter, true);
                     _isOnSpecialSquare = true;
@@ -168,7 +159,7 @@ namespace Sokoban.Model
                     SwapTwo(_playerObject, move);
                     return true;
                 }
-                
+
                 if (_isOnSpecialSquare)
                     move.GameObject.SetChar(_tempChar);
                 else
@@ -195,6 +186,28 @@ namespace Sokoban.Model
                 }
                 else
                     move.GameObject.SetChar((char)Characters.Tile);
+                SwapTwo(_playerObject, move);
+                return true;
+            }
+            return false;
+        }
+
+        private bool MoveCrateToTrap(LinkedGameObject move, LinkedGameObject moveAfter)
+        {
+            if (move.GameObject.GetChar() == (char)Characters.Crate &&
+                moveAfter.GameObject.GetChar() == (char)Characters.Trap)
+            {
+                move.GameObject.ChestOnTrap = true;
+                SwapTwo(move, moveAfter, true);
+                move.GameObject.SetChar((char)Characters.Tile);
+                SwapTwo(_playerObject, move);
+                return true;
+            }
+            if (move.GameObject.GetChar() == (char)Characters.Crate
+                && moveAfter.GameObject.GetChar() == (char)Characters.OpenTrap)
+            {
+                move.GameObject.ChestOnTrap = true;
+                move.GameObject.SetChar((char)Characters.Tile);
                 SwapTwo(_playerObject, move);
                 return true;
             }
@@ -267,30 +280,6 @@ namespace Sokoban.Model
             }
             GameWon = true;
             return true;
-        }
-
-        public bool LessDestinationsThanCrates(LinkedList level)
-        {
-            var rows = level.First;
-            var columns = level.First;
-            var destinations = 0;
-            var crates = 0;
-            while (rows != null)
-            {
-                while (columns != null)
-                {
-                    if (columns.GameObject.GetChar() == (char)Characters.Destination)
-                        destinations++;
-                    if (columns.GameObject.GetChar() == (char)Characters.Crate)
-                        crates++;
-                    columns = columns.ObjectNext;
-                }
-                rows = rows.ObjectBelow;
-                columns = rows;
-            }
-            if (destinations < crates)
-                return true;
-            return false;
         }
     }
 

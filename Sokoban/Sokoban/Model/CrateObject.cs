@@ -9,6 +9,15 @@ namespace Sokoban.Model
     class CrateObject : BaseObject
     {
         private char _chestValue = (char)Characters.Crate;
+
+        public bool _isOnTrap { get; set; }
+
+        public override void IsOnTrap()
+        {
+            if (_isOnTrap)
+                _isOnTrap = true;
+        }
+
         public override char _value
         {
             get
