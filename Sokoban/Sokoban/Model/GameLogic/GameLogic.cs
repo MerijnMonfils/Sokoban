@@ -7,7 +7,7 @@ namespace Sokoban.Model
     public class GameLogic
     {
         private LinkedGameObject _playerObject;
-        private char _tempChar;
+        private char _tempChar = (char)Characters.Tile;
         public bool _isOnSpecialSquare { get; set; }
         public bool GameWon { get; set; }
         
@@ -121,24 +121,11 @@ namespace Sokoban.Model
 
         private bool CheckCrateMove(LinkedGameObject move, LinkedGameObject moveAfter)
         {
-            if (move.GameObject.GetChar() == (char)Characters.Crate &&
-                moveAfter.GameObject.GetChar() == (char)Characters.Tile)
-            {
-                SwapTwo(move, moveAfter, true);
-                if (_isOnSpecialSquare)
-                {
-                    move.GameObject.SetChar(_tempChar);
-                    _isOnSpecialSquare = false;
-                }
-                if (moveAfter.GameObject.ChestOnTrap)
-                {
-                    moveAfter.GameObject.ChestOnTrap = false;
-                    _isOnSpecialSquare = true;
-                    _tempChar = (char)Characters.Trap;
-                }
-                SwapTwo(_playerObject, move);
+            if (CheckCrateOnTrap(move, moveAfter))
                 return true;
-            }
+
+            if (NormalCrateMove(move, moveAfter))
+                return true;
 
             if (MoveCrateToTrap(move, moveAfter))
                 return true;
@@ -192,22 +179,51 @@ namespace Sokoban.Model
             return false;
         }
 
+        private bool CheckCrateOnTrap(LinkedGameObject move, LinkedGameObject moveAfter)
+        {
+            if (move.GameObject.ChestOnTrap)
+                return true;
+            return false;
+        }
+
+        private bool NormalCrateMove(LinkedGameObject move, LinkedGameObject moveAfter)
+        {
+            if (move.GameObject.GetChar() == (char)Characters.Crate &&
+                moveAfter.GameObject.GetChar() == (char)Characters.Tile)
+            {
+                SwapTwo(move, moveAfter, true);
+                if (_isOnSpecialSquare)
+                {
+                    move.GameObject.SetChar(_tempChar);
+                    _isOnSpecialSquare = false;
+                }
+                if (moveAfter.GameObject.ChestOnTrap)
+                {
+                    moveAfter.GameObject.ChestOnTrap = false;
+                    _isOnSpecialSquare = true;
+                    _tempChar = (char)Characters.Trap;
+                }
+                SwapTwo(_playerObject, move);
+                return true;
+            }
+            return false;
+        }
+
         private bool MoveCrateToTrap(LinkedGameObject move, LinkedGameObject moveAfter)
         {
             if (move.GameObject.GetChar() == (char)Characters.Crate &&
                 moveAfter.GameObject.GetChar() == (char)Characters.Trap)
-            {
+            { 
                 move.GameObject.ChestOnTrap = true;
 
-                // @-O-~
-                // @-~-O
-                // @-~-O
-                
+                moveAfter.GameObject.SetChar(move.GameObject.GetChar());
+                // @-?-O
+
                 if (_isOnSpecialSquare)
                     move.GameObject.SetChar(_tempChar);
                 else
                     move.GameObject.SetChar((char)Characters.Tile);
-               
+                SwapTwo(_playerObject, move);
 
                 return true;
             }

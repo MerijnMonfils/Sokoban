@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Sokoban.View.MainView">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <AssociationLine Name="input" Type="Sokoban.ViewModel.InputViewVM" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="1.375" />
+        <Point X="12.312" Y="1.375" />
+        <Point X="12.312" Y="4.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.142" Y="0.377" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAgAAAAAAAIBAAAABAAAFAAIA=</HashCode>
+      <FileName>View\MainView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="input" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Program">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ViewModel\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.WallObject">
+    <Position X="9.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObjects\WallObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.TileObject">
+    <Position X="11" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObjects\TileObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.PlayerObject">
+    <Position X="12.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObjects\PlayerObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.ParseLevel">
+    <Position X="5.5" Y="9" Width="1.5" />
+    <AssociationLine Name="_allLevels" Type="Sokoban.Model.LinkedList">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.557" Y="0.101" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAwgAAAAAACAAAAAAEAAIABAAEAAAAAAABAAAAAEAA=</HashCode>
+      <FileName>Model\FileReading\ParseLevel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_allLevels" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.LinkedList">
+    <Position X="9" Y="9" Width="1.5" />
+    <AssociationLine Name="FirstInCurrentRow" Type="Sokoban.Model.LinkedGameObject" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="10" />
+        <Point X="12" Y="10" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAQAAAAAAAACAAAAEAAAAAhACAAAAAAA=</HashCode>
+      <FileName>Model\LinkedList\LinkedList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="First" />
+      <Property Name="FirstInCurrentRow" />
+      <Property Name="FirstInPreviousRow" />
+      <Property Name="Last" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.LinkedGameObject">
+    <Position X="12" Y="9" Width="1.5" />
+    <AssociationLine Name="GameObject" Type="Sokoban.Model.BaseObject">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.105" Y="0.34" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>wAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Model\LinkedList\LinkedGameObject.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GameObject" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.DestinationObject">
+    <Position X="14.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObjects\DestinationObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.ViewModel.InputViewVM">
+    <Position X="11" Y="4.25" Width="1.5" />
+    <AssociationLine Name="_view" Type="Sokoban.View.MainView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.312" Y="4.25" />
+        <Point X="11.312" Y="1.854" />
+        <Point X="10" Y="1.854" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="logic" Type="Sokoban.Model.GameLogic" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="4.875" />
+        <Point X="16.062" Y="4.875" />
+        <Point X="16.062" Y="9" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAEAAAAAAAAAEABAAAAAAACAAAAAgAAA=</HashCode>
+      <FileName>ViewModel\InputViewVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_output" />
+      <Field Name="_view" />
+      <Field Name="logic" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.ViewModel.OutputViewVM">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <AssociationLine Name="_parseLevels" Type="Sokoban.Model.ParseLevel">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.101" Y="1.054" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_currentLevel" Type="Sokoban.Model.LinkedList">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.178" Y="2.106" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAIACAABAAAAAAAIBEAQAAAAAAAAAAAAgBAAA=</HashCode>
+      <FileName>ViewModel\OutputViewVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainView" />
+      <Field Name="_parseLevels" />
+      <Property Name="_currentLevel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.BaseObject">
+    <Position X="11.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAIAgAAAAAAAAAAAAAIAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\GameObjects\BaseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.WorkerObject">
+    <Position X="16.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAABAAA=</HashCode>
+      <FileName>Model\GameObjects\WorkerObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.TrapObject">
+    <Position X="7.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAAAAAQAAAAAAAAAAAAAABAAAAAgAAAAgAAAA=</HashCode>
+      <FileName>Model\GameObjects\TrapObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.CrateObject">
+    <Position X="5.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\GameObjects\CrateObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.GameLogic">
+    <Position X="15.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAACCIAAAABAAAAAAAgAAAwEAAIAIQAEAQMIAAAA=</HashCode>
+      <FileName>Model\GameLogic\GameLogic.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_playerObject" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="Sokoban.Model.Characters">
+    <Position X="3.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAABAAEAAAABAAAAAAAAAAAAAAAAQUAIAAAQAAAQg=</HashCode>
+      <FileName>Enum\Characters.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

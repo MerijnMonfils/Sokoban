@@ -22,7 +22,6 @@ namespace Sokoban.Model
         public void CountLevels()
         {
             this._path = Environment.CurrentDirectory;
-            Console.WriteLine(_path);
             this._path = _path.Substring(0, (_path.Length - 9)) + "Mazes";
             this._di = new DirectoryInfo(_path);
             _files = new string[_di.GetFiles().Count()];
