@@ -61,8 +61,7 @@ namespace Sokoban.View
                 input.PlayLevel(Console.ReadKey().Key);
             }catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
-                Console.Read();
+                StartPlaying();
             }
         }
 
