@@ -35,10 +35,7 @@ namespace Sokoban.ViewModel
             {
                 _view.StartListening();
             }
-                
-
         }
-
 
 
         public void PlayLevel(ConsoleKey key)
