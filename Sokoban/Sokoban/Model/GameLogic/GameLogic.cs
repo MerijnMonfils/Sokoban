@@ -9,7 +9,7 @@ namespace Sokoban.Model
         private LinkedGameObject _playerObject;
         private char _tempChar = (char)Characters.Tile;
         public bool _isOnSpecialSquare { get; set; }
-        public bool GameWon { get; private set; }
+        public bool GameWon { get; set; }
         
         // set PlayerObject
         public void SetPlayer(LinkedList currentLevel)
