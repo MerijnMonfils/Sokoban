@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    public class BaseObject
+    public abstract class BaseObject
     {
         public virtual bool HasChest { get; set; }
         
