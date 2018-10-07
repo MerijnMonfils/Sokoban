@@ -121,10 +121,10 @@ namespace Sokoban.Model
 
         private bool CheckCrateMove(LinkedGameObject move, LinkedGameObject moveAfter)
         {
-            if (CheckCrateOnTrap(move, moveAfter))
+            if (NormalCrateMove(move, moveAfter))
                 return true;
 
-            if (NormalCrateMove(move, moveAfter))
+            if (CheckCrateOnTrap(move, moveAfter))
                 return true;
 
             if (MoveCrateToTrap(move, moveAfter))
