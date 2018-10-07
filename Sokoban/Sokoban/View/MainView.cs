@@ -10,7 +10,7 @@ namespace Sokoban.View
     {
         private InputViewVM _input;
 
-        public int _amount { private get; set; }
+        public int Amount { private get; set; }
 
         public MainView(OutputViewVM output)
         {
@@ -40,7 +40,7 @@ namespace Sokoban.View
             Console.WriteLine("|@ : truck                     |                     |");
             Console.WriteLine("______________________________________________________");
 
-            Console.WriteLine("> Kies een doolhof (1 - " + _amount + "), s = stop");
+            Console.WriteLine("> Kies een doolhof (1 - " + Amount + "), s = stop");
             Console.WriteLine("Enjoy!");
         }
 

@@ -10,12 +10,12 @@ namespace Sokoban.Model
     {
         private char _chestValue = (char)Characters.Crate;
 
-        public bool _isOnTrap { get; set; }
+        public bool ObjecTOnTrap { get; set; }
 
         public override void IsOnTrap()
         {
-            if (_isOnTrap)
-                _isOnTrap = true;
+            if (ObjecTOnTrap)
+                ObjecTOnTrap = true;
         }
 
         public override char Value

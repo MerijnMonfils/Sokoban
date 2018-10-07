@@ -46,9 +46,9 @@ namespace Sokoban.ViewModel
             }
             else if (key == ConsoleKey.R)
             {
-                _output.ReloadLevel(_output._currentLevelNumber);
+                _output.ReloadLevel(_output.CurrentLevelNumber);
                 _logic.GameWon = false;
-                _logic._isOnSpecialSquare = false;
+                _logic.IsOnSpecialSquare = false;
                 _logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
             }
@@ -58,11 +58,11 @@ namespace Sokoban.ViewModel
             }
             else if (key == ConsoleKey.L && _logic.GameWon)
             {
-                if (_output.GetAmountOfLevels() <= _output._currentLevelNumber + 1)
+                if (_output.GetAmountOfLevels() <= _output.CurrentLevelNumber + 1)
                     _output.ReshowMenu();
-                _output.LoadLevel(_output._currentLevelNumber + 1);
+                _output.LoadLevel(_output.CurrentLevelNumber + 1);
                 _logic.GameWon = false;
-                _logic._isOnSpecialSquare = false;
+                _logic.IsOnSpecialSquare = false;
                 _logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
             }

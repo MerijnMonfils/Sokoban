@@ -11,12 +11,12 @@ namespace Sokoban.Model
         private char _trapValue = (char)Characters.Trap;
 
         private int _amountOnTrap { get; set; }
-        public bool _isOpenTrap { get; set; }
+        public bool ObjectOnTrap { get; set; }
 
         public TrapObject(bool isOpen)
         {
-            _isOpenTrap = isOpen;
-            if (_isOpenTrap)
+            ObjectOnTrap = isOpen;
+            if (ObjectOnTrap)
                 this.SetChar((char)Characters.OpenTrap);
         }
 
@@ -25,7 +25,7 @@ namespace Sokoban.Model
             if(_amountOnTrap >= 2)
             {
                 this.SetChar((char)Characters.OpenTrap);
-                _isOpenTrap = true;
+                ObjectOnTrap = true;
             } else
             {
                 _amountOnTrap++;

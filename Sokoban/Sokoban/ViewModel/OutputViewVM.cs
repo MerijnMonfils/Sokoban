@@ -18,7 +18,7 @@ namespace Sokoban.ViewModel
         private ParseLevel _parseLevels;
 
         public LinkedList _currentLevel { get; set; }
-        public int _currentLevelNumber { get; private set; }
+        public int CurrentLevelNumber { get; private set; }
 
         public OutputViewVM()
         {
@@ -30,7 +30,7 @@ namespace Sokoban.ViewModel
         {
             _parseLevels.CountLevels();
             _parseLevels.SaveCollection();
-            _mainView._amount = _parseLevels._amount;
+            _mainView.Amount = _parseLevels.Amount;
             _mainView.StartScreen();
             _mainView.StartListening();            
         }
@@ -45,7 +45,7 @@ namespace Sokoban.ViewModel
         public void LoadLevel(int level)
         {
             _currentLevel = _parseLevels.GetLevel(level);
-            _currentLevelNumber = level;
+            CurrentLevelNumber = level;
         }
 
         public void ReloadLevel(int currentLevelNumber)
@@ -76,7 +76,7 @@ namespace Sokoban.ViewModel
 
         public int GetAmountOfLevels()
         {
-            return _parseLevels._amount;
+            return _parseLevels.Amount;
         }
 
         public void ShowLevel(bool victory)

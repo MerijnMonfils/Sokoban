@@ -8,7 +8,7 @@ namespace Sokoban.Model
     {
         private LinkedGameObject _playerObject;
         private char _tempChar = (char)Characters.Tile;
-        public bool _isOnSpecialSquare { get; set; }
+        public bool IsOnSpecialSquare { get; set; }
         public bool GameWon { get; set; }
         
         // set PlayerObject
@@ -69,12 +69,12 @@ namespace Sokoban.Model
 
             if (move.GameObject.GetChar() == (char)Characters.Tile)
             {
-                if (_isOnSpecialSquare)
+                if (IsOnSpecialSquare)
                 {
                     move.GameObject.SetChar((char)Characters.Player);
                     _playerObject.GameObject.SetChar(_tempChar);
                     _playerObject = move;
-                    _isOnSpecialSquare = false; // reset object
+                    IsOnSpecialSquare = false; // reset object
                     return true;
                 }
                 SwapTwo(_playerObject, move);
@@ -95,12 +95,12 @@ namespace Sokoban.Model
                     move.GameObject.IsOnTrap();
                 }
 
-                if (_isOnSpecialSquare)
+                if (IsOnSpecialSquare)
                     _playerObject.GameObject.SetChar(_tempChar); // player becomes a tile
                 else
                     _playerObject.GameObject.SetChar((char)Characters.Tile); // player becomes a tile
 
-                _isOnSpecialSquare = true;
+                IsOnSpecialSquare = true;
                 SetChar(move.GameObject.GetChar());
                 move.GameObject.SetChar((char)Characters.Player);
                 _playerObject = move;
@@ -140,18 +140,18 @@ namespace Sokoban.Model
                 if (moveAfter.GameObject.GetChar() == (char)Characters.Destination)
                 {
                     SwapTwo(move, moveAfter, true);
-                    _isOnSpecialSquare = true;
+                    IsOnSpecialSquare = true;
                     _tempChar = (char)Characters.Destination;
                     move.GameObject.SetChar((char)Characters.Tile);
                     SwapTwo(_playerObject, move);
                     return true;
                 }
 
-                if (_isOnSpecialSquare)
+                if (IsOnSpecialSquare)
                     move.GameObject.SetChar(_tempChar);
                 else
                 {
-                    _isOnSpecialSquare = true;
+                    IsOnSpecialSquare = true;
                     _tempChar = (char)Characters.Destination;
                     move.GameObject.SetChar((char)Characters.Tile);
                 }
@@ -166,10 +166,10 @@ namespace Sokoban.Model
             {
                 moveAfter.GameObject.HasChest = true;
                 moveAfter.GameObject.SetChar((char)Characters.CrateOnDestination);
-                if (_isOnSpecialSquare)
+                if (IsOnSpecialSquare)
                 {
                     move.GameObject.SetChar(_tempChar);
-                    _isOnSpecialSquare = false;
+                    IsOnSpecialSquare = false;
                 }
                 else
                     move.GameObject.SetChar((char)Characters.Tile);
@@ -192,15 +192,15 @@ namespace Sokoban.Model
                 moveAfter.GameObject.GetChar() == (char)Characters.Tile)
             {
                 SwapTwo(move, moveAfter, true);
-                if (_isOnSpecialSquare)
+                if (IsOnSpecialSquare)
                 {
                     move.GameObject.SetChar(_tempChar);
-                    _isOnSpecialSquare = false;
+                    IsOnSpecialSquare = false;
                 }
                 if (moveAfter.GameObject.ChestOnTrap)
                 {
                     moveAfter.GameObject.ChestOnTrap = false;
-                    _isOnSpecialSquare = true;
+                    IsOnSpecialSquare = true;
                     _tempChar = (char)Characters.Trap;
                 }
                 SwapTwo(_playerObject, move);
@@ -219,7 +219,7 @@ namespace Sokoban.Model
                 moveAfter.GameObject.SetChar(move.GameObject.GetChar());
                 // @-?-O
 
-                if (_isOnSpecialSquare)
+                if (IsOnSpecialSquare)
                     move.GameObject.SetChar(_tempChar);
                 else
                     move.GameObject.SetChar((char)Characters.Tile);
@@ -231,7 +231,7 @@ namespace Sokoban.Model
                 && moveAfter.GameObject.GetChar() == (char)Characters.OpenTrap)
             {
                 move.GameObject.ChestOnTrap = false;
-                if (_isOnSpecialSquare)
+                if (IsOnSpecialSquare)
                     move.GameObject.SetChar(_tempChar);
                 else
                     move.GameObject.SetChar((char)Characters.Tile);

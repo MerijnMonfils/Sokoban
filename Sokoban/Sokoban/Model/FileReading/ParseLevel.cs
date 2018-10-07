@@ -16,7 +16,7 @@ namespace Sokoban.Model
         private DirectoryInfo _di;
 
         // list of levels
-        public int _amount { get; private set; }
+        public int Amount { get; private set; }
         private LinkedList[] _allLevels;
 
         public void CountLevels()
@@ -26,10 +26,10 @@ namespace Sokoban.Model
             _files = new string[_di.GetFiles().Count()];
             foreach (FileInfo f in _di.GetFiles())
             {
-                _files[_amount] = f.FullName;
-                this._amount = _amount + 1; // amount of files in map
+                _files[Amount] = f.FullName;
+                this.Amount = Amount + 1; // amount of files in map
             }
-            _allLevels = new LinkedList[_amount];
+            _allLevels = new LinkedList[Amount];
         }
 
         private void SetDirectory()
@@ -42,7 +42,7 @@ namespace Sokoban.Model
             LinkedList list;
 
             // execute for each file
-            for (int x = 0; x < _amount; x++)
+            for (int x = 0; x < Amount; x++)
             {
                 // initialize linkedlist
                 list = new LinkedList();
