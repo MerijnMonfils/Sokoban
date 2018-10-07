@@ -95,13 +95,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Mazes\level4.txt" />
-    <Content Include="Mazes\level5.txt" />
-    <Content Include="Mazes\level3.txt" />
-    <Content Include="Mazes\level2.txt" />
-    <Content Include="Mazes\level1.txt" />
-    <Content Include="Mazes\level6.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

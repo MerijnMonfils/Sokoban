@@ -31,12 +31,7 @@ namespace Sokoban.Model
             }
             _allLevels = new LinkedList[Amount];
         }
-
-        private void SetDirectory()
-        {
-
-        }
-
+        
         public void SaveCollection()
         {
             LinkedList list;

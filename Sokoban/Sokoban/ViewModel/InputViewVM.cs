@@ -23,7 +23,7 @@ namespace Sokoban.ViewModel
                 Environment.Exit(0);
             }
             try
-            {
+            { 
                 string x = input.ToString().Substring(1, 1);
                 int i = int.Parse(x);
                 _logic = new GameLogic();
