@@ -18,7 +18,7 @@ namespace Sokoban.Model
                 this.SetChar((char)Characters.Worker);
         }
 
-        public override char _value
+        public override char Value
         {
             get
             {

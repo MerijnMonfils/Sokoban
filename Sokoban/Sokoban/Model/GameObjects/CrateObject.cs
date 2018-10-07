@@ -18,7 +18,7 @@ namespace Sokoban.Model
                 _isOnTrap = true;
         }
 
-        public override char _value
+        public override char Value
         {
             get
             {

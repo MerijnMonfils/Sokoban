@@ -12,7 +12,7 @@ namespace Sokoban.Model
 
         public override bool HasChest { get; set; }
 
-        public override char _value
+        public override char Value
         {
             get
             {

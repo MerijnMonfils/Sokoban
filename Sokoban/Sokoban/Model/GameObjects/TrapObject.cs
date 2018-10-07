@@ -32,7 +32,7 @@ namespace Sokoban.Model
             }
         }
 
-        public override char _value
+        public override char Value
         {
             get
             {

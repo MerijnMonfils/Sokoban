@@ -11,7 +11,7 @@ namespace Sokoban.Model
         private char _playerValue = (char)Characters.Player;
 
 
-        public override char _value
+        public override char Value
         {
             get
             {

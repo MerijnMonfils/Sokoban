@@ -10,7 +10,7 @@ namespace Sokoban.Model
     {
         private char _wallValue = (char) Characters.DesignWall;
 
-        public override char _value
+        public override char Value
         {
             get
             {
