@@ -12,20 +12,20 @@ namespace Sokoban.Model
         
         public virtual bool ChestOnTrap { get; set; }
 
-        public virtual char _value
+        public virtual char Value
         {
-            get { return _value; }
-            set { _value = value; }
+            get { return Value; }
+            set { Value = value; }
         }
 
         public virtual char GetChar()
         {
-            return _value;
+            return Value;
         }
 
         public virtual void SetChar(char x)
         {
-            x = _value;
+            x = Value;
         }
         
         public virtual void IsOnTrap() { }

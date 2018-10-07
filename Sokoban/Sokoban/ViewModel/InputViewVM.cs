@@ -7,12 +7,12 @@ namespace Sokoban.ViewModel
     public class InputViewVM
     {
         private OutputViewVM _output;
-        private MainView _view;
-        private GameLogic logic;
+        private MainView _mainView;
+        private GameLogic _logic;
 
         public InputViewVM(OutputViewVM output, MainView view)
         {
-            _view = view;
+            _mainView = view;
             _output = output;
         }
 
@@ -26,14 +26,14 @@ namespace Sokoban.ViewModel
             {
                 string x = input.ToString().Substring(1, 1);
                 int i = int.Parse(x);
-                logic = new GameLogic();
+                _logic = new GameLogic();
                 _output.LoadLevel(i - 1);
-                logic.SetPlayer(_output._currentLevel);
+                _logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
             }
             catch (Exception e)
             {
-                _view.StartListening();
+                _mainView.StartListening();
             }
         }
 
@@ -47,66 +47,66 @@ namespace Sokoban.ViewModel
             else if (key == ConsoleKey.R)
             {
                 _output.ReloadLevel(_output._currentLevelNumber);
-                logic.GameWon = false;
-                logic._isOnSpecialSquare = false;
-                logic.SetPlayer(_output._currentLevel);
+                _logic.GameWon = false;
+                _logic._isOnSpecialSquare = false;
+                _logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
             }
             else if (key == ConsoleKey.M)
             {
                 _output.ReshowMenu();
             }
-            else if (key == ConsoleKey.L && logic.GameWon)
+            else if (key == ConsoleKey.L && _logic.GameWon)
             {
                 if (_output.GetAmountOfLevels() <= _output._currentLevelNumber + 1)
                     _output.ReshowMenu();
                 _output.LoadLevel(_output._currentLevelNumber + 1);
-                logic.GameWon = false;
-                logic._isOnSpecialSquare = false;
-                logic.SetPlayer(_output._currentLevel);
+                _logic.GameWon = false;
+                _logic._isOnSpecialSquare = false;
+                _logic.SetPlayer(_output._currentLevel);
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.UpArrow && !logic.GameWon || key == ConsoleKey.W && !logic.GameWon)
+            else if (key == ConsoleKey.UpArrow && !_logic.GameWon || key == ConsoleKey.W && !_logic.GameWon)
             {
-                _output._currentLevel = logic.MoveUp(_output._currentLevel);
+                _output._currentLevel = _logic.MoveUp(_output._currentLevel);
                 CheckGameOver();
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.LeftArrow && !logic.GameWon || key == ConsoleKey.A && !logic.GameWon)
+            else if (key == ConsoleKey.LeftArrow && !_logic.GameWon || key == ConsoleKey.A && !_logic.GameWon)
             {
-                _output._currentLevel = logic.MoveLeft(_output._currentLevel);
+                _output._currentLevel = _logic.MoveLeft(_output._currentLevel);
                 CheckGameOver();
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.DownArrow && !logic.GameWon || key == ConsoleKey.S && !logic.GameWon)
+            else if (key == ConsoleKey.DownArrow && !_logic.GameWon || key == ConsoleKey.S && !_logic.GameWon)
             {
-                _output._currentLevel = logic.MoveDown(_output._currentLevel);
+                _output._currentLevel = _logic.MoveDown(_output._currentLevel);
                 CheckGameOver();
                 _output.ShowLevel();
             }
-            else if (key == ConsoleKey.RightArrow && !logic.GameWon || key == ConsoleKey.D && !logic.GameWon)
+            else if (key == ConsoleKey.RightArrow && !_logic.GameWon || key == ConsoleKey.D && !_logic.GameWon)
             {
-                _output._currentLevel = logic.MoveRight(_output._currentLevel);
+                _output._currentLevel = _logic.MoveRight(_output._currentLevel);
                 CheckGameOver();
                 _output.ShowLevel();
             }
             else
             {
-                _view.StartPlaying();
+                _mainView.StartPlaying();
             }
 
         }
 
         private void CheckGameOver()
         {
-            if (logic.GameFinished(_output._currentLevel))
+            if (_logic.GameFinished(_output._currentLevel))
             {
                 _output.ShowLevel(true);
-                _view.WriteLine("Congratulations, you have completed the level");
-                _view.WriteLine("Press M to go to Menu");
-                _view.WriteLine("Press R to play again");
-                _view.WriteLine("Press L to play next level");
-                _view.StartPlaying();
+                _mainView.WriteLine("Congratulations, you have completed the level");
+                _mainView.WriteLine("Press M to go to Menu");
+                _mainView.WriteLine("Press R to play again");
+                _mainView.WriteLine("Press L to play next level");
+                _mainView.StartPlaying();
             }
         }
     }

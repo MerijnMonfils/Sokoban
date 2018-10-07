@@ -8,13 +8,13 @@ namespace Sokoban.View
 {
     public class MainView
     {
-        private InputViewVM input;
+        private InputViewVM _input;
 
         public int _amount { private get; set; }
 
         public MainView(OutputViewVM output)
         {
-            input = new InputViewVM(output, this);
+            _input = new InputViewVM(output, this);
         }
 
         public void StartScreen()
@@ -51,14 +51,14 @@ namespace Sokoban.View
 
         public void StartListening()
         {
-            input.LoadLevel(Console.ReadKey().Key);
+            _input.LoadLevel(Console.ReadKey().Key);
         }
 
         public void StartPlaying()
         {
             try
             {
-                input.PlayLevel(Console.ReadKey().Key);
+                _input.PlayLevel(Console.ReadKey().Key);
             }catch (Exception e)
             {
                 StartPlaying();
